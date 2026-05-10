@@ -30,6 +30,17 @@ The system was designed for high-volume semiconductor final test analytics and s
 
 ---
 
+## Data Sources
+
+The dashboard pipeline processes manufacturing production data originating from:
+- raw `.txt` production logs
+- `.log` equipment output files
+- `.csv` summary exports
+
+The ETL pipeline standardizes and transforms these semi-structured files into analytics-ready DuckDB tables for downstream KPI monitoring and reporting.
+
+---
+
 # Core Features
 
 ## ETL / Data Engineering
