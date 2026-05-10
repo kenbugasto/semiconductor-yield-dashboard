@@ -2,7 +2,7 @@
 
 > **Note:** All data, device names, handler names, stations, soft bins, errCodes, and identifiers shown in this repository have been fully anonymized for public portfolio usage. No proprietary manufacturing or customer-sensitive data is included.
 
-Streamlit + DuckDB semiconductor manufacturing analytics dashboard with automated ETL pipelines, yield monitoring, retest analytics, and HTML reporting.
+Production-style semiconductor manufacturing analytics dashboard built using Streamlit, DuckDB, Python, SQL, and Plotly.
 
 ---
 
@@ -26,7 +26,7 @@ The dashboard automates:
 - handler/site analysis
 - automated HTML report exports
 
-The system was designed for high-volume semiconductor final test analytics and supports multiple devices, stations, and reporting scopes.
+The analytics workflows were designed around semiconductor final-test manufacturing operations, including lot-level yield tracking, retest analysis, defect monitoring, and equipment-level performance investigation.
 
 ---
 
@@ -44,7 +44,9 @@ The ETL pipeline standardizes and transforms these semi-structured files into an
 
 ## ETL / Data Engineering
 - Automated raw text/CSV ingestion
+- SQL-based analytical transformations
 - DuckDB-based analytical warehouse
+- Window-function based deduplication pipelines
 - Incremental loader pipeline
 - Automated HTML report generation
 - Shared export automation
@@ -92,10 +94,10 @@ The ETL pipeline standardizes and transforms these semi-structured files into an
 ![KPI Cards](screenshots/row01_4week_KPI%20cards.png)
 
 Production KPI summary cards for:
-- FPY
-- FTY
-- RPR
-- LRR
+- FPY(First Pass Yield)
+- FTY(Final Test Yield)
+- RPR(Retest Pass Rate)
+- LRR(Lot Rejection Rate)
 - input/output quantity tracking
 
 ---
@@ -124,11 +126,38 @@ Defect pareto analysis with:
 
 ---
 
+# Mother Lot Yield Trend
+
+![Mother Lot Yield](screenshots/row09_mother_lot_yield_trend.png)
+
+Semiconductor mother-lot monitoring analytics used for:
+- split lot visibility
+- upstream process excursion tracking
+- related lot yield comparison
+- manufacturing root-cause investigation
+
+The dashboard supports rolling yield monitoring and defect visibility at mother-lot aggregation level.
+
+---
+
+# Per Lot Yield Trend
+
+![Per Lot Yield](screenshots/row10_per_lot_yield_trend.png)
+
+Lot-level yield analytics supporting:
+- production lot monitoring
+- abnormal yield detection
+- retest investigation
+- engineering containment workflows
+- detailed lot-by-lot yield comparison
+
+Provides detailed visibility into individual production schedule performance.
+
 # LRR Trend Monitoring
 
 ![LRR Trend](screenshots/row04_lrr_trend.png)
 
-Low Running Rate monitoring dashboard including:
+Lot Rejection Rate monitoring dashboard including:
 - LRR %
 - LRR lot counts
 - historical trend tracking
@@ -239,7 +268,6 @@ DuckDB was selected as the primary analytics database because it provides:
 - easy portability within restricted enterprise environments
 
 The project environment had limitations on deploying and managing heavier database platforms such as SQL Server or PostgreSQL, so DuckDB provided a highly effective local analytics solution for manufacturing KPI workloads.
-
 ---
 
 ## Why Streamlit
