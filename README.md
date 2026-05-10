@@ -131,13 +131,16 @@ Defect pareto analysis with:
 ![Mother Lot Yield](screenshots/row09_mother_lot_yield_trend.png)
 
 Semiconductor mother-lot monitoring analytics used for:
-- split lot visibility
 - upstream process excursion tracking
-- related lot yield comparison
+- yield trend monitoring
 - manufacturing root-cause investigation
+- high-level production performance comparison
 
 The dashboard supports rolling yield monitoring and defect visibility at mother-lot aggregation level.
 
+Scope:
+- summarized using rolling 4-week + recent 7-day production data
+  
 ---
 
 # Per Lot Yield Trend
@@ -145,13 +148,18 @@ The dashboard supports rolling yield monitoring and defect visibility at mother-
 ![Per Lot Yield](screenshots/row10_per_lot_yield_trend.png)
 
 Lot-level yield analytics supporting:
-- production lot monitoring
+- related lot performance tracking
 - abnormal yield detection
 - retest investigation
 - engineering containment workflows
 - detailed lot-by-lot yield comparison
 
-Provides detailed visibility into individual production schedule performance.
+Provides detailed visibility into individual production schedule performance derived from mother-lot groupings.
+
+Scope:
+- focused on previous-day production monitoring for operational investigation workflows
+
+---
 
 # LRR Trend Monitoring
 
