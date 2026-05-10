@@ -109,35 +109,7 @@ The dashboard also incorporates basic statistical monitoring concepts for manufa
 These calculations were used to support yield monitoring, retest analysis, and abnormal production trend identification.
 
 ---
-# Architecture & Technology Decisions
 
-## Why DuckDB
-
-DuckDB was selected as the primary analytics database because it provides:
-
-- lightweight deployment
-- fast analytical query performance
-- minimal infrastructure overhead
-- embedded SQL analytics capability
-- easy portability within restricted enterprise environments
-
-The project environment had limitations on deploying and managing heavier database platforms such as SQL Server or PostgreSQL, so DuckDB provided a highly effective local analytics solution for manufacturing KPI workloads.
-
----
-
-## Why Streamlit
-
-Streamlit was selected because it enabled rapid development of interactive analytics dashboards without requiring enterprise BI licensing or additional infrastructure.
-
-Benefits included:
-
-- lightweight deployment
-- Python-native integration
-- rapid visualization development
-- standalone HTML export generation
-- simplified maintenance for internal reporting workflows
-
-This allowed the dashboard to function as a practical alternative for internal manufacturing analytics and reporting under constrained tooling environments.
 # Notes
 
 - Configuration paths are externally controlled through `.ini` and batch launcher files.
