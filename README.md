@@ -298,6 +298,30 @@ This allowed the dashboard to function as a practical alternative for internal m
 
 ---
 
+# Project Roadmap
+
+## Current Production Features
+- TXT / LOG ingestion pipelines
+- Semiconductor yield analytics dashboard
+- Retest and defect monitoring
+- Automated HTML report generation
+- YoY / QoQ / MoM trend analytics
+- Mother lot and per-lot yield monitoring
+- Handler and site-level analytics
+
+## In Progress
+
+### Phase 2 Manufacturing Analytics Expansion
+- raw CSV production analytics ingestion
+- OEE analytics
+- downtime classification
+- equipment utilization monitoring
+- cycle-time analytics
+- manufacturing stop categorization
+- operational performance analytics
+
+---
+
 # Repository Structure
 
 ```text
