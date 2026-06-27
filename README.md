@@ -175,41 +175,7 @@ Examples include:
 
 The ETL pipeline separates lot-level manufacturing metadata from unit-level production records. This normalized design minimizes duplicated information while supporting efficient KPI reporting, engineering investigations, and complete traceability back to the original production file.
 
-```text
-                   file_header
-                (Lot / File Level)
-
-             file_hash (PK)
-             lot_id
-             device
-             station
-             customer
-             schedule_no
-             start_time
-             end_time
-             ...
-
-                    │
-                    │ file_hash
-                    │
-              1 ----┼---- Many
-                    │
-                    ▼
-
-               detail_2d_list
-            (Unit / Test Level)
-
-             id (PK)
-             file_hash (FK)
-             serial_no
-             flow
-             site
-             soft_bin
-             err_code
-             is_pass
-             test_time
-             ...
-```
+![Data Model](screenshots/data_model.png)
 
 ## Modeling Decisions
 
@@ -224,58 +190,78 @@ This normalization provides several advantages:
 * Simplifies future expansion for additional manufacturing analytics
 
 ---
-# Production SQL Design
+## Production SQL Design
 
-Manufacturing production systems occasionally generate duplicate production files due to regenerated reports, equipment retries, or repeated file transfers. Without a deterministic deduplication strategy, these duplicate uploads can inflate production quantity, yield, and defect metrics.
+Manufacturing production files may be uploaded more than once due to regenerated reports, repeated transfers, or equipment-side retries. To prevent duplicate uploads from inflating production quantity, yield, and defect metrics, the pipeline applies cohort-based deduplication using SQL CTEs and window functions.
 
-To ensure reporting accuracy, the ETL pipeline uses Common Table Expressions (CTEs) together with SQL window functions to identify duplicate manufacturing records and retain only the correct production version.
+### Cohort Logic
 
-## Engineering Approach
+The key design decision is the `PARTITION BY` logic. Instead of treating every uploaded file as unique, the query groups records into manufacturing cohorts using:
 
-The deduplication logic uses:
+* `device_code`
+* `station`
+* `schedule_no`
+* production date from `end_time`
 
-* Common Table Expressions (CTEs) to separate transformation stages
-* `ROW_NUMBER()` window functions for deterministic ranking
-* `PARTITION BY` to identify duplicate manufacturing lots
-* `ORDER BY` to consistently select the preferred production record
+Each cohort represents one logical production lot for one device, station, schedule, and production day.
 
 ```sql
--- Replace this section with the actual ROW_NUMBER() production SQL
--- used by the project.
-
-WITH ranked_lots AS (
-
-    SELECT
-        *,
-        ROW_NUMBER() OVER (
-            PARTITION BY
-                lot_id,
-                device,
-                station,
-                schedule_no
-            ORDER BY
-                end_time ASC,
-                source_modified_time ASC
-        ) AS rn
-
+WITH scoped_header AS (
+    SELECT *
     FROM file_header
-
+    WHERE device_code = '<selected_device>'
+),
+max_day AS (
+    SELECT CAST(MAX(end_time) AS DATE) AS latest_day
+    FROM scoped_header
+),
+latest_header_per_lot AS (
+    SELECT *
+    FROM (
+        SELECT
+            *,
+            ROW_NUMBER() OVER (
+                PARTITION BY
+                    device_code,
+                    station,
+                    schedule_no,
+                    CAST(end_time AS DATE)
+                ORDER BY
+                    end_time DESC NULLS LAST,
+                    source_modified_time DESC NULLS LAST,
+                    file_hash DESC
+            ) AS rn
+        FROM scoped_header
+        WHERE CAST(end_time AS DATE) BETWEEN
+            (SELECT latest_day - INTERVAL 27 DAY FROM max_day)
+            AND
+            (SELECT latest_day FROM max_day)
+    ) x
+    WHERE rn = 1
 )
-
 SELECT *
-FROM ranked_lots
-WHERE rn = 1;
+FROM latest_header_per_lot;
 ```
 
-## Why This Design
+### Why This Matters
 
-This approach provides several advantages:
+This logic ensures that each manufacturing cohort contributes only one authoritative record to downstream KPI calculations.
 
-* Prevents duplicate lot uploads from affecting KPI calculations
-* Produces deterministic and repeatable ETL results
-* Simplifies downstream SQL transformations
-* Improves maintainability by separating transformation stages into readable CTEs
-* Demonstrates production use of SQL window functions beyond simple aggregation
+The `ROW_NUMBER()` window function ranks duplicate candidates within each cohort. The `ORDER BY` clause keeps the latest completed record based on:
+
+1. latest `end_time`
+2. latest `source_modified_time`
+3. latest `file_hash` as a deterministic tie-breaker
+
+This protects the dashboard from double-counting production quantity, yield, retest, and defect metrics.
+
+### Engineering Highlights
+
+* CTEs separate filtering, date scoping, and deduplication into readable stages.
+* `PARTITION BY` defines the manufacturing cohort grain.
+* `ROW_NUMBER()` selects one trusted record per cohort.
+* `ORDER BY` provides deterministic ranking for repeatable results.
+* The 28-day rolling window limits processing to the reporting period used by the dashboard.
 
 ---
 
@@ -300,8 +286,6 @@ The loader performs the following sequence for every production file:
 9. Continue processing even if one file fails
 
 ```python
-# Replace this section with the actual ETL function
-# from the loader pipeline.
 
 for txt_path in txt_files:
 
