@@ -547,7 +547,16 @@ def get_top5_labels_latest_day(err_df: pd.DataFrame) -> list[str]:
 
     return top5["err_label"].tolist()
 
-
+def bottom_legend(y: float = -0.28) -> dict:
+    return dict(
+        orientation="h",
+        yanchor="top",
+        y=y,
+        xanchor="center",
+        x=0.5,
+        font=dict(size=12, color="black")
+    )
+	
 # =========================================================
 # KPI CARD HELPERS
 # =========================================================
@@ -937,7 +946,7 @@ def get_kpi_target_labels_html(full_daily_df: pd.DataFrame, monthly_lot_df: pd.D
     fpy_text = f"{fpy_raw:.2f}%" if fpy_raw is not None else "95.00%"
 
     return f"""
-    <div style="font-size:13px; color:#666; margin-bottom:10px; line-height:1.6;">
+    <div style="font-size:15px; color:#666; margin-bottom:10px; line-height:1.6;">
         Back Month Used for IQR Target Calc: {{{source_month}}}<br>
         FTY Target (3-sig LCL): {fty_text}<br>
         FPY Target (3-sig LCL): {fpy_text}<br>
@@ -1107,7 +1116,7 @@ def build_4week_kpi_summary_df(
     if trend_df.empty:
         return pd.DataFrame()
 
-    # ✅ KEEP ALL BUCKETS (week + running + day)
+    # ? KEEP ALL BUCKETS (week + running + day)
     trend_all = trend_df.copy()
 
     lrr_df = build_4week_lrr_display_df(daily_summary_raw_df)
@@ -5550,17 +5559,11 @@ def render_handler_site_7day_timeseries_charts(
                 tickfont=dict(color="black"),
                 title_font=dict(color="black")
             ),
-            legend=dict(
-                orientation="h",
-                yanchor="bottom",
-                y=1.03,
-                xanchor="left",
-                x=0
-            ),
-            margin=dict(l=60, r=60, t=100, b=100)
+            legend=bottom_legend(),
+            margin=dict(l=60, r=80, t=90, b=170)
         )
 
-        safe_handler_site = (
+        safe_handler_site = (	
             label_name
             .replace(" ", "_")
             .replace("|", "_")
@@ -5840,22 +5843,30 @@ def render_mother_lot_yield_trend(
         )
     )
 
-    fig.add_hline(
-        y=selected_fty_target,
-        yref="y2",
-        line_dash="dash",
-        line_color="red",
-        annotation_text=f"FTY Target (3-sig LCL): {selected_fty_target:.2f}%",
-        annotation_font_color="red"
+    fig.add_trace(
+        go.Scatter(
+            x=agg_df["mother_lot"],  # use agg_df["schedule_no"] in per-lot chart
+            y=[selected_fty_target] * len(agg_df),
+            mode="lines",
+            name=f"3-sig FTY Target ({selected_fty_target:.2f}%)",
+            yaxis="y2",
+            line=dict(color="red", width=2, dash="dash"),
+            hovertemplate="Mother Lot=%{x}<br>3-sig FTY Target=%{y:.2f}%<extra></extra>",
+            connectgaps=True
+        )
     )
-
-    fig.add_hline(
-        y=selected_fpy_target,
-        yref="y2",
-        line_dash="dash",
-        line_color="black",
-        annotation_text=f"FPY Target (3-sig LCL): {selected_fpy_target:.2f}%",
-        annotation_font_color="black"
+    
+    fig.add_trace(
+        go.Scatter(
+            x=agg_df["mother_lot"],  # use agg_df["schedule_no"] in per-lot chart
+            y=[selected_fpy_target] * len(agg_df),
+            mode="lines",
+            name=f"3-sig FPY Target ({selected_fpy_target:.2f}%)",
+            yaxis="y2",
+            line=dict(color="black", width=2, dash="dash"),
+            hovertemplate="Mother Lot=%{x}<br>3-sig FPY Target=%{y:.2f}%<extra></extra>",
+            connectgaps=True
+        )
     )
 
     fig.update_layout(
@@ -5883,14 +5894,8 @@ def render_mother_lot_yield_trend(
             showgrid=False,
             range=[auto_yield_min, auto_yield_max]
         ),
-        legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=1.03,
-            xanchor="left",
-            x=0
-        ),
-        margin=dict(l=60, r=80, t=100, b=140)
+        legend=bottom_legend(),
+        margin=dict(l=60, r=80, t=90, b=170)
     )
 
     st.plotly_chart(fig, use_container_width=True)
@@ -6057,7 +6062,7 @@ def render_schedule_no_yield_trend(
             connectgaps=True
         )
     )
-
+    
     fig.add_trace(
         go.Scatter(
             x=agg_df["schedule_no"],
@@ -6075,22 +6080,30 @@ def render_schedule_no_yield_trend(
         )
     )
 
-    fig.add_hline(
-        y=selected_fty_target,
-        yref="y2",
-        line_dash="dash",
-        line_color="red",
-        annotation_text=f"FTY Target (3-sig LCL): {selected_fty_target:.2f}%",
-        annotation_font_color="red"
+    fig.add_trace(
+        go.Scatter(
+            x=agg_df["schedule_no"],  # use agg_df["schedule_no"] in per-lot chart
+            y=[selected_fty_target] * len(agg_df),
+            mode="lines",
+            name=f"3-sig FTY Target ({selected_fty_target:.2f}%)",
+            yaxis="y2",
+            line=dict(color="red", width=2, dash="dash"),
+            hovertemplate="Schedule No=%{x}<br>3-sig FTY Target=%{y:.2f}%<extra></extra>",
+            connectgaps=True
+        )
     )
-
-    fig.add_hline(
-        y=selected_fpy_target,
-        yref="y2",
-        line_dash="dash",
-        line_color="black",
-        annotation_text=f"FPY Target (3-sig LCL): {selected_fpy_target:.2f}%",
-        annotation_font_color="black"
+    
+    fig.add_trace(
+        go.Scatter(
+            x=agg_df["schedule_no"],  # use agg_df["schedule_no"] in per-lot chart
+            y=[selected_fpy_target] * len(agg_df),
+            mode="lines",
+            name=f"3-sig FPY Target ({selected_fpy_target:.2f}%)",
+            yaxis="y2",
+            line=dict(color="black", width=2, dash="dash"),
+            hovertemplate="Schedule No=%{x}<br>3-sig FPY Target=%{y:.2f}%<extra></extra>",
+            connectgaps=True
+        )
     )
 
     fig.update_layout(
@@ -6118,14 +6131,8 @@ def render_schedule_no_yield_trend(
             showgrid=False,
             range=[auto_yield_min, auto_yield_max]
         ),
-        legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=1.03,
-            xanchor="left",
-            x=0
-        ),
-        margin=dict(l=60, r=80, t=100, b=140)
+        legend=bottom_legend(),
+        margin=dict(l=60, r=80, t=90, b=170)
     )
 
     st.plotly_chart(fig, use_container_width=True)
@@ -6208,7 +6215,7 @@ def render_station_4week_yield_trend(
             text=[f"<b>{int(v):,}</b>" if pd.notna(v) else "" for v in plot_df["Test-In QTY"]],
             textposition="outside",
             textfont=dict(color="black", size=12),
-            hovertemplate="Bucket=%{x}<br>Test-In QTY=%{y:,}<extra></extra>"
+            hovertemplate="Date=%{x}<br>Test-In QTY=%{y:,}<extra></extra>"
         )
     )
 
@@ -6223,7 +6230,7 @@ def render_station_4week_yield_trend(
             text=[f"<b>{int(v):,}</b>" if pd.notna(v) else "" for v in plot_df["Final Output"]],
             textposition="outside",
             textfont=dict(color="black", size=12),
-            hovertemplate="Bucket=%{x}<br>Final Output=%{y:,}<extra></extra>"
+            hovertemplate="Date=%{x}<br>Final Output=%{y:,}<extra></extra>"
         )
     )
 
@@ -6239,7 +6246,7 @@ def render_station_4week_yield_trend(
             text=[f"{v:.2f}%" if pd.notna(v) else "" for v in plot_df["1st Yield"]],
             textposition="top center",
             textfont=dict(color="black", size=11),
-            hovertemplate="Bucket=%{x}<br>1st Yield=%{y:.2f}%<extra></extra>",
+            hovertemplate="Date=%{x}<br>1st Yield=%{y:.2f}%<extra></extra>",
             connectgaps=True
         )
     )
@@ -6256,7 +6263,7 @@ def render_station_4week_yield_trend(
             text=[f"{v:.2f}%" if pd.notna(v) else "" for v in plot_df["Final Yield"]],
             textposition="top center",
             textfont=dict(color="black", size=11),
-            hovertemplate="Bucket=%{x}<br>Final Yield=%{y:.2f}%<extra></extra>",
+            hovertemplate="Date=%{x}<br>Final Yield=%{y:.2f}%<extra></extra>",
             connectgaps=True
         )
     )
@@ -6265,31 +6272,24 @@ def render_station_4week_yield_trend(
         go.Scatter(
             x=plot_df["x_label"],
             y=plot_df["fty_target_lcl"],
-            mode="lines+markers+text",
-            name="FTY Target (3-sig LCL)",
+            mode="lines",
+            name=f"3-sig FTY Target ({current_fty_target:.2f}%)",
             yaxis="y2",
             line=dict(color="red", width=2, dash="dash"),
-            marker=dict(color="red", size=6),
-            text=[f"{v:.2f}%" if pd.notna(v) else "" for v in plot_df["fty_target_lcl"]],
-            textposition="bottom center",
-            textfont=dict(color="red", size=10),
-            hovertemplate="Bucket=%{x}<br>FTY Target=%{y:.2f}%<extra></extra>",
+            hovertemplate="Date=%{x}<br>3-sig FTY Target=%{y:.2f}%<extra></extra>",
             connectgaps=True
         )
     )
-
+    
     fig.add_trace(
         go.Scatter(
             x=plot_df["x_label"],
             y=plot_df["fpy_target_lcl"],
-            mode="lines+text",
-            name="FPY Target (3-sig LCL)",
+            mode="lines",
+            name=f"3-sig FPY Target ({current_fpy_target:.2f}%)",
             yaxis="y2",
             line=dict(color="black", width=2, dash="dash"),
-            text=[f"{v:.2f}%" if pd.notna(v) else "" for v in plot_df["fpy_target_lcl"]],
-            textposition="bottom center",
-            textfont=dict(color="black", size=10),
-            hovertemplate="Bucket=%{x}<br>FPY Target=%{y:.2f}%<extra></extra>",
+            hovertemplate="Date=%{x}<br>3-sig FPY Target=%{y:.2f}%<extra></extra>",
             connectgaps=True
         )
     )
@@ -6326,14 +6326,8 @@ def render_station_4week_yield_trend(
             range=[auto_yield_min, auto_yield_max],
             fixedrange=False
         ),
-        legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=1.03,
-            xanchor="left",
-            x=0
-        ),
-        margin=dict(l=60, r=80, t=90, b=120)
+        legend=bottom_legend(),
+        margin=dict(l=60, r=80, t=90, b=170)
     )
 
     st.plotly_chart(fig, use_container_width=True)
@@ -6449,7 +6443,7 @@ def render_daily_summary_fty_errcode_chart(
                 opacity=0.85,
                 customdata=plot_df[[hover_label_cols[fail_col]]].values,
                 hovertemplate=(
-                    "Bucket=%{x}<br>"
+                    "Date=%{x}<br>"
                     "ErrCode=%{customdata[0]}<br>"
                     "Fail %=%{y:.2f}%<extra></extra>"
                 )
@@ -6464,7 +6458,7 @@ def render_daily_summary_fty_errcode_chart(
             yaxis="y",
             marker_color=color_map["other_fail_pct"],
             opacity=0.85,
-            hovertemplate="Bucket=%{x}<br>Other errCodes Fail %=%{y:.2f}%<extra></extra>"
+            hovertemplate="Date=%{x}<br>Other errCodes Fail %=%{y:.2f}%<extra></extra>"
         )
     )
 
@@ -6491,7 +6485,7 @@ def render_daily_summary_fty_errcode_chart(
             text=[f"{v:.2f}%" if pd.notna(v) else "" for v in plot_df["FPY"]],
             textposition="top center",
             textfont=dict(color="black", size=11),
-            hovertemplate="Bucket=%{x}<br>FPY=%{y:.2f}%<extra></extra>",
+            hovertemplate="Date=%{x}<br>FPY=%{y:.2f}%<extra></extra>",
             connectgaps=True
         )
     )
@@ -6509,7 +6503,7 @@ def render_daily_summary_fty_errcode_chart(
             text=[f"{v:.2f}%" if pd.notna(v) else "" for v in plot_df["FTY"]],
             textposition="top center",
             textfont=dict(color="black", size=11),
-            hovertemplate="Bucket=%{x}<br>FTY=%{y:.2f}%<extra></extra>",
+            hovertemplate="Date=%{x}<br>FTY=%{y:.2f}%<extra></extra>",
             connectgaps=True
         )
     )
@@ -6567,14 +6561,8 @@ def render_daily_summary_fty_errcode_chart(
             range=[row2_yield_min, row2_yield_max],
             fixedrange=False
         ),
-        legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=1.03,
-            xanchor="left",
-            x=0
-        ),
-        margin=dict(l=60, r=80, t=90, b=120)
+        legend=bottom_legend(),
+        margin=dict(l=60, r=80, t=90, b=170)
     )
 
     st.plotly_chart(fig, use_container_width=True)
@@ -6717,7 +6705,7 @@ def render_lrr_trend_chart(
             text=[f"<b>{int(v)}</b>" if pd.notna(v) else "" for v in plot_df["total_lot_count"]],
             textposition="outside",
             textfont=dict(color="black", size=12),
-            hovertemplate="Bucket=%{x}<br>Total Lots=%{y}<extra></extra>"
+            hovertemplate="Date=%{x}<br>Total Lots=%{y}<extra></extra>"
         )
     )
 
@@ -6733,7 +6721,7 @@ def render_lrr_trend_chart(
             text=[f"<b>{int(v)}</b>" if pd.notna(v) else "" for v in plot_df["lrr_count"]],
             textposition="outside",
             textfont=dict(color="black", size=12),
-            hovertemplate="Bucket=%{x}<br>LRR Count=%{y}<extra></extra>"
+            hovertemplate="Date=%{x}<br>LRR Count=%{y}<extra></extra>"
         )
     )
 
@@ -6749,7 +6737,7 @@ def render_lrr_trend_chart(
             text=[f"{v:.2f}%" if pd.notna(v) else "" for v in plot_df["lrr_pct"]],
             textposition="top center",
             textfont=dict(color="black", size=12),
-            hovertemplate="Bucket=%{x}<br>LRR %%=%{y:.2f}%<extra></extra>",
+            hovertemplate="Date=%{x}<br>LRR %=%{y:.2f}%<extra></extra>",
             connectgaps=True
         )
     )
@@ -6789,15 +6777,8 @@ def render_lrr_trend_chart(
             tickfont=dict(size=12, color="black"),
             title_font=dict(size=13, color="black")
         ),
-        legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=1.02,
-            xanchor="left",
-            x=0,
-            font=dict(size=12, color="black")
-        ),
-        margin=dict(l=60, r=80, t=80, b=120)
+        legend=bottom_legend(),
+        margin=dict(l=60, r=80, t=90, b=170)
     )
 
     st.plotly_chart(fig, use_container_width=True)
@@ -6915,7 +6896,7 @@ def render_top10_rpr_errcode_pareto(df: pd.DataFrame, section_label: str, scope_
                 opacity=0.85,
                 customdata=plot_df[[hover_label_cols[rr_col]]].values,
                 hovertemplate=(
-                    "Bucket=%{x}<br>"
+                    "Date=%{x}<br>"
                     "ErrCode=%{customdata[0]}<br>"
                     "RPR=%{y:.2f}%<extra></extra>"
                 )
@@ -6930,7 +6911,7 @@ def render_top10_rpr_errcode_pareto(df: pd.DataFrame, section_label: str, scope_
             yaxis="y",
             marker_color=color_map["other_rr_pct"],
             opacity=0.85,
-            hovertemplate="Bucket=%{x}<br>Other errCodes RPR=%{y:.2f}%<extra></extra>"
+            hovertemplate="Date=%{x}<br>Other errCodes RPR=%{y:.2f}%<extra></extra>"
         )
     )
 
@@ -6952,7 +6933,7 @@ def render_top10_rpr_errcode_pareto(df: pd.DataFrame, section_label: str, scope_
             name="Overall RPR",
             line=dict(color="red", width=3),
             marker=dict(color="red", size=8),
-            hovertemplate="Bucket=%{x}<br>Overall RPR=%{y:.2f}%<extra></extra>",
+            hovertemplate="Date=%{x}<br>Overall RPR=%{y:.2f}%<extra></extra>",
             connectgaps=True
         )
     )
@@ -6990,14 +6971,8 @@ def render_top10_rpr_errcode_pareto(df: pd.DataFrame, section_label: str, scope_
             title="Retest Pass Rate %",
             range=[auto_rr_min, auto_rr_max]
         ),
-        legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=1.03,
-            xanchor="left",
-            x=0
-        ),
-        margin=dict(l=60, r=80, t=100, b=120)
+        legend=bottom_legend(),
+        margin=dict(l=60, r=80, t=90, b=170)
     )
 
     st.plotly_chart(fig, use_container_width=True)
@@ -7152,7 +7127,7 @@ def render_handler_top5_rpr_chart(df: pd.DataFrame, section_label: str, scope_ke
             go.Bar(
                 x=plot_df["group_name"],
                 y=plot_df[f"{key}_rpr_pct"],
-                name=f"Top{idx}",
+                name=f"Top{idx} errCode RPR",
                 marker_color=palette[key],
                 opacity=0.85,
                 customdata=plot_df[[f"{key}_errCode"]].values,
@@ -7168,7 +7143,7 @@ def render_handler_top5_rpr_chart(df: pd.DataFrame, section_label: str, scope_ke
         go.Bar(
             x=plot_df["group_name"],
             y=plot_df["other_rpr_pct"],
-            name="Other",
+            name="Other errCodes RPR",
             marker_color=palette["other"],
             opacity=0.85,
             hovertemplate="Handler=%{x}<br>Other errCodes RPR=%{y:.2f}%<extra></extra>"
@@ -7206,14 +7181,8 @@ def render_handler_top5_rpr_chart(df: pd.DataFrame, section_label: str, scope_ke
             title="RPR %",
             range=[y_min, auto_y_max if y_max == 100 else y_max]
         ),
-        legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=1.02,
-            xanchor="left",
-            x=0
-        ),
-        margin=dict(l=60, r=40, t=100, b=140)
+        legend=bottom_legend(),
+        margin=dict(l=60, r=80, t=90, b=170)
     )
 
     st.plotly_chart(fig, use_container_width=True)
@@ -7255,7 +7224,7 @@ def render_handler_top5_rpr_chart(df: pd.DataFrame, section_label: str, scope_ke
         "other_rpr_pct": "other_errCodes"
     })
 
-    # ✅ Apply percentage formatting to column
+    # ? Apply percentage formatting to column
     if "Total_RPR" in display_df.columns:
         display_df["Total_RPR"] = display_df["Total_RPR"].apply(
             lambda x: format_pct_value(x, decimals=2)
@@ -7372,14 +7341,8 @@ def render_handler_site_top5_rpr_chart(df: pd.DataFrame, section_label: str, sco
             categoryorder="array",
             categoryarray=order
         ),
-        legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=1.02,
-            xanchor="left",
-            x=0
-        ),
-        margin=dict(l=140, r=80, t=100, b=80)
+        legend=bottom_legend(),
+        margin=dict(l=60, r=80, t=90, b=170)
     )
 
     st.plotly_chart(fig, use_container_width=True)
@@ -7533,14 +7496,26 @@ def build_station_html_report(
 
     def table_html(df: pd.DataFrame, title: str) -> str:
         if df is None or df.empty:
-            return f"<h3>{title}</h3><p>No data available.</p>"
-
+            return f"""
+            <details>
+                <summary style="
+                    cursor:pointer;
+                    font-size:18px;
+                    font-weight:700;
+                    margin:12px 0;
+                    color:#1F4E79;
+                ">
+                    📋 Open / Close {title}
+                </summary>
+                <p>No data available.</p>
+            </details>
+            """
+    
         out = df.copy()
-
+    
         if "x_label" in out.columns:
             out = out.rename(columns={"x_label": "Date"})
-
-        # Special cleanup for LRR summary normal table
+    
         rename_map = {}
         if "mother_lot_list" in out.columns:
             rename_map["mother_lot_list"] = "Mother lot"
@@ -7554,10 +7529,9 @@ def build_station_html_report(
             rename_map["lrr_lot_list"] = "LRR Failed Lots"
         if rename_map:
             out = out.rename(columns=rename_map)
-
-        # Build formatted HTML manually so we control every cell
+    
         headers = "".join(f"<th>{col}</th>" for col in out.columns)
-
+    
         body_rows = []
         for _, row in out.iterrows():
             row_metric = row["Metric"] if "Metric" in out.columns else None
@@ -7566,17 +7540,28 @@ def build_station_html_report(
                 formatted = format_cell(row[col], row_metric=row_metric, col_name=col)
                 cells.append(f"<td>{formatted}</td>")
             body_rows.append("<tr>" + "".join(cells) + "</tr>")
-
+    
         return f"""
-        <h3>{title}</h3>
-        <table border="1">
-            <thead>
-                <tr>{headers}</tr>
-            </thead>
-            <tbody>
-                {''.join(body_rows)}
-            </tbody>
-        </table>
+        <details>
+            <summary style="
+                cursor:pointer;
+                font-size:18px;
+                font-weight:700;
+                margin:12px 0;
+                color:#1F4E79;
+            ">
+                📋 Open / Close {title}
+            </summary>
+    
+            <table border="1">
+                <thead>
+                    <tr>{headers}</tr>
+                </thead>
+                <tbody>
+                    {''.join(body_rows)}
+                </tbody>
+            </table>
+        </details>
         """
 
     day_table_html = table_html(daily_trend_df, "4-Week Yield Trend Data")
@@ -7632,8 +7617,8 @@ def build_station_html_report(
         </style>
     </head>
     <body>
-        <h1>SIP Yield Dashboard - {station_label}</h1>
-        <p>Exported from Streamlit dashboard</p>
+        <h1>📊 SIP Yield Dashboard - {station_label}</h1>
+        <p>🧭 Exported from Streamlit dashboard</p>
 
         <div class="section">
             {kpi_target_labels_html}
@@ -7688,13 +7673,8 @@ def build_station_html_report(
             {retest_fail_table_html}
         </div>
 
-        <div class="section">
-            <h2>Handler-Site vs Top 5 High RPR</h2>
-            <p><b>Date Range:</b> {row6_right_date_scope}</p>
-            {fig_to_html_fragment(first_pass_fig)}
-            {first_pass_table_html}
-            {handler_site_7day_html}
-        </div>
+        <!-- Handler-Site section temporarily disabled -->
+        
     </body>
     </html>
     """
@@ -8162,12 +8142,11 @@ def render_scope_section(device_code: str, station_value: str | None, section_la
 
     st.divider()
 
-    # ROW 7
-    row7_fig, row7_export_df, row7_date_scope, row7_7day_figs = render_handler_site_top5_rpr_chart(
-        row6_handler_rpr_df,
-        section_label,
-        scope_key
-    )
+    # ROW 7 - temporarily disabled
+    row7_fig = None
+    row7_export_df = pd.DataFrame()
+    row7_date_scope = "Disabled"
+    row7_7day_figs = []
 
     st.divider()
 
@@ -8350,7 +8329,7 @@ def render_period_yield_trend(
             textposition="outside",
             textfont=dict(color="black", size=12),
             cliponaxis=False,
-            hovertemplate="Bucket=%{x}<br>Test-In QTY=%{y:,}<extra></extra>"
+            hovertemplate="Date=%{x}<br>Test-In QTY=%{y:,}<extra></extra>"
         )
     )
 
@@ -8365,7 +8344,7 @@ def render_period_yield_trend(
             textposition="outside",
             textfont=dict(color="black", size=12),
             cliponaxis=False,
-            hovertemplate="Bucket=%{x}<br>Final Output=%{y:,}<extra></extra>"
+            hovertemplate="Date=%{x}<br>Final Output=%{y:,}<extra></extra>"
         )
     )
 
@@ -8378,7 +8357,7 @@ def render_period_yield_trend(
             yaxis="y2",
             line=dict(color="#4F81BD", width=3),
             marker=dict(color="#4F81BD", size=8),
-            hovertemplate="Bucket=%{x}<br>1st Yield=%{y:.2f}%<extra></extra>",
+            hovertemplate="Date=%{x}<br>1st Yield=%{y:.2f}%<extra></extra>",
             connectgaps=True
         )
     )
@@ -8392,7 +8371,7 @@ def render_period_yield_trend(
             yaxis="y2",
             line=dict(color="#92D050", width=3),
             marker=dict(color="#92D050", size=8),
-            hovertemplate="Bucket=%{x}<br>FTY=%{y:.2f}%<extra></extra>",
+            hovertemplate="Date=%{x}<br>FTY=%{y:.2f}%<extra></extra>",
             connectgaps=True
         )
     )
@@ -8423,14 +8402,8 @@ def render_period_yield_trend(
             showgrid=False,
             range=[auto_yield_min, auto_yield_max]
         ),
-        legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=1.02,
-            xanchor="left",
-            x=0
-        ),
-        margin=dict(l=70, r=95, t=20, b=150)
+        legend=bottom_legend(),
+        margin=dict(l=60, r=80, t=90, b=170)
     )
 
     st.plotly_chart(fig, use_container_width=True)
@@ -8531,7 +8504,7 @@ def render_period_fty_errcode_chart(plot_df: pd.DataFrame, section_label: str, p
                 marker_color=color_map[fail_col],   # fixed color per Top1–Top5
                 opacity=0.85,
                 customdata=plot_df[[label_col]].values,
-                hovertemplate="Bucket=%{x}<br>ErrCode=%{customdata[0]}<br>Fail %=%{y:.2f}%<extra></extra>"
+                hovertemplate="Date=%{x}<br>ErrCode=%{customdata[0]}<br>Fail %=%{y:.2f}%<extra></extra>"
             )
         )
 
@@ -8542,7 +8515,7 @@ def render_period_fty_errcode_chart(plot_df: pd.DataFrame, section_label: str, p
             name=label_map["other_fail_pct"],
             marker_color=rgba("#D9D9D9", 0.80) if QOQ_UNIQUE_ERRCODE_COLOR_TEST else color_map["other_fail_pct"],
             opacity=1.0 if QOQ_UNIQUE_ERRCODE_COLOR_TEST else 0.85,
-            hovertemplate="Bucket=%{x}<br>Other errCodes Fail %=%{y:.2f}%<extra></extra>"
+            hovertemplate="Date=%{x}<br>Other errCodes Fail %=%{y:.2f}%<extra></extra>"
         )
     )
 
@@ -8561,7 +8534,7 @@ def render_period_fty_errcode_chart(plot_df: pd.DataFrame, section_label: str, p
             textposition="top center",
             textfont=dict(color="black", size=12),
             cliponaxis=False,
-            hovertemplate="Bucket=%{x}<br>FPY=%{y:.2f}%<extra></extra>",
+            hovertemplate="Date=%{x}<br>FPY=%{y:.2f}%<extra></extra>",
             connectgaps=True
         )
     )
@@ -8579,7 +8552,7 @@ def render_period_fty_errcode_chart(plot_df: pd.DataFrame, section_label: str, p
             textposition="top center",
             textfont=dict(color="black", size=12),
             cliponaxis=False,
-            hovertemplate="Bucket=%{x}<br>FTY=%{y:.2f}%<extra></extra>",
+            hovertemplate="Date=%{x}<br>FTY=%{y:.2f}%<extra></extra>",
             connectgaps=True
         )
     )
@@ -8625,8 +8598,8 @@ def render_period_fty_errcode_chart(plot_df: pd.DataFrame, section_label: str, p
             showgrid=False,
             range=[85, 101]
         ),
-        legend=dict(orientation="h", yanchor="bottom", y=1.03, xanchor="left", x=0),
-        margin=dict(l=70, r=95, t=130, b=150)
+        legend=bottom_legend(),
+        margin=dict(l=70, r=95, t=130, b=190)
     )
 
     st.plotly_chart(fig, use_container_width=True)
@@ -8856,7 +8829,3 @@ if __name__ == "__main__":
 
 
 # In[ ]:
-
-
-
-
