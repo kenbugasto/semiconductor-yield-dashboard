@@ -209,17 +209,6 @@ Equipment-level analytics for:
 
 ---
 
-# Handler-Site vs RPR Analysis
-
-![Handler Site RPR](screenshots/row08_handler-site_rpr_top_only.png)
-
-Root-cause isolation analytics using:
-- handler-site combinations
-- top recovery contributors
-- high-risk site detection
-
----
-
 # YoY Yield Trend
 
 ![YoY Yield](screenshots/top_lvl_chart_yoy_yield_trend.png)
