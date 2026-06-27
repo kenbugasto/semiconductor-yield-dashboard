@@ -124,53 +124,7 @@ This allowed the dashboard to function as a lightweight internal manufacturing a
 
 Although implemented locally using Python and DuckDB rather than Databricks Delta Lake, this project follows the same Medallion Architecture principles by separating raw ingestion, standardized transformations, and business-ready analytics.
 
-```text
-                    Raw Manufacturing Files
-               (.txt Production Logs / .log Files)
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────┐
-│                     BRONZE LAYER                    │
-├─────────────────────────────────────────────────────┤
-│ ‧ Raw file ingestion                               │
-│ ‧ File metadata                                    │
-│ ‧ File hashing                                     │
-│ ‧ Audit logging                                    │
-│ ‧ Immutable source records                         │
-└─────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────┐
-│                     SILVER LAYER                    │
-├─────────────────────────────────────────────────────┤
-│ Tables:                                            │
-│ ‧ file_header                                      │
-│ ‧ detail_2d_list                                   │
-│                                                    │
-│ Responsibilities:                                  │
-│ ‧ Schema standardization                           │
-│ ‧ Timestamp normalization                          │
-│ ‧ Data validation                                  │
-│ ‧ Duplicate removal                                │
-│ ‧ Manufacturing business rule enforcement          │
-└─────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────┐
-│                      GOLD LAYER                     │
-├─────────────────────────────────────────────────────┤
-│ Analytics Outputs:                                 │
-│ ‧ First Pass Yield (FPY)                           │
-│ ‧ Final Test Yield (FTY)                           │
-│ ‧ Lot Rejection Rate (LRR)                         │
-│ ‧ Retest Pass Rate (RPR)                           │
-│ ‧ Top Defect Pareto                                │
-│ ‧ Handler Analytics                                │
-│ ‧ YoY / QoQ / MoM Trends                           │
-│ ‧ Streamlit Dashboard                              │
-│ ‧ HTML Reports                                     │
-└─────────────────────────────────────────────────────┘
-```
+![Medallion Architecture](screenshots/medallion_architecture.png)
 
 ## Bronze Layer
 
