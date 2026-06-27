@@ -267,67 +267,108 @@ This protects the dashboard from double-counting production quantity, yield, ret
 
 # Production ETL Design
 
-Manufacturing production files frequently contain duplicate uploads, malformed records, incomplete metadata, or unsupported equipment configurations.
-
-Rather than assuming every source file is valid, the ETL pipeline follows a defensive programming approach that validates each file before loading it into DuckDB.
-
-## ETL Workflow
-
-The loader performs the following sequence for every production file:
-
-1. Parse manufacturing file
-2. Validate customer and station scope
-3. Calculate file hash
-4. Check incremental load history
-5. Skip previously processed files
-6. Transform raw production data
-7. Load analytical tables
-8. Update audit log
-9. Continue processing even if one file fails
+The loader follows a defensive ETL pattern designed for daily manufacturing reporting. Instead of assuming every source file is valid, each file is checked, scoped, hashed, loaded, audited, and safely skipped when needed.
 
 ```python
-
-for txt_path in txt_files:
-
+for i, txt_path in enumerate(txt_files, start=1):
     try:
+        write_run_log(RUN_LOG_PATH, f"[{i}/{len(txt_files)}] Checking {txt_path.name}")
 
+        # Parse header metadata first before loading any data.
         row = parse_header_block(txt_path)
 
-        if not is_valid_customer(row):
+        station_val = clean_text(row.get("station"))
+        device_code_val = (clean_text(row.get("device_code")) or "").upper()
+        customer_val = (clean_text(row.get("customer")) or "").upper()
+
+        # Defensive scope check:
+        # Skip files outside the supported customer / product scope.
+        if not is_valid_customer(customer_val):
+            skipped_count += 1
+            skipped_non_XU_count += 1
+            write_run_log(
+                RUN_LOG_PATH,
+                f"Skipped non-scoped customer file: {txt_path.name} | customer={row.get('customer')}"
+            )
             continue
 
-        if not is_valid_station(row):
+        # Defensive station validation:
+        # Prevent unsupported stations from entering the analytical database.
+        if not is_valid_station(station_val):
+            skipped_count += 1
+            skipped_invalid_station_count += 1
+            write_run_log(
+                RUN_LOG_PATH,
+                f"Skipped invalid station: {txt_path.name} | station={station_val}"
+            )
             continue
 
-        if already_loaded(row["file_hash"]):
+        # Freshness check:
+        # Skip files outside the current reporting window.
+        file_dt = row.get("start_time") or row.get("end_time") or row.get("source_modified_time")
+        if file_dt is not None and file_dt < cutoff_dt:
+            skipped_count += 1
+            write_run_log(
+                RUN_LOG_PATH,
+                f"Skipped old file outside 1-month cutoff: {txt_path.name}"
+            )
             continue
 
-        load_header_table(row)
+        # Incremental loading:
+        # File hash prevents unchanged files from being loaded repeatedly.
+        fresh = is_fresh_file(
+            conn=conn,
+            file_hash=row["file_hash"]
+        )
 
-        detail_df = parse_detail_records(txt_path)
+        if not fresh:
+            skipped_count += 1
+            skipped_unchanged_count += 1
+            write_run_log(RUN_LOG_PATH, f"Skipped unchanged file: {txt_path.name}")
+            continue
 
-        load_detail_table(detail_df)
+        # Safe reload pattern:
+        # Header/detail rows are deleted and reinserted by file_hash.
+        upsert_header_row(conn, row)
 
-        update_audit_success(row)
+        detail_df = parse_2d_list_block(txt_path, row)
+        replace_detail_rows_for_file(conn, detail_df, row["file_hash"])
 
-    except Exception as ex:
+        update_audit_success(conn, row)
 
-        update_audit_failed(txt_path, ex)
+        touched_file_hashes.append(row["file_hash"])
+        loaded_count += 1
+
+        write_run_log(
+            RUN_LOG_PATH,
+            f"Loaded {txt_path.name} | station={row['station']} | "
+            f"device={row['device_code']} | lot_id={row['lot_id']} | "
+            f"detail_rows={len(detail_df):,}"
+        )
+
+    except Exception as e:
+        # Failure isolation:
+        # One malformed file is logged and audited without hiding the root cause.
+        write_run_log(RUN_LOG_PATH, f"FAILED {txt_path.name} | Error: {e}")
+        if conn is not None:
+            update_audit_failed(conn, txt_path, str(e))
 ```
 
-## Defensive Programming Techniques
+## Defensive ETL Highlights
 
-The ETL pipeline incorporates several production-oriented design patterns:
+This section demonstrates several production-oriented ETL practices:
 
-* Incremental loading using file hashes
-* Configuration-driven validation rules
-* Customer and station filtering
-* Safe rerun capability
-* Audit logging for successful and failed loads
-* Exception handling that isolates malformed files without stopping the pipeline
-* Delete-and-reload strategy for deterministic results
+* **Config-driven paths** keep local, shared, and export directories outside the source code.
+* **Customer and station validation** prevents non-scoped manufacturing data from entering the dashboard.
+* **File hash checking** enables incremental loading and avoids duplicate processing.
+* **Delete-and-reload by `file_hash`** makes reruns deterministic and safe.
+* **Audit logging** records successful and failed file loads.
+* **Exception handling** isolates malformed files without stopping the entire pipeline.
+* **Run counters** track loaded, skipped, invalid, unchanged, and duplicate records.
+* **Post-load deduplication** removes duplicate lot uploads before KPI calculation.
+* **Security checks before export** prevent non-scoped customer, station, or device records from being shared.
 
-These techniques make the pipeline resilient, repeatable, and suitable for automated manufacturing reporting workflows.
+This design makes the loader repeatable, traceable, and suitable for automated daily manufacturing reporting.
 
 ---
 
