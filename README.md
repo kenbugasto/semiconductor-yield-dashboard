@@ -422,7 +422,7 @@ Defect Pareto visualization supporting:
 
 # Mother Lot Yield Trend
 
-![Mother Lot Yield](screenshots/row09_mother_lot_yield_trend.png)
+![Mother Lot Yield](screenshots/row04_mother_lot_yield_trend.png)
 
 Mother-lot analytics supporting:
 
@@ -440,7 +440,7 @@ Scope:
 
 # Per Lot Yield Trend
 
-![Per Lot Yield](screenshots/row10_per_lot_yield_trend.png)
+![Per Lot Yield](screenshots/row05_per_lot_yield_trend.png)
 
 Lot-level engineering analytics supporting:
 
@@ -457,7 +457,7 @@ Scope:
 ---
 # LRR Trend Monitoring
 
-![LRR Trend](screenshots/row04_lrr_trend.png)
+![LRR Trend](screenshots/row06_lrr_trend.png)
 
 Lot Rejection Rate (LRR) monitoring dashboard including:
 
@@ -470,7 +470,7 @@ Lot Rejection Rate (LRR) monitoring dashboard including:
 
 # LRR Summary Table
 
-![LRR Summary](screenshots/row05_lrr_summary_table.png)
+![LRR Summary](screenshots/row07_lrr_summary_table.png)
 
 Detailed LRR summary analytics including:
 
@@ -482,7 +482,7 @@ Detailed LRR summary analytics including:
 
 # Retest Pass Rate errCode Distribution
 
-![RPR errCode](screenshots/row06_rpr_errcode_distribution.png)
+![RPR errCode](screenshots/row08_rpr_errcode_distribution.png)
 
 Retest recovery analytics showing:
 
@@ -494,7 +494,7 @@ Retest recovery analytics showing:
 
 # Handler vs RPR Analysis
 
-![Handler RPR](screenshots/row07_handler_rpr.png)
+![Handler RPR](screenshots/row08_handler_rpr.png)
 
 Equipment-level engineering analytics supporting:
 
