@@ -24,6 +24,27 @@ The analytics workflows were designed around semiconductor final-test manufactur
 
 ---
 
+# 🚀 Interactive Dashboard Demo
+
+This project generates standalone interactive HTML dashboards that enable engineers and stakeholders to explore semiconductor manufacturing KPIs without requiring Python, a database connection, or BI software.
+
+Sample outputs using anonymized data:
+
+📊 SiP_Yield_Dashboard_DV029.html
+Device-level KPI monitoring
+Interactive Pareto analysis
+Yield trend visualization
+Expandable data tables
+
+📈 SiP_YoY_Dashboard_Demo.html
+Year-over-Year (YoY) comparison
+Quarter-over-Quarter (QoQ) comparison
+Month-over-Month (MoM) comparison
+Multi-device performance trend analysis
+
+Tip: Download and open the HTML files in your web browser to experience full Plotly interactivity
+---
+
 # Data Sources
 
 The dashboard processes manufacturing production data originating from:
