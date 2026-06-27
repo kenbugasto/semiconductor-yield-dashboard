@@ -295,7 +295,6 @@ This allowed the dashboard to function as a practical alternative for internal m
 - Automated HTML report generation
 - YoY / QoQ / MoM trend analytics
 - Mother lot and per-lot yield monitoring
-- Handler and site-level analytics
 
 ## In Progress
 
