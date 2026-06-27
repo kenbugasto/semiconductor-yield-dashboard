@@ -494,7 +494,7 @@ Retest recovery analytics showing:
 
 # Handler vs RPR Analysis
 
-![Handler RPR](screenshots/row08_handler_rpr.png)
+![Handler RPR](screenshots/row09_handler_vs_top5_errcode_fail.png)
 
 Equipment-level engineering analytics supporting:
 
