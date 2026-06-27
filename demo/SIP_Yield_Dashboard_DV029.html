@@ -1,0 +1,1877 @@
+
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>SIP Yield Dashboard - DV029</title>
+        <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 24px;
+                color: black;
+                background: white;
+            }
+            h1, h2, h3 {
+                color: black;
+            }
+            .section {
+                margin-bottom: 40px;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                margin-top: 12px;
+            }
+            th, td {
+                border: 1px solid #d9d9d9;
+                padding: 8px;
+                text-align: center;
+                vertical-align: middle;
+                white-space: pre-line;
+            }
+            th {
+                background: #eef4fb;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>📊 SIP Yield Dashboard - DV029</h1>
+        <p>🧭 Exported from Streamlit dashboard</p>
+
+        <div class="section">
+            
+    <div style="font-size:15px; color:#666; margin-bottom:10px; line-height:1.6;">
+        Back Month Used for IQR Target Calc: {Apr'26}<br>
+        FTY Target (3-sig LCL): 99.24%<br>
+        FPY Target (3-sig LCL): 92.99%<br>
+        LRR Hold Trigger: FTY Target (3-sig LCL): 99.24%<br>
+        RPR Threshold: &lt; 3%
+    </div>
+    
+            
+    <div style="
+        width:100%;
+        oveFUNC2low-x:auto;
+        padding:4px 0 8px 0;
+    ">
+        <div style="
+            display:flex;
+            flex-wrap:nowrap;
+            gap:12px;
+            align-items:flex-start;
+            min-width:max-content;
+            font-family:Arial, sans-serif;
+            color:black;
+        ">
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#DCE6F1;
+                    border:1px solid #B8CCE4;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    WW16'26
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        99.53%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        97.10%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#FFF2CC;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        2.43%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F4A6A6;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        2.27%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        193,233
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        192,323
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#DCE6F1;
+                    border:1px solid #B8CCE4;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    WW17'26
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        99.59%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        96.54%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F4A6A6;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        3.05%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        0.00%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        181,792
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        181,055
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#DCE6F1;
+                    border:1px solid #B8CCE4;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    WW18'26
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        99.57%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        97.02%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#FFF2CC;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        2.55%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        0.00%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        159,647
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        158,966
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#DCE6F1;
+                    border:1px solid #B8CCE4;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    WW19'26
+                </div>
+                
+                <div style="
+                    background:#FFF2CC;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        99.47%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        96.70%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#FFF2CC;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        2.77%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F4A6A6;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        2.68%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        239,296
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        238,032
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#DCE6F1;
+                    border:1px solid #B8CCE4;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    5/03
+                </div>
+                
+                <div style="
+                    background:#FFF2CC;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        99.48%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        96.84%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#FFF2CC;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        2.64%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        0.00%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        30,028
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        29,873
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#DCE6F1;
+                    border:1px solid #B8CCE4;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    5/04
+                </div>
+                
+                <div style="
+                    background:#FFF2CC;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        99.48%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        97.11%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#FFF2CC;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        2.37%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F4A6A6;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        6.67%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        32,760
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        32,589
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#DCE6F1;
+                    border:1px solid #B8CCE4;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    5/05
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        99.64%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        97.19%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#FFF2CC;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        2.44%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        0.00%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        45,098
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        44,934
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#DCE6F1;
+                    border:1px solid #B8CCE4;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    5/06
+                </div>
+                
+                <div style="
+                    background:#FFF2CC;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        99.47%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        96.95%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#FFF2CC;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        2.51%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        0.00%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        37,989
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        37,786
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#DCE6F1;
+                    border:1px solid #B8CCE4;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    5/07
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        99.59%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        96.81%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#FFF2CC;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        2.78%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        0.00%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        21,192
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        21,105
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#DCE6F1;
+                    border:1px solid #B8CCE4;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    5/08
+                </div>
+                
+                <div style="
+                    background:#F4A6A6;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        99.22%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        96.02%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F4A6A6;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        3.20%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F4A6A6;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        12.50%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        34,571
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        34,300
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#DCE6F1;
+                    border:1px solid #B8CCE4;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    5/09
+                </div>
+                
+                <div style="
+                    background:#FFF2CC;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        99.43%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#FFF2CC;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        95.98%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F4A6A6;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        3.46%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#C6E0B4;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        0.00%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        37,658
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        37,445
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+        </div>
+
+        <div class="section">
+            <h2>4-Week Yield Trend</h2>
+            <div>                            <div id="50a63caf-b38e-498f-8f38-10062fa4e8df" class="plotly-graph-div" style="height:820px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("50a63caf-b38e-498f-8f38-10062fa4e8df")) {                    Plotly.newPlot(                        "50a63caf-b38e-498f-8f38-10062fa4e8df",                        [{"hovertemplate":"Date=%{x}\u003cbr\u003eTest-In QTY=%{y:,}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#4F81BD"},"name":"Test-In QTY","opacity":0.5,"text":["\u003cb\u003e193,233\u003c\u002fb\u003e","\u003cb\u003e181,792\u003c\u002fb\u003e","\u003cb\u003e159,647\u003c\u002fb\u003e","\u003cb\u003e239,296\u003c\u002fb\u003e","\u003cb\u003e30,028\u003c\u002fb\u003e","\u003cb\u003e32,760\u003c\u002fb\u003e","\u003cb\u003e45,098\u003c\u002fb\u003e","\u003cb\u003e37,989\u003c\u002fb\u003e","\u003cb\u003e21,192\u003c\u002fb\u003e","\u003cb\u003e34,571\u003c\u002fb\u003e","\u003cb\u003e37,658\u003c\u002fb\u003e"],"textfont":{"color":"black","size":12},"textposition":"outside","x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"i4","bdata":"0fICACDGAgCfbwIAwKYDAEx1AAD4fwAAKrAAAGWUAADIUgAAC4cAABqTAAA="},"yaxis":"y","type":"bar"},{"hovertemplate":"Date=%{x}\u003cbr\u003eFinal Output=%{y:,}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#92D050"},"name":"Final Output","opacity":0.45,"text":["\u003cb\u003e192,323\u003c\u002fb\u003e","\u003cb\u003e181,055\u003c\u002fb\u003e","\u003cb\u003e158,966\u003c\u002fb\u003e","\u003cb\u003e238,032\u003c\u002fb\u003e","\u003cb\u003e29,873\u003c\u002fb\u003e","\u003cb\u003e32,589\u003c\u002fb\u003e","\u003cb\u003e44,934\u003c\u002fb\u003e","\u003cb\u003e37,786\u003c\u002fb\u003e","\u003cb\u003e21,105\u003c\u002fb\u003e","\u003cb\u003e34,300\u003c\u002fb\u003e","\u003cb\u003e37,445\u003c\u002fb\u003e"],"textfont":{"color":"black","size":12},"textposition":"outside","x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"i4","bdata":"Q+8CAD\u002fDAgD2bAIA0KEDALF0AABNfwAAhq8AAJqTAABxUgAA\u002fIUAAEWSAAA="},"yaxis":"y","type":"bar"},{"connectgaps":true,"hovertemplate":"Date=%{x}\u003cbr\u003e1st Yield=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#4F81BD","width":3},"marker":{"color":"#4F81BD","size":8},"mode":"lines+markers+text","name":"1st Yield","text":["97.10%","96.54%","97.02%","96.70%","96.84%","97.11%","97.19%","96.95%","96.81%","96.02%","95.98%"],"textfont":{"color":"black","size":11},"textposition":"top center","x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"ZmZmZmZGWEDD9ShcjyJYQOF6FK5HQVhAzczMzMwsWED2KFyPwjVYQNejcD0KR1hAXI\u002fC9ShMWEDNzMzMzDxYQKRwPQrXM1hA4XoUrkcBWEAfhetRuP5XQA=="},"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Date=%{x}\u003cbr\u003eFinal Yield=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#92D050","width":3},"marker":{"color":"#92D050","size":8},"mode":"lines+markers+text","name":"Final Yield","text":["99.53%","99.59%","99.57%","99.47%","99.48%","99.48%","99.64%","99.47%","99.59%","99.22%","99.43%"],"textfont":{"color":"black","size":11},"textposition":"top center","x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"UrgehevhWED2KFyPwuVYQBSuR+F65FhArkfhehTeWEAfhetRuN5YQB+F61G43lhAKVyPwvXoWECuR+F6FN5YQPYoXI\u002fC5VhArkfhehTOWEDsUbgehdtYQA=="},"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Date=%{x}\u003cbr\u003e3-sig FTY Target=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"red","dash":"dash","width":2},"mode":"lines","name":"3-sig FTY Target (99.24%)","x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"j8L1KFzPWECPwvUoXM9YQI\u002fC9Shcz1hAj8L1KFzPWECPwvUoXM9YQI\u002fC9Shcz1hAj8L1KFzPWECPwvUoXM9YQI\u002fC9Shcz1hAj8L1KFzPWECPwvUoXM9YQA=="},"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Date=%{x}\u003cbr\u003e3-sig FPY Target=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"black","dash":"dash","width":2},"mode":"lines","name":"3-sig FPY Target (92.99%)","x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"j8L1KFw\u002fV0CPwvUoXD9XQI\u002fC9ShcP1dAj8L1KFw\u002fV0CPwvUoXD9XQI\u002fC9ShcP1dAj8L1KFw\u002fV0CPwvUoXD9XQI\u002fC9ShcP1dAj8L1KFw\u002fV0CPwvUoXD9XQA=="},"yaxis":"y2","type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"black"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15,"font":{"color":"black"}},"zerolinecolor":"#EBF0F8","zerolinewidth":2,"tickfont":{"color":"black"}},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15,"font":{"color":"black"}},"zerolinecolor":"#EBF0F8","zerolinewidth":2,"tickfont":{"color":"black"}}}},"font":{"size":12,"color":"black"},"xaxis":{"title":{"text":"Week \u002f Day"},"type":"category","categoryorder":"array","categoryarray":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"tickangle":-45},"yaxis":{"title":{"text":"Quantity"},"side":"left","range":[0,287155.0]},"yaxis2":{"title":{"text":"Yield %"},"overlaying":"y","side":"right","showgrid":false,"range":[89.99,101.0],"fixedrange":false},"legend":{"font":{"size":12,"color":"black"},"orientation":"h","yanchor":"top","y":-0.28,"xanchor":"center","x":0.5},"margin":{"l":60,"r":80,"t":90,"b":170},"title":{"text":"DV029 \u2014 4-Week Yield Trend"},"height":820,"barmode":"group","hovermode":"x unified","dragmode":"zoom"},                        {"responsive": true}                    )                };            </script>        </div>
+            
+        <details>
+            <summary style="
+                cursor:pointer;
+                font-size:18px;
+                font-weight:700;
+                margin:12px 0;
+                color:#1F4E79;
+            ">
+                📋 Open / Close 4-Week Yield Trend Data
+            </summary>
+
+            <table border="1">
+                <thead>
+                    <tr><th>Metric</th><th>WW16'26</th><th>WW17'26</th><th>WW18'26</th><th>WW19'26</th><th>5/03</th><th>5/04</th><th>5/05</th><th>5/06</th><th>5/07</th><th>5/08</th><th>5/09</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Test-In QTY</td><td>193233</td><td>181792</td><td>159647</td><td>239296</td><td>30028</td><td>32760</td><td>45098</td><td>37989</td><td>21192</td><td>34571</td><td>37658</td></tr><tr><td>Final Output</td><td>192323</td><td>181055</td><td>158966</td><td>238032</td><td>29873</td><td>32589</td><td>44934</td><td>37786</td><td>21105</td><td>34300</td><td>37445</td></tr><tr><td>1st Yield</td><td>97.1</td><td>96.54</td><td>97.02</td><td>96.7</td><td>96.84</td><td>97.11</td><td>97.19</td><td>96.95</td><td>96.81</td><td>96.02</td><td>95.98</td></tr><tr><td>Final Yield</td><td>99.53</td><td>99.59</td><td>99.57</td><td>99.47</td><td>99.48</td><td>99.48</td><td>99.64</td><td>99.47</td><td>99.59</td><td>99.22</td><td>99.43</td></tr>
+                </tbody>
+            </table>
+        </details>
+        
+        </div>
+
+        <div class="section">
+            <h2>Top5 Defect Rate Distribution</h2>
+            <div>                            <div id="2c79ad62-6bdb-4a21-a5e7-78b674c6e531" class="plotly-graph-div" style="height:820px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("2c79ad62-6bdb-4a21-a5e7-78b674c6e531")) {                    Plotly.newPlot(                        "2c79ad62-6bdb-4a21-a5e7-78b674c6e531",                        [{"customdata":[["101089\nparam234"],["101089\nparam234"],["101089\nparam234"],["101089\nparam234"],["101089\nparam234"],["101089\nparam234"],["101089\nparam234"],["101089\nparam234"],["101089\nparam234"],["101089\nparam234"],["101089\nparam234"]],"hovertemplate":"Date=%{x}\u003cbr\u003eErrCode=%{customdata[0]}\u003cbr\u003eFail %=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#F79646"},"name":"Top1 errCode FTY","opacity":0.85,"x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"mpmZmZmZuT\u002fsUbgehevBP6RwPQrXo8A\u002f7FG4HoXrwT8K16NwPQq3P6RwPQrXo8A\u002fpHA9CtejwD8K16NwPQrHPylcj8L1KLw\u002fUrgehetRyD+kcD0K16PAPw=="},"yaxis":"y","type":"bar"},{"customdata":[["101095\nparam230"],["101095\nparam230"],["101095\nparam230"],["101095\nparam230"],["101095\nparam230"],["101095\nparam230"],["101095\nparam230"],["101095\nparam230"],["101095\nparam230"],["101095\nparam230"],["101095\nparam230"]],"hovertemplate":"Date=%{x}\u003cbr\u003eErrCode=%{customdata[0]}\u003cbr\u003eFail %=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#8064A2"},"name":"Top2 errCode FTY","opacity":0.85,"x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"exSuR+F6lD97FK5H4XqUP7gehetRuJ4\u002fexSuR+F6pD\u002fsUbgeheuxP5qZmZmZmak\u002fexSuR+F6lD97FK5H4XqkPwAAAAAAAAAAexSuR+F6pD+4HoXrUbiuPw=="},"yaxis":"y","type":"bar"},{"customdata":[["100305\nparam25"],["100305\nparam25"],["100305\nparam25"],["100305\nparam25"],["100305\nparam25"],["100305\nparam25"],["100305\nparam25"],["100305\nparam25"],["100305\nparam25"],["100305\nparam25"],["100305\nparam25"]],"hovertemplate":"Date=%{x}\u003cbr\u003eErrCode=%{customdata[0]}\u003cbr\u003eFail %=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#C0504D"},"name":"Top3 errCode FTY","opacity":0.85,"x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"exSuR+F6hD97FK5H4XqEP3sUrkfhepQ\u002fuB6F61G4nj97FK5H4XqEP3sUrkfheoQ\u002fexSuR+F6hD97FK5H4XqEPwAAAAAAAAAAKVyPwvUovD97FK5H4XqkPw=="},"yaxis":"y","type":"bar"},{"customdata":[["100306\nparam22"],["100306\nparam22"],["100306\nparam22"],["100306\nparam22"],["100306\nparam22"],["100306\nparam22"],["100306\nparam22"],["100306\nparam22"],["100306\nparam22"],["100306\nparam22"],["100306\nparam22"]],"hovertemplate":"Date=%{x}\u003cbr\u003eErrCode=%{customdata[0]}\u003cbr\u003eFail %=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#4BACC6"},"name":"Top4 errCode FTY","opacity":0.85,"x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"exSuR+F6hD97FK5H4XqEP3sUrkfheoQ\u002fexSuR+F6lD8AAAAAAAAAAHsUrkfheoQ\u002fexSuR+F6hD97FK5H4XqEP7gehetRuJ4\u002fexSuR+F6lD97FK5H4XqkPw=="},"yaxis":"y","type":"bar"},{"customdata":[["100653\nparam134"],["100653\nparam134"],["100653\nparam134"],["100653\nparam134"],["100653\nparam134"],["100653\nparam134"],["100653\nparam134"],["100653\nparam134"],["100653\nparam134"],["100653\nparam134"],["100653\nparam134"]],"hovertemplate":"Date=%{x}\u003cbr\u003eErrCode=%{customdata[0]}\u003cbr\u003eFail %=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#7F7F7F"},"name":"Top5 errCode FTY","opacity":0.85,"x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"exSuR+F6hD97FK5H4XqUP3sUrkfhepQ\u002fuB6F61G4nj+4HoXrUbiuPwAAAAAAAAAAexSuR+F6hD97FK5H4XqEP3sUrkfheoQ\u002fmpmZmZmZqT97FK5H4XqkPw=="},"yaxis":"y","type":"bar"},{"hovertemplate":"Date=%{x}\u003cbr\u003eOther errCodes Fail %=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#D9D9D9"},"name":"Other errCodes FTY","opacity":0.85,"x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"w\u002fUoXI\u002fC1T\u002fhehSuR+HKPylcj8L1KMw\u002f7FG4HoXr0T8zMzMzMzPTP3sUrkfhetQ\u002fCtejcD0Kxz\u002fsUbgehevRPwAAAAAAANA\u002frkfhehSu1z9I4XoUrkfRPw=="},"yaxis":"y","type":"bar"},{"connectgaps":true,"hovertemplate":"Date=%{x}\u003cbr\u003eFPY=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#4F81BD","width":3},"marker":{"color":"#4F81BD","size":8},"mode":"lines+markers+text","name":"FPY","text":["97.10%","96.54%","97.02%","96.70%","96.84%","97.11%","97.19%","96.95%","96.81%","96.02%","95.98%"],"textfont":{"color":"black","size":11},"textposition":"top center","x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"ZmZmZmZGWEDD9ShcjyJYQOF6FK5HQVhAzczMzMwsWED2KFyPwjVYQNejcD0KR1hAXI\u002fC9ShMWEDNzMzMzDxYQKRwPQrXM1hA4XoUrkcBWEAfhetRuP5XQA=="},"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Date=%{x}\u003cbr\u003eFTY=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#92D050","width":4},"marker":{"color":"#92D050","size":9},"mode":"lines+markers+text","name":"FTY","text":["99.53%","99.59%","99.57%","99.47%","99.48%","99.48%","99.64%","99.47%","99.59%","99.22%","99.43%"],"textfont":{"color":"black","size":11},"textposition":"top center","x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"UrgehevhWED2KFyPwuVYQBSuR+F65FhArkfhehTeWEAfhetRuN5YQB+F61G43lhAKVyPwvXoWECuR+F6FN5YQPYoXI\u002fC5VhArkfhehTOWEDsUbgehdtYQA=="},"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hoverinfo":"skip","mode":"text","name":"Total Defect %","showlegend":false,"text":["0.49%","0.41%","0.43%","0.54%","0.53%","0.52%","0.36%","0.53%","0.40%","0.78%","0.58%"],"textfont":{"color":"black","size":11},"textposition":"top center","x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"XI\u002fC9Shc3z89CtejcD3aP4XrUbgehds\u002fSOF6FK5H4T\u002f2KFyPwvXgP6RwPQrXo+A\u002fCtejcD0K1z\u002f2KFyPwvXgP5qZmZmZmdk\u002f9ihcj8L16D+PwvUoXI\u002fiPw=="},"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"black"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15,"font":{"color":"black"}},"zerolinecolor":"#EBF0F8","zerolinewidth":2,"tickfont":{"color":"black"}},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15,"font":{"color":"black"}},"zerolinecolor":"#EBF0F8","zerolinewidth":2,"tickfont":{"color":"black"}}}},"font":{"size":12,"color":"black"},"xaxis":{"title":{"text":"Week \u002f Day"},"type":"category","categoryorder":"array","categoryarray":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"tickangle":-45},"yaxis":{"title":{"text":"Defect Rate %"},"range":[0,1.5]},"yaxis2":{"title":{"text":"Yield %"},"overlaying":"y","side":"right","showgrid":false,"range":[94.98,100.64],"fixedrange":false},"legend":{"font":{"size":12,"color":"black"},"orientation":"h","yanchor":"top","y":-0.28,"xanchor":"center","x":0.5},"margin":{"l":60,"r":80,"t":90,"b":170},"title":{"text":"DV029 \u2014 Top 5 Defect Rate Distribution"},"height":820,"barmode":"stack","hovermode":"x unified","dragmode":"zoom"},                        {"responsive": true}                    )                };            </script>        </div>
+            
+        <details>
+            <summary style="
+                cursor:pointer;
+                font-size:18px;
+                font-weight:700;
+                margin:12px 0;
+                color:#1F4E79;
+            ">
+                📋 Open / Close Top 5 Defect Rate Distribution Data
+            </summary>
+
+            <table border="1">
+                <thead>
+                    <tr><th>Metric</th><th>WW16'26</th><th>WW17'26</th><th>WW18'26</th><th>WW19'26</th><th>5/03</th><th>5/04</th><th>5/05</th><th>5/06</th><th>5/07</th><th>5/08</th><th>5/09</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Overall_FTY</td><td>99.53%</td><td>99.59%</td><td>99.57%</td><td>99.47%</td><td>99.48%</td><td>99.48%</td><td>99.64%</td><td>99.47%</td><td>99.59%</td><td>99.22%</td><td>99.43%</td></tr><tr><td>top1_errCode : 101089<br>param234</td><td>0.10%</td><td>0.14%</td><td>0.13%</td><td>0.14%</td><td>0.09%</td><td>0.13%</td><td>0.13%</td><td>0.18%</td><td>0.11%</td><td>0.19%</td><td>0.13%</td></tr><tr><td>top2_errCode : 101095<br>param230</td><td>0.02%</td><td>0.02%</td><td>0.03%</td><td>0.04%</td><td>0.07%</td><td>0.05%</td><td>0.02%</td><td>0.04%</td><td>0.00%</td><td>0.04%</td><td>0.06%</td></tr><tr><td>top3_errCode : 100305<br>param25</td><td>0.01%</td><td>0.01%</td><td>0.02%</td><td>0.03%</td><td>0.01%</td><td>0.01%</td><td>0.01%</td><td>0.01%</td><td>0.00%</td><td>0.11%</td><td>0.04%</td></tr><tr><td>top4_errCode : 100306<br>param22</td><td>0.01%</td><td>0.01%</td><td>0.01%</td><td>0.02%</td><td>0.00%</td><td>0.01%</td><td>0.01%</td><td>0.01%</td><td>0.03%</td><td>0.02%</td><td>0.04%</td></tr><tr><td>top5_errCode : 100653<br>param134</td><td>0.01%</td><td>0.02%</td><td>0.02%</td><td>0.03%</td><td>0.06%</td><td>0.00%</td><td>0.01%</td><td>0.01%</td><td>0.01%</td><td>0.05%</td><td>0.04%</td></tr><tr><td>other_errCodes</td><td>0.34%</td><td>0.21%</td><td>0.22%</td><td>0.28%</td><td>0.30%</td><td>0.32%</td><td>0.18%</td><td>0.28%</td><td>0.25%</td><td>0.37%</td><td>0.27%</td></tr>
+                </tbody>
+            </table>
+        </details>
+        
+        </div>
+
+        <div class="section">
+            <h2>Mother Lot Yield Trend</h2>
+            <div>                            <div id="46543ec6-a6fb-4582-a7aa-be7f92f760a9" class="plotly-graph-div" style="height:780px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("46543ec6-a6fb-4582-a7aa-be7f92f760a9")) {                    Plotly.newPlot(                        "46543ec6-a6fb-4582-a7aa-be7f92f760a9",                        [{"hovertemplate":"Mother Lot=%{x}\u003cbr\u003eTest-In QTY=%{y:,}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#4F81BD"},"name":"Test-In QTY","opacity":0.5,"text":["\u003cb\u003e22,411\u003c\u002fb\u003e","\u003cb\u003e22,415\u003c\u002fb\u003e","\u003cb\u003e21,720\u003c\u002fb\u003e","\u003cb\u003e18,824\u003c\u002fb\u003e","\u003cb\u003e15,784\u003c\u002fb\u003e","\u003cb\u003e14,194\u003c\u002fb\u003e","\u003cb\u003e12,872\u003c\u002fb\u003e","\u003cb\u003e11,091\u003c\u002fb\u003e","\u003cb\u003e6,502\u003c\u002fb\u003e","\u003cb\u003e4,580\u003c\u002fb\u003e","\u003cb\u003e4,530\u003c\u002fb\u003e"],"textfont":{"color":"black","size":11},"textposition":"outside","x":["12XUCN","12XUCM","15XUCX","12XUCL","12XUCK","14XUCS","14XUCL","15XUCZ","11XUCE","08XUBL","10XUBW"],"y":{"dtype":"f8","bdata":"AAAAAMDi1UAAAAAAwOPVQAAAAAAANtVAAAAAAABi0kAAAAAAANTOQAAAAAAAuctAAAAAAAAkyUAAAAAAgKnFQAAAAAAAZrlAAAAAAADksUAAAAAAALKxQA=="},"yaxis":"y","type":"bar"},{"hovertemplate":"Mother Lot=%{x}\u003cbr\u003eFinal Output=%{y:,}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#92D050"},"name":"Final Output","opacity":0.45,"text":["\u003cb\u003e22,325\u003c\u002fb\u003e","\u003cb\u003e22,307\u003c\u002fb\u003e","\u003cb\u003e21,651\u003c\u002fb\u003e","\u003cb\u003e18,769\u003c\u002fb\u003e","\u003cb\u003e15,675\u003c\u002fb\u003e","\u003cb\u003e14,140\u003c\u002fb\u003e","\u003cb\u003e12,826\u003c\u002fb\u003e","\u003cb\u003e11,011\u003c\u002fb\u003e","\u003cb\u003e6,476\u003c\u002fb\u003e","\u003cb\u003e4,573\u003c\u002fb\u003e","\u003cb\u003e4,514\u003c\u002fb\u003e"],"textfont":{"color":"black","size":11},"textposition":"outside","x":["12XUCN","12XUCM","15XUCX","12XUCL","12XUCK","14XUCS","14XUCL","15XUCZ","11XUCE","08XUBL","10XUBW"],"y":{"dtype":"f8","bdata":"AAAAAEDN1UAAAAAAwMjVQAAAAADAJNVAAAAAAEBU0kAAAAAAgJ3OQAAAAAAAnstAAAAAAAANyUAAAAAAgIHFQAAAAAAATLlAAAAAAADdsUAAAAAAAKKxQA=="},"yaxis":"y","type":"bar"},{"connectgaps":true,"hovertemplate":"Mother Lot=%{x}\u003cbr\u003e1st Yield=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#4F81BD","width":3},"marker":{"color":"#4F81BD","size":8},"mode":"lines+markers+text","name":"1st Yield","text":["96.00%","96.65%","96.91%","96.34%","96.24%","96.95%","95.89%","96.57%","97.71%","97.90%","98.57%"],"textfont":{"color":"black","size":10},"textposition":"top center","x":["12XUCN","12XUCM","15XUCX","12XUCL","12XUCK","14XUCS","14XUCL","15XUCZ","11XUCE","08XUBL","10XUBW"],"y":{"dtype":"f8","bdata":"AAAAAAAAWECamZmZmSlYQArXo3A9OlhA9ihcj8IVWECPwvUoXA9YQM3MzMzMPFhAKVyPwvX4V0AUrkfheiRYQD0K16NwbVhAmpmZmZl5WEAUrkfheqRYQA=="},"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Mother Lot=%{x}\u003cbr\u003eFinal Yield=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#92D050","width":3},"marker":{"color":"#92D050","size":8},"mode":"lines+markers+text","name":"Final Yield","text":["99.62%","99.52%","99.68%","99.71%","99.31%","99.62%","99.64%","99.28%","99.60%","99.85%","99.65%"],"textfont":{"color":"black","size":10},"textposition":"top center","x":["12XUCN","12XUCM","15XUCX","12XUCL","12XUCK","14XUCS","14XUCL","15XUCZ","11XUCE","08XUBL","10XUBW"],"y":{"dtype":"f8","bdata":"SOF6FK7nWEDhehSuR+FYQOxRuB6F61hAPQrXo3DtWECkcD0K19NYQEjhehSu51hAKVyPwvXoWEBSuB6F69FYQGZmZmZm5lhAZmZmZmb2WECamZmZmelYQA=="},"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Mother Lot=%{x}\u003cbr\u003e3-sig FTY Target=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"red","dash":"dash","width":2},"mode":"lines","name":"3-sig FTY Target (99.24%)","x":["12XUCN","12XUCM","15XUCX","12XUCL","12XUCK","14XUCS","14XUCL","15XUCZ","11XUCE","08XUBL","10XUBW"],"y":[99.24,99.24,99.24,99.24,99.24,99.24,99.24,99.24,99.24,99.24,99.24],"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Mother Lot=%{x}\u003cbr\u003e3-sig FPY Target=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"black","dash":"dash","width":2},"mode":"lines","name":"3-sig FPY Target (92.99%)","x":["12XUCN","12XUCM","15XUCX","12XUCL","12XUCK","14XUCS","14XUCL","15XUCZ","11XUCE","08XUBL","10XUBW"],"y":[92.99,92.99,92.99,92.99,92.99,92.99,92.99,92.99,92.99,92.99,92.99],"yaxis":"y2","type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"black"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15,"font":{"color":"black"}},"zerolinecolor":"#EBF0F8","zerolinewidth":2,"tickfont":{"color":"black"}},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15,"font":{"color":"black"}},"zerolinecolor":"#EBF0F8","zerolinewidth":2,"tickfont":{"color":"black"}}}},"xaxis":{"title":{"text":"Mother Lot"},"type":"category","categoryorder":"array","categoryarray":["12XUCN","12XUCM","15XUCX","12XUCL","12XUCK","14XUCS","14XUCL","15XUCZ","11XUCE","08XUBL","10XUBW"],"tickangle":-45},"yaxis":{"title":{"text":"Quantity"},"side":"left","range":[0,26898.0]},"yaxis2":{"title":{"text":"Yield %"},"overlaying":"y","side":"right","showgrid":false,"range":[89.99,101.0]},"legend":{"font":{"size":12,"color":"black"},"orientation":"h","yanchor":"top","y":-0.28,"xanchor":"center","x":0.5},"margin":{"l":60,"r":80,"t":90,"b":170},"title":{"text":"DV029 \u2014 Mother Lot Yield Trend\u003cbr\u003e\u003csup\u003eDate Range: 2026-04-12 to 2026-05-09\u003c\u002fsup\u003e"},"height":780,"barmode":"group","hovermode":"x unified","dragmode":"zoom"},                        {"responsive": true}                    )                };            </script>        </div>
+            
+        <details>
+            <summary style="
+                cursor:pointer;
+                font-size:18px;
+                font-weight:700;
+                margin:12px 0;
+                color:#1F4E79;
+            ">
+                📋 Open / Close Mother Lot Yield Trend Data
+            </summary>
+
+            <table border="1">
+                <thead>
+                    <tr><th>Mother Lot</th><th>Test-In QTY</th><th>Final Output</th><th>1st Yield</th><th>Final Yield</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>12XUCN</td><td>22411</td><td>22325</td><td>96.0</td><td>99.62</td></tr><tr><td>12XUCM</td><td>22415</td><td>22307</td><td>96.65</td><td>99.52</td></tr><tr><td>15XUCX</td><td>21720</td><td>21651</td><td>96.91</td><td>99.68</td></tr><tr><td>12XUCL</td><td>18824</td><td>18769</td><td>96.34</td><td>99.71</td></tr><tr><td>12XUCK</td><td>15784</td><td>15675</td><td>96.24</td><td>99.31</td></tr><tr><td>14XUCS</td><td>14194</td><td>14140</td><td>96.95</td><td>99.62</td></tr><tr><td>14XUCL</td><td>12872</td><td>12826</td><td>95.89</td><td>99.64</td></tr><tr><td>15XUCZ</td><td>11091</td><td>11011</td><td>96.57</td><td>99.28</td></tr><tr><td>11XUCE</td><td>6502</td><td>6476</td><td>97.71</td><td>99.6</td></tr><tr><td>08XUBL</td><td>4580</td><td>4573</td><td>97.9</td><td>99.85</td></tr><tr><td>10XUBW</td><td>4530</td><td>4514</td><td>98.57</td><td>99.65</td></tr>
+                </tbody>
+            </table>
+        </details>
+        
+        </div>
+
+        <div class="section">
+            <h2>Per Lot Yield Trend</h2>
+            <div>                            <div id="5251af4d-4362-4687-a1e3-6108eb3f5451" class="plotly-graph-div" style="height:780px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("5251af4d-4362-4687-a1e3-6108eb3f5451")) {                    Plotly.newPlot(                        "5251af4d-4362-4687-a1e3-6108eb3f5451",                        [{"hovertemplate":"Schedule No=%{x}\u003cbr\u003eTest-In QTY=%{y:,}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#4F81BD"},"name":"Test-In QTY","opacity":0.5,"text":["\u003cb\u003e2,340\u003c\u002fb\u003e","\u003cb\u003e2,300\u003c\u002fb\u003e","\u003cb\u003e2,281\u003c\u002fb\u003e","\u003cb\u003e2,269\u003c\u002fb\u003e","\u003cb\u003e2,274\u003c\u002fb\u003e","\u003cb\u003e2,259\u003c\u002fb\u003e","\u003cb\u003e2,287\u003c\u002fb\u003e","\u003cb\u003e2,230\u003c\u002fb\u003e","\u003cb\u003e2,196\u003c\u002fb\u003e","\u003cb\u003e2,179\u003c\u002fb\u003e","\u003cb\u003e2,136\u003c\u002fb\u003e","\u003cb\u003e2,137\u003c\u002fb\u003e","\u003cb\u003e2,114\u003c\u002fb\u003e","\u003cb\u003e2,083\u003c\u002fb\u003e","\u003cb\u003e2,078\u003c\u002fb\u003e","\u003cb\u003e2,079\u003c\u002fb\u003e","\u003cb\u003e1,996\u003c\u002fb\u003e","\u003cb\u003e420\u003c\u002fb\u003e"],"textfont":{"color":"black","size":11},"textposition":"outside","x":["08XUBLL212","15XUCZL059","15XUCZL056","15XUCZL058","15XUCZL055","15XUCZL057","14XUCLL114","15XUCZL054","15XUCZL060","15XUCZL045","15XUCZL046","15XUCZL061","14XUCLL113","15XUCZL062","14XUCLL098","14XUCLL112","15XUCXL147","14XUCLL120"],"y":{"dtype":"f8","bdata":"AAAAAABIokAAAAAAAPihQAAAAAAA0qFAAAAAAAC6oUAAAAAAAMShQAAAAAAApqFAAAAAAADeoUAAAAAAAGyhQAAAAAAAKKFAAAAAAAAGoUAAAAAAALCgQAAAAAAAsqBAAAAAAACEoEAAAAAAAEagQAAAAAAAPKBAAAAAAAA+oEAAAAAAADCfQAAAAAAAQHpA"},"yaxis":"y","type":"bar"},{"hovertemplate":"Schedule No=%{x}\u003cbr\u003eFinal Output=%{y:,}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#92D050"},"name":"Final Output","opacity":0.45,"text":["\u003cb\u003e2,337\u003c\u002fb\u003e","\u003cb\u003e2,290\u003c\u002fb\u003e","\u003cb\u003e2,274\u003c\u002fb\u003e","\u003cb\u003e2,257\u003c\u002fb\u003e","\u003cb\u003e2,250\u003c\u002fb\u003e","\u003cb\u003e2,249\u003c\u002fb\u003e","\u003cb\u003e2,247\u003c\u002fb\u003e","\u003cb\u003e2,220\u003c\u002fb\u003e","\u003cb\u003e2,181\u003c\u002fb\u003e","\u003cb\u003e2,157\u003c\u002fb\u003e","\u003cb\u003e2,126\u003c\u002fb\u003e","\u003cb\u003e2,120\u003c\u002fb\u003e","\u003cb\u003e2,109\u003c\u002fb\u003e","\u003cb\u003e2,076\u003c\u002fb\u003e","\u003cb\u003e2,071\u003c\u002fb\u003e","\u003cb\u003e2,068\u003c\u002fb\u003e","\u003cb\u003e1,993\u003c\u002fb\u003e","\u003cb\u003e420\u003c\u002fb\u003e"],"textfont":{"color":"black","size":11},"textposition":"outside","x":["08XUBLL212","15XUCZL059","15XUCZL056","15XUCZL058","15XUCZL055","15XUCZL057","14XUCLL114","15XUCZL054","15XUCZL060","15XUCZL045","15XUCZL046","15XUCZL061","14XUCLL113","15XUCZL062","14XUCLL098","14XUCLL112","15XUCXL147","14XUCLL120"],"y":{"dtype":"f8","bdata":"AAAAAABCokAAAAAAAOShQAAAAAAAxKFAAAAAAACioUAAAAAAAJShQAAAAAAAkqFAAAAAAACOoUAAAAAAAFihQAAAAAAACqFAAAAAAADaoEAAAAAAAJygQAAAAAAAkKBAAAAAAAB6oEAAAAAAADigQAAAAAAALqBAAAAAAAAooEAAAAAAACSfQAAAAAAAQHpA"},"yaxis":"y","type":"bar"},{"connectgaps":true,"hovertemplate":"Schedule No=%{x}\u003cbr\u003e1st Yield=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#4F81BD","width":3},"marker":{"color":"#4F81BD","size":8},"mode":"lines+markers+text","name":"1st Yield","text":["97.18%","96.87%","97.81%","97.22%","93.54%","98.80%","96.41%","96.59%","95.86%","93.35%","97.10%","95.23%","96.50%","93.47%","95.91%","94.28%","94.84%","96.43%"],"textfont":{"color":"black","size":10},"textposition":"top center","x":["08XUBLL212","15XUCZL059","15XUCZL056","15XUCZL058","15XUCZL055","15XUCZL057","14XUCLL114","15XUCZL054","15XUCZL060","15XUCZL045","15XUCZL046","15XUCZL061","14XUCLL113","15XUCZL062","14XUCLL098","14XUCLL112","15XUCXL147","14XUCLL120"],"y":{"dtype":"f8","bdata":"7FG4HoVLWEBI4XoUrjdYQKRwPQrXc1hArkfhehROWEDD9Shcj2JXQDMzMzMzs1hACtejcD0aWED2KFyPwiVYQNejcD0K91dAZmZmZmZWV0BmZmZmZkZYQB+F61G4zldAAAAAAAAgWECuR+F6FF5XQArXo3A9+ldAUrgeheuRV0D2KFyPwrVXQOxRuB6FG1hA"},"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Schedule No=%{x}\u003cbr\u003eFinal Yield=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#92D050","width":3},"marker":{"color":"#92D050","size":8},"mode":"lines+markers+text","name":"Final Yield","text":["99.87%","99.57%","99.69%","99.47%","98.94%","99.56%","98.25%","99.55%","99.32%","98.99%","99.53%","99.20%","99.76%","99.66%","99.66%","99.47%","99.85%","100.00%"],"textfont":{"color":"black","size":10},"textposition":"top center","x":["08XUBLL212","15XUCZL059","15XUCZL056","15XUCZL058","15XUCZL055","15XUCZL057","14XUCLL114","15XUCZL054","15XUCZL060","15XUCZL045","15XUCZL046","15XUCZL061","14XUCLL113","15XUCZL062","14XUCLL098","14XUCLL112","15XUCXL147","14XUCLL120"],"y":{"dtype":"f8","bdata":"SOF6FK73WEAUrkfheuRYQFyPwvUo7FhArkfhehTeWEBcj8L1KLxYQKRwPQrX41hAAAAAAACQWEAzMzMzM+NYQBSuR+F61FhAj8L1KFy\u002fWEBSuB6F6+FYQM3MzMzMzFhAcT0K16PwWEAK16NwPepYQArXo3A96lhArkfhehTeWEBmZmZmZvZYQAAAAAAAAFlA"},"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Schedule No=%{x}\u003cbr\u003e3-sig FTY Target=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"red","dash":"dash","width":2},"mode":"lines","name":"3-sig FTY Target (99.24%)","x":["08XUBLL212","15XUCZL059","15XUCZL056","15XUCZL058","15XUCZL055","15XUCZL057","14XUCLL114","15XUCZL054","15XUCZL060","15XUCZL045","15XUCZL046","15XUCZL061","14XUCLL113","15XUCZL062","14XUCLL098","14XUCLL112","15XUCXL147","14XUCLL120"],"y":[99.24,99.24,99.24,99.24,99.24,99.24,99.24,99.24,99.24,99.24,99.24,99.24,99.24,99.24,99.24,99.24,99.24,99.24],"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Schedule No=%{x}\u003cbr\u003e3-sig FPY Target=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"black","dash":"dash","width":2},"mode":"lines","name":"3-sig FPY Target (92.99%)","x":["08XUBLL212","15XUCZL059","15XUCZL056","15XUCZL058","15XUCZL055","15XUCZL057","14XUCLL114","15XUCZL054","15XUCZL060","15XUCZL045","15XUCZL046","15XUCZL061","14XUCLL113","15XUCZL062","14XUCLL098","14XUCLL112","15XUCXL147","14XUCLL120"],"y":[92.99,92.99,92.99,92.99,92.99,92.99,92.99,92.99,92.99,92.99,92.99,92.99,92.99,92.99,92.99,92.99,92.99,92.99],"yaxis":"y2","type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"black"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15,"font":{"color":"black"}},"zerolinecolor":"#EBF0F8","zerolinewidth":2,"tickfont":{"color":"black"}},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15,"font":{"color":"black"}},"zerolinecolor":"#EBF0F8","zerolinewidth":2,"tickfont":{"color":"black"}}}},"xaxis":{"title":{"text":"Schedule No"},"type":"category","categoryorder":"array","categoryarray":["08XUBLL212","15XUCZL059","15XUCZL056","15XUCZL058","15XUCZL055","15XUCZL057","14XUCLL114","15XUCZL054","15XUCZL060","15XUCZL045","15XUCZL046","15XUCZL061","14XUCLL113","15XUCZL062","14XUCLL098","14XUCLL112","15XUCXL147","14XUCLL120"],"tickangle":-45},"yaxis":{"title":{"text":"Quantity"},"side":"left","range":[0,2808.0]},"yaxis2":{"title":{"text":"Yield %"},"overlaying":"y","side":"right","showgrid":false,"range":[89.99,101.0]},"legend":{"font":{"size":12,"color":"black"},"orientation":"h","yanchor":"top","y":-0.28,"xanchor":"center","x":0.5},"margin":{"l":60,"r":80,"t":90,"b":170},"title":{"text":"DV029 \u2014 Per Lot Yield Trend\u003cbr\u003e\u003csup\u003eDate Range: 2026-05-09 to 2026-05-09\u003c\u002fsup\u003e"},"height":780,"barmode":"group","hovermode":"x unified","dragmode":"zoom"},                        {"responsive": true}                    )                };            </script>        </div>
+            
+        <details>
+            <summary style="
+                cursor:pointer;
+                font-size:18px;
+                font-weight:700;
+                margin:12px 0;
+                color:#1F4E79;
+            ">
+                📋 Open / Close Per Lot Yield Trend Data
+            </summary>
+
+            <table border="1">
+                <thead>
+                    <tr><th>Schedule No</th><th>Test-In QTY</th><th>Final Output</th><th>1st Yield</th><th>Final Yield</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>08XUBLL212</td><td>2340</td><td>2337</td><td>97.18</td><td>99.87</td></tr><tr><td>15XUCZL059</td><td>2300</td><td>2290</td><td>96.87</td><td>99.57</td></tr><tr><td>15XUCZL056</td><td>2281</td><td>2274</td><td>97.81</td><td>99.69</td></tr><tr><td>15XUCZL058</td><td>2269</td><td>2257</td><td>97.22</td><td>99.47</td></tr><tr><td>15XUCZL055</td><td>2274</td><td>2250</td><td>93.54</td><td>98.94</td></tr><tr><td>15XUCZL057</td><td>2259</td><td>2249</td><td>98.8</td><td>99.56</td></tr><tr><td>14XUCLL114</td><td>2287</td><td>2247</td><td>96.41</td><td>98.25</td></tr><tr><td>15XUCZL054</td><td>2230</td><td>2220</td><td>96.59</td><td>99.55</td></tr><tr><td>15XUCZL060</td><td>2196</td><td>2181</td><td>95.86</td><td>99.32</td></tr><tr><td>15XUCZL045</td><td>2179</td><td>2157</td><td>93.35</td><td>98.99</td></tr><tr><td>15XUCZL046</td><td>2136</td><td>2126</td><td>97.1</td><td>99.53</td></tr><tr><td>15XUCZL061</td><td>2137</td><td>2120</td><td>95.23</td><td>99.2</td></tr><tr><td>14XUCLL113</td><td>2114</td><td>2109</td><td>96.5</td><td>99.76</td></tr><tr><td>15XUCZL062</td><td>2083</td><td>2076</td><td>93.47</td><td>99.66</td></tr><tr><td>14XUCLL098</td><td>2078</td><td>2071</td><td>95.91</td><td>99.66</td></tr><tr><td>14XUCLL112</td><td>2079</td><td>2068</td><td>94.28</td><td>99.47</td></tr><tr><td>15XUCXL147</td><td>1996</td><td>1993</td><td>94.84</td><td>99.85</td></tr><tr><td>14XUCLL120</td><td>420</td><td>420</td><td>96.43</td><td>100.0</td></tr>
+                </tbody>
+            </table>
+        </details>
+        
+        </div>
+
+        <div class="section">
+            <h2>LRR Trend</h2>
+            <div>                            <div id="3a210888-46b9-431f-b24a-5defe731547a" class="plotly-graph-div" style="height:650px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("3a210888-46b9-431f-b24a-5defe731547a")) {                    Plotly.newPlot(                        "3a210888-46b9-431f-b24a-5defe731547a",                        [{"hovertemplate":"Date=%{x}\u003cbr\u003eTotal Lots=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#4F81BD"},"name":"Total Lots Tested","offsetgroup":"total_lots","opacity":0.5,"text":["\u003cb\u003e88\u003c\u002fb\u003e","\u003cb\u003e83\u003c\u002fb\u003e","\u003cb\u003e78\u003c\u002fb\u003e","\u003cb\u003e112\u003c\u002fb\u003e","\u003cb\u003e14\u003c\u002fb\u003e","\u003cb\u003e15\u003c\u002fb\u003e","\u003cb\u003e21\u003c\u002fb\u003e","\u003cb\u003e18\u003c\u002fb\u003e","\u003cb\u003e10\u003c\u002fb\u003e","\u003cb\u003e16\u003c\u002fb\u003e","\u003cb\u003e18\u003c\u002fb\u003e"],"textfont":{"color":"black","size":12},"textposition":"outside","x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"i1","bdata":"WFNOcA4PFRIKEBI="},"yaxis":"y","type":"bar"},{"hovertemplate":"Date=%{x}\u003cbr\u003eLRR Count=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#F4A6A6"},"name":"LRR Count","offsetgroup":"lrr_lots","opacity":0.9,"text":["\u003cb\u003e2\u003c\u002fb\u003e","\u003cb\u003e0\u003c\u002fb\u003e","\u003cb\u003e0\u003c\u002fb\u003e","\u003cb\u003e3\u003c\u002fb\u003e","\u003cb\u003e0\u003c\u002fb\u003e","\u003cb\u003e1\u003c\u002fb\u003e","\u003cb\u003e0\u003c\u002fb\u003e","\u003cb\u003e0\u003c\u002fb\u003e","\u003cb\u003e0\u003c\u002fb\u003e","\u003cb\u003e2\u003c\u002fb\u003e","\u003cb\u003e0\u003c\u002fb\u003e"],"textfont":{"color":"black","size":12},"textposition":"outside","x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"i1","bdata":"AgAAAwABAAAAAgA="},"yaxis":"y","type":"bar"},{"connectgaps":true,"hovertemplate":"Date=%{x}\u003cbr\u003eLRR %=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"red","width":4},"marker":{"color":"red","size":9},"mode":"lines+markers+text","name":"LRR %","text":["2.27%","0.00%","0.00%","2.68%","0.00%","6.67%","0.00%","0.00%","0.00%","12.50%","0.00%"],"textfont":{"color":"black","size":12},"textposition":"top center","x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"KVyPwvUoAkAAAAAAAAAAAAAAAAAAAAAAcT0K16NwBUAAAAAAAAAAAK5H4XoUrhpAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKUAAAAAAAAAAAA=="},"yaxis":"y2","type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"black"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15,"font":{"color":"black"}},"zerolinecolor":"#EBF0F8","zerolinewidth":2,"tickfont":{"color":"black"}},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15,"font":{"color":"black"}},"zerolinecolor":"#EBF0F8","zerolinewidth":2,"tickfont":{"color":"black"}}}},"title":{"text":"DV029 \u2014 LRR% Trend (4-Week Format) | LRR Trigger: FTY Target (3-sig LCL) @ 99.24%","font":{"size":14,"color":"red"}},"font":{"size":12,"color":"black"},"xaxis":{"tickfont":{"size":12,"color":"black"},"title":{"text":"Week \u002f Day","font":{"size":13,"color":"black"}},"type":"category","categoryorder":"array","categoryarray":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"tickangle":-45},"yaxis":{"tickfont":{"size":12,"color":"black"},"title":{"text":"Lot Count","font":{"size":13,"color":"black"}},"side":"left","range":[0,134.0]},"yaxis2":{"title":{"text":"LRR %","font":{"size":13,"color":"black"}},"overlaying":"y","side":"right","showgrid":false,"range":[0,15],"tickfont":{"size":12,"color":"black"}},"legend":{"font":{"size":12,"color":"black"},"orientation":"h","yanchor":"top","y":-0.28,"xanchor":"center","x":0.5},"margin":{"l":60,"r":80,"t":90,"b":170},"height":650,"barmode":"group","hovermode":"x unified","dragmode":"zoom"},                        {"responsive": true}                    )                };            </script>        </div>
+        </div>
+
+        <div class="section">
+            <h2>LRR Summary</h2>
+            
+        <details>
+            <summary style="
+                cursor:pointer;
+                font-size:18px;
+                font-weight:700;
+                margin:12px 0;
+                color:#1F4E79;
+            ">
+                📋 Open / Close LRR Summary Data
+            </summary>
+
+            <table border="1">
+                <thead>
+                    <tr><th>Date</th><th>Mother lot</th><th>Total Lots Tested</th><th>LRR Count</th><th>LRR%</th><th>LRR Failed Lots</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>WW16'26</td><td>08XUBL<br>10XUBW<br>11XUCE<br>12XUCK<br>12XUCL</td><td>88</td><td>2</td><td>2.27%</td><td>12XUCKL070<br>12XUCKL131</td></tr><tr><td>WW17'26</td><td>12XUCK<br>12XUCL<br>12XUCM<br>12XUCN</td><td>83</td><td>0</td><td>0.00%</td><td>-</td></tr><tr><td>WW18'26</td><td>12XUCM<br>12XUCN<br>14XUCS<br>15XUCX</td><td>78</td><td>0</td><td>0.00%</td><td>-</td></tr><tr><td>WW19'26</td><td>08XUBL<br>12XUCM<br>12XUCN<br>14XUCL<br>15XUCX<br>15XUCZ</td><td>112</td><td>3</td><td>2.68%</td><td>12XUCML061<br>14XUCLL099<br>14XUCLL107</td></tr><tr><td>5/03</td><td>12XUCM<br>15XUCX</td><td>14</td><td>0</td><td>0.00%</td><td>-</td></tr><tr><td>5/04</td><td>12XUCM<br>12XUCN<br>14XUCL<br>15XUCX</td><td>15</td><td>1</td><td>6.67%</td><td>12XUCML061</td></tr><tr><td>5/05</td><td>12XUCM<br>14XUCL<br>15XUCX<br>15XUCZ</td><td>21</td><td>0</td><td>0.00%</td><td>-</td></tr><tr><td>5/06</td><td>12XUCM<br>14XUCL<br>15XUCX<br>15XUCZ</td><td>18</td><td>0</td><td>0.00%</td><td>-</td></tr><tr><td>5/07</td><td>14XUCL<br>15XUCX<br>15XUCZ</td><td>10</td><td>0</td><td>0.00%</td><td>-</td></tr><tr><td>5/08</td><td>12XUCN<br>14XUCL<br>15XUCX<br>15XUCZ</td><td>16</td><td>2</td><td>12.50%</td><td>14XUCLL099<br>14XUCLL107</td></tr><tr><td>5/09</td><td>08XUBL<br>14XUCL<br>15XUCX<br>15XUCZ</td><td>18</td><td>0</td><td>0.00%</td><td>-</td></tr>
+                </tbody>
+            </table>
+        </details>
+        
+        </div>
+
+        <div class="section">
+            <h2>Top 5 High Retest Pass Rate errCode Distribution</h2>
+            <p><b>Date Range:</b> 2026-04-12 to 2026-05-09</p>
+            <div>                            <div id="f1fa8ebe-0d82-4658-ad6f-955d02de8351" class="plotly-graph-div" style="height:820px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("f1fa8ebe-0d82-4658-ad6f-955d02de8351")) {                    Plotly.newPlot(                        "f1fa8ebe-0d82-4658-ad6f-955d02de8351",                        [{"customdata":[["100791\nparam219"],["100791\nparam219"],["100791\nparam219"],["100791\nparam219"],["100791\nparam219"],["100791\nparam219"],["100791\nparam219"],["100791\nparam219"],["100791\nparam219"],["100791\nparam219"],["100791\nparam219"]],"hovertemplate":"Date=%{x}\u003cbr\u003eErrCode=%{customdata[0]}\u003cbr\u003eRPR=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#F79646"},"name":"Top1 errCode RPR","opacity":0.85,"x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"AAAAAAAA4D8pXI\u002fC9SjkP+F6FK5H4do\u002f4XoUrkfh2j9xPQrXo3DNP83MzMzMzNw\u002frkfhehSu1z8UrkfhehTePx+F61G4HtU\u002fuB6F61G43j\u002fhehSuR+HiPw=="},"yaxis":"y","type":"bar"},{"customdata":[["101085\nparam213"],["101085\nparam213"],["101085\nparam213"],["101085\nparam213"],["101085\nparam213"],["101085\nparam213"],["101085\nparam213"],["101085\nparam213"],["101085\nparam213"],["101085\nparam213"],["101085\nparam213"]],"hovertemplate":"Date=%{x}\u003cbr\u003eErrCode=%{customdata[0]}\u003cbr\u003eRPR=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#8064A2"},"name":"Top2 errCode RPR","opacity":0.85,"x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"uB6F61G4rj8fhetRuB7VP+F6FK5H4co\u002fUrgehetR2D\u002fhehSuR+HKP\u002fYoXI\u002fC9dg\u002fCtejcD0K1z+amZmZmZnZP1yPwvUoXN8\u002frkfhehSu1z\u002fNzMzMzMzcPw=="},"yaxis":"y","type":"bar"},{"customdata":[["100653\nparam134"],["100653\nparam134"],["100653\nparam134"],["100653\nparam134"],["100653\nparam134"],["100653\nparam134"],["100653\nparam134"],["100653\nparam134"],["100653\nparam134"],["100653\nparam134"],["100653\nparam134"]],"hovertemplate":"Date=%{x}\u003cbr\u003eErrCode=%{customdata[0]}\u003cbr\u003eRPR=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#C0504D"},"name":"Top3 errCode RPR","opacity":0.85,"x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"exSuR+F6tD+kcD0K16PQP3E9CtejcM0\u002fj8L1KFyP0j9cj8L1KFzfPzMzMzMzM8M\u002fuB6F61G4zj9SuB6F61HIPwrXo3A9Csc\u002fhetRuB6F2z9mZmZmZmbWPw=="},"yaxis":"y","type":"bar"},{"customdata":[["101089\nparam234"],["101089\nparam234"],["101089\nparam234"],["101089\nparam234"],["101089\nparam234"],["101089\nparam234"],["101089\nparam234"],["101089\nparam234"],["101089\nparam234"],["101089\nparam234"],["101089\nparam234"]],"hovertemplate":"Date=%{x}\u003cbr\u003eErrCode=%{customdata[0]}\u003cbr\u003eRPR=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#4BACC6"},"name":"Top4 errCode RPR","opacity":0.85,"x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"uB6F61G4rj\u002fD9Shcj8LFP1K4HoXrUcg\u002f4XoUrkfhyj\u002fhehSuR+HKP7gehetRuM4\u002fUrgehetRyD9xPQrXo3DNP6RwPQrXo9A\u002fMzMzMzMzwz9xPQrXo3DNPw=="},"yaxis":"y","type":"bar"},{"customdata":[["100306\nparam22"],["100306\nparam22"],["100306\nparam22"],["100306\nparam22"],["100306\nparam22"],["100306\nparam22"],["100306\nparam22"],["100306\nparam22"],["100306\nparam22"],["100306\nparam22"],["100306\nparam22"]],"hovertemplate":"Date=%{x}\u003cbr\u003eErrCode=%{customdata[0]}\u003cbr\u003eRPR=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#7F7F7F"},"name":"Top5 errCode RPR","opacity":0.85,"x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"MzMzMzMzwz\u002fhehSuR+HKP3sUrkfhesQ\u002fMzMzMzMzwz+4HoXrUbieP+xRuB6F67E\u002fMzMzMzMzwz+4HoXrUbi+P3E9CtejcM0\u002fcT0K16NwzT\u002fhehSuR+HKPw=="},"yaxis":"y","type":"bar"},{"hovertemplate":"Date=%{x}\u003cbr\u003eOther errCodes RPR=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#D9D9D9"},"name":"Other errCodes RPR","opacity":0.85,"x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"SOF6FK5H+T8zMzMzMzP3P0jhehSuR\u002fU\u002f9ihcj8L19D+uR+F6FK73Px+F61G4HvE\u002fPQrXo3A98j\u002fD9Shcj8LxP83MzMzMzPQ\u002fexSuR+F6+D\u002fsUbgehev5Pw=="},"yaxis":"y","type":"bar"},{"connectgaps":true,"hovertemplate":"Date=%{x}\u003cbr\u003eOverall RPR=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"red","width":3},"marker":{"color":"red","size":8},"mode":"lines+markers","name":"Overall RPR","x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"cT0K16NwA0BmZmZmZmYIQFK4HoXrUQRAFK5H4XoUBkAzMzMzMzMFQPYoXI\u002fC9QJAmpmZmZmZA0ApXI\u002fC9SgEQFK4HoXrUQZAhetRuB6FCUCamZmZmZkLQA=="},"type":"scatter"},{"connectgaps":true,"hoverinfo":"skip","mode":"text","name":"Total RPR","showlegend":false,"text":["2.43%","3.05%","2.54%","2.76%","2.65%","2.37%","2.45%","2.52%","2.79%","3.19%","3.45%"],"textfont":{"color":"black","size":12},"textposition":"top center","x":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"y":{"dtype":"f8","bdata":"cT0K16NwA0BmZmZmZmYIQFK4HoXrUQRAFK5H4XoUBkAzMzMzMzMFQPYoXI\u002fC9QJAmpmZmZmZA0ApXI\u002fC9SgEQFK4HoXrUQZAhetRuB6FCUCamZmZmZkLQA=="},"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"black"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15,"font":{"color":"black"}},"zerolinecolor":"#EBF0F8","zerolinewidth":2,"tickfont":{"color":"black"}},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15,"font":{"color":"black"}},"zerolinecolor":"#EBF0F8","zerolinewidth":2,"tickfont":{"color":"black"}}}},"font":{"size":12,"color":"black"},"xaxis":{"title":{"text":"Week \u002f Day"},"type":"category","categoryorder":"array","categoryarray":["WW16'26","WW17'26","WW18'26","WW19'26","5\u002f03","5\u002f04","5\u002f05","5\u002f06","5\u002f07","5\u002f08","5\u002f09"],"tickangle":-45},"yaxis":{"title":{"text":"Retest Pass Rate %"},"range":[0,5]},"legend":{"font":{"size":12,"color":"black"},"orientation":"h","yanchor":"top","y":-0.28,"xanchor":"center","x":0.5},"margin":{"l":60,"r":80,"t":90,"b":170},"title":{"text":"DV029 \u2014 Top 5 High Retest Pass Rate errCode Distribution\u003cbr\u003e\u003csup\u003eDate Range: 2026-04-12 to 2026-05-09\u003c\u002fsup\u003e"},"height":820,"barmode":"stack","hovermode":"x unified","dragmode":"zoom"},                        {"responsive": true}                    )                };            </script>        </div>
+            
+        <details>
+            <summary style="
+                cursor:pointer;
+                font-size:18px;
+                font-weight:700;
+                margin:12px 0;
+                color:#1F4E79;
+            ">
+                📋 Open / Close Top 5 High Retest Pass Rate errCode Distribution Data
+            </summary>
+
+            <table border="1">
+                <thead>
+                    <tr><th>Metric</th><th>WW16'26</th><th>WW17'26</th><th>WW18'26</th><th>WW19'26</th><th>5/03</th><th>5/04</th><th>5/05</th><th>5/06</th><th>5/07</th><th>5/08</th><th>5/09</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Overall_RPR</td><td>2.43%</td><td>3.05%</td><td>2.54%</td><td>2.76%</td><td>2.65%</td><td>2.37%</td><td>2.45%</td><td>2.52%</td><td>2.79%</td><td>3.19%</td><td>3.45%</td></tr><tr><td>top1_errCode : 100791<br>param219</td><td>0.50%</td><td>0.63%</td><td>0.42%</td><td>0.42%</td><td>0.23%</td><td>0.45%</td><td>0.37%</td><td>0.47%</td><td>0.33%</td><td>0.48%</td><td>0.59%</td></tr><tr><td>top2_errCode : 101085<br>param213</td><td>0.06%</td><td>0.33%</td><td>0.21%</td><td>0.38%</td><td>0.21%</td><td>0.39%</td><td>0.36%</td><td>0.40%</td><td>0.49%</td><td>0.37%</td><td>0.45%</td></tr><tr><td>top3_errCode : 100653<br>param134</td><td>0.08%</td><td>0.26%</td><td>0.23%</td><td>0.29%</td><td>0.49%</td><td>0.15%</td><td>0.24%</td><td>0.19%</td><td>0.18%</td><td>0.43%</td><td>0.35%</td></tr><tr><td>top4_errCode : 101089<br>param234</td><td>0.06%</td><td>0.17%</td><td>0.19%</td><td>0.21%</td><td>0.21%</td><td>0.24%</td><td>0.19%</td><td>0.23%</td><td>0.26%</td><td>0.15%</td><td>0.23%</td></tr><tr><td>top5_errCode : 100306<br>param22</td><td>0.15%</td><td>0.21%</td><td>0.16%</td><td>0.15%</td><td>0.03%</td><td>0.07%</td><td>0.15%</td><td>0.12%</td><td>0.23%</td><td>0.23%</td><td>0.21%</td></tr><tr><td>other_errCodes</td><td>1.58%</td><td>1.45%</td><td>1.33%</td><td>1.31%</td><td>1.48%</td><td>1.07%</td><td>1.14%</td><td>1.11%</td><td>1.30%</td><td>1.53%</td><td>1.62%</td></tr>
+                </tbody>
+            </table>
+        </details>
+        
+        </div>
+
+        <div class="section">
+            <h2>Handler vs Top 5 High RPR</h2>
+            <p><b>Date Range:</b> 2026-05-09 to 2026-05-09</p>
+            <div>                            <div id="826468f8-805b-49d6-a750-141e3f704bc1" class="plotly-graph-div" style="height:820px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("826468f8-805b-49d6-a750-141e3f704bc1")) {                    Plotly.newPlot(                        "826468f8-805b-49d6-a750-141e3f704bc1",                        [{"customdata":[["param219"],["param36"],["param219"],["param219"],["param213"],["param213"],["param213"],["param134"]],"hovertemplate":"Handler=%{x}\u003cbr\u003eerrCode=%{customdata[0]}\u003cbr\u003eRPR=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#F79646"},"name":"Top1 errCode RPR","opacity":0.85,"x":["0006","0002","0004","0001","0005","0003","0000","0007"],"y":{"dtype":"f8","bdata":"j8L1KFyP6j+F61G4HoXjP0jhehSuR+k\u002f16NwPQrX8z\u002fNzMzMzMzkP8P1KFyPwuU\u002fFK5H4XoU7j+PwvUoXI\u002fiPw=="},"type":"bar"},{"customdata":[["param22"],["param219"],["param134"],["param134"],["param67"],["param219"],["param210"],["param67"]],"hovertemplate":"Handler=%{x}\u003cbr\u003eerrCode=%{customdata[0]}\u003cbr\u003eRPR=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#8064A2"},"name":"Top2 errCode RPR","opacity":0.85,"x":["0006","0002","0004","0001","0005","0003","0000","0007"],"y":{"dtype":"f8","bdata":"7FG4HoXr4T8AAAAAAADgP9ejcD0K1+M\u002fuB6F61G45j9SuB6F61HYP83MzMzMzOQ\u002fexSuR+F61D8fhetRuB7VPw=="},"type":"bar"},{"customdata":[["param213"],["param22"],["param22"],["param213"],["param219"],["param192"],["param219"],["param234"]],"hovertemplate":"Handler=%{x}\u003cbr\u003eerrCode=%{customdata[0]}\u003cbr\u003eRPR=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#C0504D"},"name":"Top3 errCode RPR","opacity":0.85,"x":["0006","0002","0004","0001","0005","0003","0000","0007"],"y":{"dtype":"f8","bdata":"H4XrUbge1T+4HoXrUbjeP7gehetRuN4\u002fUrgehetR2D\u002fXo3A9CtfTPz0K16NwPdo\u002fMzMzMzMz0z\u002fXo3A9CtfTPw=="},"type":"bar"},{"customdata":[["param234"],["param227"],["param230"],["param234"],["param230"],["param36"],["param9"],["param213"]],"hovertemplate":"Handler=%{x}\u003cbr\u003eerrCode=%{customdata[0]}\u003cbr\u003eRPR=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#4BACC6"},"name":"Top4 errCode RPR","opacity":0.85,"x":["0006","0002","0004","0001","0005","0003","0000","0007"],"y":{"dtype":"f8","bdata":"j8L1KFyP0j+4HoXrUbjeP65H4XoUrtc\u002fUrgehetR2D\u002fXo3A9CtfTPx+F61G4HtU\u002f7FG4HoXr0T\u002fhehSuR+HKPw=="},"type":"bar"},{"customdata":[["param192"],["param134"],["param188"],["param230"],["param9"],["param203"],["param234"],["param230"]],"hovertemplate":"Handler=%{x}\u003cbr\u003eerrCode=%{customdata[0]}\u003cbr\u003eRPR=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#7F7F7F"},"name":"Top5 errCode RPR","opacity":0.85,"x":["0006","0002","0004","0001","0005","0003","0000","0007"],"y":{"dtype":"f8","bdata":"SOF6FK5H0T\u002fD9Shcj8LVPwAAAAAAANA\u002fpHA9CtejwD+PwvUoXI\u002fSPylcj8L1KMw\u002fcT0K16NwzT9SuB6F61HIPw=="},"type":"bar"},{"hovertemplate":"Handler=%{x}\u003cbr\u003eOther errCodes RPR=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#D9D9D9"},"name":"Other errCodes RPR","opacity":0.85,"x":["0006","0002","0004","0001","0005","0003","0000","0007"],"y":{"dtype":"f8","bdata":"KlyPwvUoAEBSuB6F61H8P+J6FK5H4fY\u002fmpmZmZmZ4T97FK5H4Xr0P+J6FK5H4eo\u002fmpmZmZmZ4T8qXI\u002fC9SjkPw=="},"type":"bar"},{"connectgaps":true,"hoverinfo":"skip","mode":"text","showlegend":false,"text":["4.33%","4.20%","3.97%","3.42%","3.25%","3.14%","2.65%","2.26%"],"textfont":{"color":"black","size":11},"textposition":"top center","x":["0006","0002","0004","0001","0005","0003","0000","0007"],"y":{"dtype":"f8","bdata":"UrgehetREUDNzMzMzMwQQMP1KFyPwg9AXI\u002fC9ShcC0AAAAAAAAAKQB+F61G4HglAMzMzMzMzBUAUrkfhehQCQA=="},"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"black"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15,"font":{"color":"black"}},"zerolinecolor":"#EBF0F8","zerolinewidth":2,"tickfont":{"color":"black"}},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15,"font":{"color":"black"}},"zerolinecolor":"#EBF0F8","zerolinewidth":2,"tickfont":{"color":"black"}}}},"font":{"size":12,"color":"black"},"xaxis":{"title":{"text":"Handler"},"type":"category","categoryorder":"array","categoryarray":["0006","0002","0004","0001","0005","0003","0000","0007"],"tickangle":-45},"yaxis":{"title":{"text":"RPR %"},"range":[0,10]},"legend":{"font":{"size":12,"color":"black"},"orientation":"h","yanchor":"top","y":-0.28,"xanchor":"center","x":0.5},"margin":{"l":60,"r":80,"t":90,"b":170},"title":{"text":"DV029 \u2014 Handler vs Top 5 High RPR errCode\u003cbr\u003e\u003csup\u003eDate Range: 2026-05-09 to 2026-05-09\u003c\u002fsup\u003e"},"height":820,"barmode":"stack","hovermode":"x unified"},                        {"responsive": true}                    )                };            </script>        </div>
+            
+        <details>
+            <summary style="
+                cursor:pointer;
+                font-size:18px;
+                font-weight:700;
+                margin:12px 0;
+                color:#1F4E79;
+            ">
+                📋 Open / Close Handler vs Top 5 High RPR Data
+            </summary>
+
+            <table border="1">
+                <thead>
+                    <tr><th>Handler #</th><th>top1_errCode</th><th>top2_errCode</th><th>top3_errCode</th><th>top4_errCode</th><th>top5_errCode</th><th>other_errCodes</th><th>Total_RPR</th><th>input_qty</th><th>rpr_qty</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>0006</td><td>0.83% param219</td><td>0.56% param22</td><td>0.33% param213</td><td>0.29% param234</td><td>0.27% param192</td><td>2.02%</td><td>4.33%</td><td>4805</td><td>208</td></tr><tr><td>0002</td><td>0.61% param36</td><td>0.50% param219</td><td>0.48% param22</td><td>0.48% param227</td><td>0.34% param134</td><td>1.77%</td><td>4.20%</td><td>4765</td><td>200</td></tr><tr><td>0004</td><td>0.79% param219</td><td>0.62% param134</td><td>0.48% param22</td><td>0.37% param230</td><td>0.25% param188</td><td>1.43%</td><td>3.97%</td><td>4812</td><td>191</td></tr><tr><td>0001</td><td>1.24% param219</td><td>0.71% param134</td><td>0.38% param213</td><td>0.38% param234</td><td>0.13% param230</td><td>0.55%</td><td>3.42%</td><td>4676</td><td>160</td></tr><tr><td>0005</td><td>0.65% param213</td><td>0.38% param67</td><td>0.31% param219</td><td>0.31% param230</td><td>0.29% param9</td><td>1.28%</td><td>3.25%</td><td>4493</td><td>146</td></tr><tr><td>0003</td><td>0.68% param213</td><td>0.65% param219</td><td>0.41% param192</td><td>0.33% param36</td><td>0.22% param203</td><td>0.84%</td><td>3.14%</td><td>4585</td><td>144</td></tr><tr><td>0000</td><td>0.94% param213</td><td>0.32% param210</td><td>0.30% param219</td><td>0.28% param9</td><td>0.23% param234</td><td>0.55%</td><td>2.65%</td><td>4684</td><td>124</td></tr><tr><td>0007</td><td>0.58% param134</td><td>0.33% param67</td><td>0.31% param234</td><td>0.21% param213</td><td>0.19% param230</td><td>0.63%</td><td>2.26%</td><td>4818</td><td>109</td></tr>
+                </tbody>
+            </table>
+        </details>
+        
+        </div>
+
+        <!-- Handler-Site section temporarily disabled -->
+
+    </body>
+    </html>
+    
