@@ -28,30 +28,37 @@ The analytics workflows were designed around semiconductor final-test manufactur
 
 This project generates standalone interactive HTML dashboards that enable engineers and stakeholders to explore semiconductor manufacturing KPIs without requiring Python, a database connection, or BI software.
 
-The sample dashboards below are generated using anonymized data and demonstrate both operational and management-level reporting.
+The sample dashboards below are generated using anonymized data and demonstrate both operational and executive-level reporting.
 
 ## 📊 Device Dashboard
 
-A device-level dashboard used for daily manufacturing monitoring, including:
+Daily manufacturing dashboard for a single semiconductor device featuring:
 
 * Yield and Retest Pass Rate (RPR) trends
 * Interactive defect Pareto analysis
 * Expandable data tables
 
-**Demo HTML:** [SiP_Yield_Dashboard_DV029.html]([demo/SIP_Yield_Dashboard_DV029.html](https://<your-username>.github.io/semiconductor-yield-dashboard/demo/SiP_Yield_Dashboard_DV029.html))
+**🌐 Launch Interactive Dashboard**
+
+https://YOUR_GITHUB_USERNAME.github.io/semiconductor-yield-dashboard/demo/SiP_Yield_Dashboard_DV029.html
 
 ---
 
 ## 📈 Executive Performance Dashboard
 
-An executive dashboard that consolidates multiple semiconductor devices into a single view for management reporting, including:
+Management dashboard consolidating multiple semiconductor devices into a single executive view featuring:
 
 * Year-over-Year (YoY) analysis
 * Quarter-over-Quarter (QoQ) analysis
 * Month-over-Month (MoM) analysis
 * Cross-device KPI trend visualization
 
-**Demo HTML:** [SiP_YoY_Dashboard_Demo.html](demo/SiP_YoY_Dashboard_Demo.html)
+**🌐 Launch Interactive Dashboard**
+
+https://YOUR_GITHUB_USERNAME.github.io/semiconductor-yield-dashboard/demo/SiP_YoY_Dashboard_Demo.html
+
+> These dashboards are fully interactive and support Plotly hover tooltips, zooming, panning, legend filtering, and responsive charts directly in your web browser.
+
 
 > **Note:** GitHub displays HTML files as source code. Download the HTML file (or open the raw file) and view it locally in your web browser to experience the full interactive dashboard.
 
