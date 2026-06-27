@@ -60,7 +60,6 @@ The ETL pipeline standardizes and transforms these semi-structured files into an
 - Retest Pass Rate (RPR)
 - Top defect pareto analysis
 - Handler correlation analysis
-- Handler-site root cause analysis
 
 ## Long-Term Manufacturing Trend Analytics
 Includes:
