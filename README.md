@@ -34,13 +34,12 @@ The sample dashboards below are generated using anonymized data and demonstrate 
 
 Daily manufacturing dashboard for a single semiconductor device featuring:
 
-* Yield and Retest Pass Rate (RPR) trends
-* Interactive defect Pareto analysis
-* Expandable data tables
+- Yield and Retest Pass Rate (RPR) trends
+- Interactive defect Pareto analysis
+- Expandable data tables
 
-**🌐 Launch Interactive Dashboard**
-
-https://YOUR_GITHUB_USERNAME.github.io/semiconductor-yield-dashboard/demo/SiP_Yield_Dashboard_DV029.html
+**🌐 Launch Interactive Dashboard:**  
+[SiP_Yield_Dashboard_DV029.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SiP_Yield_Dashboard_DV029.html)
 
 ---
 
@@ -48,19 +47,15 @@ https://YOUR_GITHUB_USERNAME.github.io/semiconductor-yield-dashboard/demo/SiP_Yi
 
 Management dashboard consolidating multiple semiconductor devices into a single executive view featuring:
 
-* Year-over-Year (YoY) analysis
-* Quarter-over-Quarter (QoQ) analysis
-* Month-over-Month (MoM) analysis
-* Cross-device KPI trend visualization
+- Year-over-Year (YoY) analysis
+- Quarter-over-Quarter (QoQ) analysis
+- Month-over-Month (MoM) analysis
+- Cross-device KPI trend visualization
 
-**🌐 Launch Interactive Dashboard**
+**🌐 Launch Interactive Dashboard:**  
+[SiP_YoY_Dashboard_Demo.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SiP_YoY_Dashboard_Demo.html)
 
-https://YOUR_GITHUB_USERNAME.github.io/semiconductor-yield-dashboard/demo/SiP_YoY_Dashboard_Demo.html
-
-> These dashboards are fully interactive and support Plotly hover tooltips, zooming, panning, legend filtering, and responsive charts directly in your web browser.
-
-
-> **Note:** GitHub displays HTML files as source code. Download the HTML file (or open the raw file) and view it locally in your web browser to experience the full interactive dashboard.
+> Note: These standalone HTML reports can be viewed directly in a web browser and retain Plotly's interactive hover tooltips, zooming, and panning capabilities.
 
 ---
 
