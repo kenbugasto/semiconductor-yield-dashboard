@@ -31,16 +31,14 @@ This project generates standalone interactive HTML dashboards that enable engine
 Sample outputs using anonymized data:
 
 📊 SiP_Yield_Dashboard_DV029.html
-Device-level KPI monitoring
-Interactive Pareto analysis
-Yield trend visualization
-Expandable data tables
+- Device-level KPI monitoring
+- Interactive Pareto analysis
+- Yield trend visualization
+- Expandable data tables
 
 📈 SiP_YoY_Dashboard_Demo.html
-Year-over-Year (YoY) comparison
-Quarter-over-Quarter (QoQ) comparison
-Month-over-Month (MoM) comparison
-Multi-device performance trend analysis
+- Year-over-Year (YoY) comparison
+- Multi-device performance trend analysis
 
 Tip: Download and open the HTML files in your web browser to experience full Plotly interactivity
 ---
