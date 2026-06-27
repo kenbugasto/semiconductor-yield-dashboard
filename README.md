@@ -38,7 +38,7 @@ A device-level dashboard used for daily manufacturing monitoring, including:
 * Interactive defect Pareto analysis
 * Expandable data tables
 
-**Demo HTML:** [SiP_Yield_Dashboard_DV029.html](demo/SiP_Yield_Dashboard_DV029.html)
+**Demo HTML:** [SiP_Yield_Dashboard_DV029.html](demo/SIP_Yield_Dashboard_DV029.html)
 
 ---
 
