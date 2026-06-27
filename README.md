@@ -36,7 +36,6 @@ A device-level dashboard used for daily manufacturing monitoring, including:
 
 * Yield and Retest Pass Rate (RPR) trends
 * Interactive defect Pareto analysis
-* Lot-level drill-downs
 * Expandable data tables
 
 **Demo HTML:** [SiP_Yield_Dashboard_DV029.html](demo/SiP_Yield_Dashboard_DV029.html)
@@ -54,7 +53,7 @@ An executive dashboard that consolidates multiple semiconductor devices into a s
 
 **Demo HTML:** [SiP_YoY_Dashboard_Demo.html](demo/SiP_YoY_Dashboard_Demo.html)
 
-> **Note:** GitHub displays HTML files as source code. Download the HTML file (or open the raw file) and view it locally in your web browser to experience the full interactive dashboard, including hover tooltips, zooming, panning, legend filtering, and responsive charts.
+> **Note:** GitHub displays HTML files as source code. Download the HTML file (or open the raw file) and view it locally in your web browser to experience the full interactive dashboard.
 
 ---
 
