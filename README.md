@@ -38,7 +38,7 @@ Daily manufacturing dashboard for a single semiconductor device featuring:
 - Interactive defect Pareto analysis
 - Expandable data tables
 
-**🌐 Launch Interactive Dashboard:**  
+**🌐 Launch Interactive Dashboard Demo:**  
 [SiP_Yield_Dashboard_DV029_device.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_Yield_Dashboard_DV029_device.html)
 
 ---
@@ -52,7 +52,7 @@ Management dashboard consolidating multiple semiconductor devices into a single 
 - Month-over-Month (MoM) analysis
 - Cross-device KPI trend visualization
 
-**🌐 Launch Interactive Dashboard:**  
+**🌐 Launch Interactive Dashboard Demo:**  
 - [SiP_YoY_Dashboard_Demo.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_YoY_Dashboard_Demo.html)
 - [SiP_QoQ_Dashboard_Demo.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_QoQ_Dashboard_Demo.html)
 - [SiP_MoM_Dashboard_Demo.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_MoM_Dashboard_Demo.html)
