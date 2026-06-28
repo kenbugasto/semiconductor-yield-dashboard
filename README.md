@@ -648,27 +648,6 @@ Planned capabilities include:
 
 ---
 
-# 📁 Repository Structure
-
-```text
-SIP_Dashboard_GitHub/
-│
-├── docs/                 # Project documentation
-├── screenshots/          # Dashboard screenshots
-├── src/
-│   ├── config/           # Configuration files
-│   ├── etl/              # ETL pipeline
-│   ├── sql/              # SQL transformations
-│   ├── dashboard/        # Streamlit application
-│   └── utils/            # Shared helper functions
-│
-├── reports/              # HTML report outputs
-├── README.md
-└── requirements.txt
-```
-
----
-
 # 🎯 Key Engineering Concepts Demonstrated
 
 This project demonstrates practical implementation of several data engineering concepts commonly used in modern analytics platforms:
