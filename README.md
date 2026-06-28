@@ -2,7 +2,7 @@
 
 > **Note:** All data, device names, handler names, stations, soft bins, errCodes, and identifiers shown in this repository have been fully anonymized for public portfolio usage. No proprietary manufacturing or customer-sensitive data is included.
 
-Production-style semiconductor manufacturing analytics dashboard built using **Python**, **DuckDB**, **SQL**, **Streamlit**, and **Plotly**.
+Production-style semiconductor manufacturing analytics dashboard for Silicon on Package(SiP) devices built using **Python**, **DuckDB**, **SQL**, **Streamlit**, and **Plotly**.
 
 ---
 
