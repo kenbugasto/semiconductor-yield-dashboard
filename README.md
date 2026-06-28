@@ -39,7 +39,7 @@ Daily manufacturing dashboard for a single semiconductor device featuring:
 - Expandable data tables
 
 **🌐 Launch Interactive Dashboard:**  
-[SiP_Yield_Dashboard_DV029.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SiP_Yield_Dashboard_DV029.html)
+[SiP_Yield_Dashboard_DV029.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_Yield_Dashboard_DV029.html)
 
 ---
 
@@ -53,7 +53,7 @@ Management dashboard consolidating multiple semiconductor devices into a single 
 - Cross-device KPI trend visualization
 
 **🌐 Launch Interactive Dashboard:**  
-[SiP_YoY_Dashboard_Demo.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SiP_YoY_Dashboard_Demo.html)
+[SiP_YoY_Dashboard_Demo.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_YoY_Dashboard_Demo.html)
 
 > Note: These standalone HTML reports can be viewed directly in a web browser and retain Plotly's interactive hover tooltips, zooming, and panning capabilities.
 
