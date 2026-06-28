@@ -3457,6 +3457,42 @@ def get_handler_rpr_distribution_sql(
             FROM base
             GROUP BY test_date, schedule_no, serial_no
         ),
+        handler_yield AS (
+            SELECT
+                test_date,
+                CASE
+                    WHEN REGEXP_REPLACE(test_id, '^1000-', '') IN ('NA', '', 'NULL')
+                    THEN 'VM Fail'
+                    ELSE REGEXP_REPLACE(test_id, '^1000-', '')
+                END AS handler,
+                COUNT(DISTINCT serial_no) AS handler_input_qty_for_yield,
+                COUNT(DISTINCT CASE WHEN pf_status = 'PASS' THEN serial_no END) AS first_pass_qty
+            FROM ft_first
+            GROUP BY 1, 2
+        ),
+        handler_final AS (
+            SELECT
+                f.test_date,
+                CASE
+                    WHEN REGEXP_REPLACE(f.test_id, '^1000-', '') IN ('NA', '', 'NULL')
+                    THEN 'VM Fail'
+                    ELSE REGEXP_REPLACE(f.test_id, '^1000-', '')
+                END AS handler,
+                COUNT(DISTINCT CASE WHEN l.pf_status = 'PASS' THEN f.serial_no END) AS final_pass_qty
+            FROM ft_first f
+            INNER JOIN (
+                SELECT *
+                FROM base
+                QUALIFY ROW_NUMBER() OVER (
+                    PARTITION BY test_date, schedule_no, serial_no
+                    ORDER BY test_datetime DESC
+                ) = 1
+            ) l
+                ON f.test_date = l.test_date
+               AND f.schedule_no = l.schedule_no
+               AND f.serial_no = l.serial_no
+            GROUP BY 1, 2
+        ),
         handler_input AS (
             SELECT
                 test_date,
@@ -3498,12 +3534,20 @@ def get_handler_rpr_distribution_sql(
             ROUND(
                 100.0 * g.retest_pass_fail_qty / NULLIF(h.handler_input_qty, 0),
                 2
-            ) AS rpr_pct
+            ) AS rpr_pct,
+            COALESCE(y.first_pass_qty, 0) AS first_pass_qty,
+            COALESCE(f.final_pass_qty, 0) AS final_pass_qty
         FROM grouped g
         INNER JOIN handler_input h
             ON g.test_date = h.test_date
            AND g.handler = h.handler
            AND g.site = h.site
+        LEFT JOIN handler_yield y
+            ON g.test_date = y.test_date
+           AND g.handler = y.handler
+        LEFT JOIN handler_final f
+            ON g.test_date = f.test_date
+           AND g.handler = f.handler
         ORDER BY g.test_date, rpr_pct DESC, retest_pass_fail_qty DESC, handler, site, errCode
     """
 
@@ -4725,7 +4769,7 @@ def build_yoy_fty_errcode_chart_df(errcode_df: pd.DataFrame, daily_trend_df: pd.
 
     current_err = err_df[err_df["test_date"].dt.year == current_year].copy()
     current_trend = trend_df[trend_df["test_date"].dt.year == current_year].copy()
-    rows.append(make_period_row(f"{current_year} YTD", "year_running_total", pd.Timestamp(year=current_year, month=1, day=1), aggregate_defect_metrics(current_err, current_trend)))
+    rows.append(make_period_row(f"{current_year} YTD", "year_running_total", pd.Timestamp(year=current_year, month=1, day=1), aggregate_defect_metrics(err_sub, trend_sub)))
 
     month_names = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "AXU", "Sep", "Oct", "Nov", "Dec"]
     for m in range(1, 13):
@@ -5113,7 +5157,7 @@ def build_mom_fty_errcode_chart_df(errcode_df: pd.DataFrame, daily_trend_df: pd.
         f"{month_names[latest_day.month - 1]}'{str(latest_day.year)[2:]} MTD",
         "month_running_total",
         current_month_start,
-        aggregate_defect_metrics(current_err, current_trend)
+        aggregate_defect_metrics(err_sub, trend_sub)
     ))
 
     current_month_err = err_df[
@@ -5170,11 +5214,29 @@ def build_group_top5_rpr_df(df: pd.DataFrame, group_cols: list[str], top_n_group
         return pd.DataFrame()
 
     work = df.copy()
+    work["handler_input_qty"] = pd.to_numeric(
+        work["handler_input_qty"], errors="coerce"
+    ).fillna(0)
+            
     work["rpr_pct"] = pd.to_numeric(work["rpr_pct"], errors="coerce").fillna(0)
     work["retest_pass_fail_qty"] = pd.to_numeric(work["retest_pass_fail_qty"], errors="coerce").fillna(0)
-    work["handler_input_qty"] = pd.to_numeric(work["handler_input_qty"], errors="coerce").fillna(0)
+
     work["test_date"] = pd.to_datetime(work["test_date"], errors="coerce")
 
+    # ----------------------------------------
+    # Handler Yield Columns
+    # ----------------------------------------
+    for c in [
+        "handler_input_qty",
+        "retest_pass_fail_qty",
+        "rpr_pct",
+        "first_pass_qty",
+        "final_pass_qty",
+    ]:
+        if c in work.columns:
+            work[c] = pd.to_numeric(work[c], errors="coerce").fillna(0)
+            
+        
     if len(group_cols) == 1:
         work["group_name"] = work[group_cols[0]].astype(str)
     else:
@@ -5223,6 +5285,47 @@ def build_group_top5_rpr_df(df: pd.DataFrame, group_cols: list[str], top_n_group
         grouped = grouped[grouped["group_name"].isin(keep_groups)].copy()
         group_rank = group_rank[group_rank["group_name"].isin(keep_groups)].copy()
 
+    # handler-level FPY / FTY for Row 6 left line plots
+    if "first_pass_qty" in work.columns and "final_pass_qty" in work.columns:
+        yield_base_df = (
+            work.groupby(group_cols + ["test_date"], as_index=False)
+            .agg(
+                handler_input_qty=("handler_input_qty", "max"),
+                first_pass_qty=("first_pass_qty", "max"),
+                final_pass_qty=("final_pass_qty", "max"),
+            )
+        )
+    
+        if len(group_cols) == 1:
+            yield_base_df["group_name"] = yield_base_df[group_cols[0]].astype(str)
+        else:
+            yield_base_df["group_name"] = yield_base_df[group_cols].astype(str).agg(" | ".join, axis=1)
+    
+        yield_group_df = (
+            yield_base_df.groupby("group_name", as_index=False)
+            .agg(
+                group_input_qty_for_yield=("handler_input_qty", "sum"),
+                group_first_pass_qty=("first_pass_qty", "sum"),
+                group_final_pass_qty=("final_pass_qty", "sum"),
+            )
+        )
+    
+        yield_group_df["handler_fpy_pct"] = (
+            100.0 * yield_group_df["group_first_pass_qty"]
+            / yield_group_df["group_input_qty_for_yield"].replace(0, pd.NA)
+        ).fillna(0).round(2)
+    
+        yield_group_df["handler_fty_pct"] = (
+            100.0 * yield_group_df["group_final_pass_qty"]
+            / yield_group_df["group_input_qty_for_yield"].replace(0, pd.NA)
+        ).fillna(0).round(2)
+    else:
+        yield_group_df = pd.DataFrame({
+            "group_name": group_rank["group_name"],
+            "handler_fpy_pct": pd.NA,
+            "handler_fty_pct": pd.NA,
+        })
+    
     rows = []
     for group_name in group_rank["group_name"].tolist():
         sub = grouped[grouped["group_name"] == group_name].copy()
@@ -5248,6 +5351,20 @@ def build_group_top5_rpr_df(df: pd.DataFrame, group_cols: list[str], top_n_group
         row["total_rpr_pct"] = round(100.0 * total_recovered_qty / total_input_qty, 2) if total_input_qty > 0 else 0.0
         row["group_total_input_qty"] = total_input_qty
         row["group_total_recovered_qty"] = total_recovered_qty
+
+        yield_row = yield_group_df[yield_group_df["group_name"] == group_name]
+
+        row["handler_fpy_pct"] = (
+            yield_row["handler_fpy_pct"].iloc[0]
+            if not yield_row.empty
+            else pd.NA
+        )
+        
+        row["handler_fty_pct"] = (
+            yield_row["handler_fty_pct"].iloc[0]
+            if not yield_row.empty
+            else pd.NA
+        )
 
         rows.append(row)
 
@@ -5697,7 +5814,7 @@ def render_mother_lot_yield_trend(
     device_code: str,
     station_value: str | None
 ):
-    st.subheader("Mother Lot Yield Trend")
+    st.subheader("📈 Mother Lot Yield Trend")
 
     if df.empty:
         st.info("No mother lot yield data available.")
@@ -5931,7 +6048,7 @@ def render_schedule_no_yield_trend(
     device_code: str,
     station_value: str | None
 ):
-    st.subheader("Per Lot Yield Trend")
+    st.subheader("📈 Per Lot Yield Trend")
 
     if df.empty:
         st.info("No schedule no yield data available.")
@@ -6166,7 +6283,7 @@ def render_station_4week_yield_trend(
     device_code: str,
     station_value: str | None
 ):
-    st.subheader("Yield Trend - Past 4 Weeks")
+    st.subheader("📈 Yield Trend - Past 4 Weeks")
 
     if df.empty:
         st.info("No daily trend data available.")
@@ -6360,7 +6477,7 @@ def render_daily_summary_fty_errcode_chart(
     section_label: str,
     scope_key: str
 ):
-    st.subheader("Top 5 Defect Rate Distribution")
+    st.subheader("🚨 Top 5 Defect Rate Distribution")
 
     if errcode_df.empty:
         st.info("No FTY / errCode summary data available.")
@@ -6517,7 +6634,11 @@ def render_daily_summary_fty_errcode_chart(
             yaxis="y",
             text=[f"{v:.2f}%" if pd.notna(v) else "" for v in total_fail_pct],
             textposition="top center",
-            textfont=dict(color="black", size=11),
+            textfont=dict(
+                 color="#C00000",
+                size=11,
+                family="Arial Black"
+            ),
             hoverinfo="skip",
             showlegend=False,
             connectgaps=True
@@ -6794,7 +6915,7 @@ def render_lrr_trend_chart(
 # UPDATED ROW 5 RENDER
 # =========================================================
 def render_top10_rpr_errcode_pareto(df: pd.DataFrame, section_label: str, scope_key: str):
-    st.subheader("Top 5 High Retest Pass Rate errCode Distribution")
+    st.subheader("🔁 Top 5 High Retest Pass Rate errCode Distribution")
 
     if df.empty:
         st.info("No retest pass rate / errCode summary data available.")
@@ -7078,8 +7199,14 @@ def render_top10_rpr_errcode_pareto(df: pd.DataFrame, section_label: str, scope_
 # =========================================================
 # UPDATED ROW 6 LEFT
 # =========================================================
-def render_handler_top5_rpr_chart(df: pd.DataFrame, section_label: str, scope_key: str):
-    st.subheader("Handler vs Top 5 High RPR errCode")
+def render_handler_top5_rpr_chart(
+    df: pd.DataFrame,
+    section_label: str,
+    scope_key: str,
+    device_code: str,
+    station_value: str | None
+):
+    st.subheader("🏭 Handler vs Top 5 High RPR errCode")
 
     if df.empty:
         st.info("No handler RPR data available.")
@@ -7157,13 +7284,51 @@ def render_handler_top5_rpr_chart(df: pd.DataFrame, section_label: str, scope_ke
             mode="text",
             text=[f"{v:.2f}%" for v in plot_df["total_rpr_pct"]],
             textposition="top center",
-            textfont=dict(color="black", size=11),
+            textfont=dict(
+                color="#C00000",
+                size=11,
+                family="Arial Black"
+            ),
             showlegend=False,
             hoverinfo="skip",
             connectgaps=True
         )
     )
 
+    fig.add_trace(
+        go.Scatter(
+            x=plot_df["group_name"],
+            y=plot_df["handler_fpy_pct"],
+            mode="lines+markers+text",
+            name="1st Yield",
+            yaxis="y2",
+            line=dict(color="#4F81BD", width=3),
+            marker=dict(color="#4F81BD", size=8),
+            text=[f"{v:.2f}%" if pd.notna(v) else "" for v in plot_df["handler_fpy_pct"]],
+            textposition="top center",
+            textfont=dict(color="black", size=11),
+            hovertemplate="Handler=%{x}<br>1st Yield=%{y:.2f}%<extra></extra>",
+            connectgaps=True
+        )
+    )
+    
+    fig.add_trace(
+        go.Scatter(
+            x=plot_df["group_name"],
+            y=plot_df["handler_fty_pct"],
+            mode="lines+markers+text",
+            name="Final Yield",
+            yaxis="y2",
+            line=dict(color="#92D050", width=3),
+            marker=dict(color="#92D050", size=8),
+            text=[f"{v:.2f}%" if pd.notna(v) else "" for v in plot_df["handler_fty_pct"]],
+            textposition="top center",
+            textfont=dict(color="black", size=11),
+            hovertemplate="Handler=%{x}<br>Final Yield=%{y:.2f}%<extra></extra>",
+            connectgaps=True
+        )
+    )
+    
     fig.update_layout(
         title=f"{section_label} — Handler vs Top 5 High RPR errCode<br><sup>Date Range: {date_scope_label}</sup>",
         height=820,
@@ -7180,6 +7345,14 @@ def render_handler_top5_rpr_chart(df: pd.DataFrame, section_label: str, scope_ke
         yaxis=dict(
             title="RPR %",
             range=[y_min, auto_y_max if y_max == 100 else y_max]
+        ),
+        yaxis2=dict(
+            title="Yield %",
+            overlaying="y",
+            side="right",
+            showgrid=False,
+            range=[90, 101],
+            fixedrange=False
         ),
         legend=bottom_legend(),
         margin=dict(l=60, r=80, t=90, b=170)
@@ -7224,11 +7397,16 @@ def render_handler_top5_rpr_chart(df: pd.DataFrame, section_label: str, scope_ke
         "other_rpr_pct": "other_errCodes"
     })
 
-    # ? Apply percentage formatting to column
-    if "Total_RPR" in display_df.columns:
-        display_df["Total_RPR"] = display_df["Total_RPR"].apply(
-            lambda x: format_pct_value(x, decimals=2)
-        )
+    display_df = display_df.rename(columns={
+        "handler_fpy_pct": "FPY",
+        "handler_fty_pct": "FTY"
+    })
+    
+    display_df = format_pct_columns(
+        display_df,
+        ["Total_RPR", "FPY", "FTY"],
+        decimals=2
+    )
 
     st.dataframe(display_df, use_container_width=True, height=320)
 
@@ -7626,48 +7804,48 @@ def build_station_html_report(
         </div>
 
         <div class="section">
-            <h2>4-Week Yield Trend</h2>
+            <h2>📈 4-Week Yield Trend</h2>
             {fig_to_html_fragment(day_fig)}
             {day_table_html}
         </div>
 
         <div class="section">
-            <h2>Top5 Defect Rate Distribution</h2>
+            <h2>🚨 Top5 Defect Rate Distribution</h2>
             {fig_to_html_fragment(summary_fig)}
             {summary_table_html}
         </div>
 
         <div class="section">
-            <h2>Mother Lot Yield Trend</h2>
+            <h2>📈 Mother Lot Yield Trend</h2>
             {fig_to_html_fragment(mother_lot_fig)}
             {mother_lot_table_html}
         </div>
 
         <div class="section">
-            <h2>Per Lot Yield Trend</h2>
+            <h2>📈 Per Lot Yield Trend</h2>
             {fig_to_html_fragment(schedule_no_fig)}
             {schedule_no_table_html}
         </div>
 
         <div class="section">
-            <h2>LRR Trend</h2>
+            <h2>📉 LRR Trend</h2>
             {fig_to_html_fragment(lrr_fig)}
         </div>
 
         <div class="section">
-            <h2>LRR Summary</h2>
+            <h2>📋 LRR Summary</h2>
             {lrr_summary_table_html}
         </div>
 
         <div class="section">
-            <h2>Top 5 High Retest Pass Rate errCode Distribution</h2>
+            <h2>🔄 Top 5 High Retest Pass Rate errCode Distribution</h2>
             <p><b>Date Range:</b> {row5_date_scope}</p>
             {fig_to_html_fragment(top_fail_fig)}
             {top_fail_table_html}
         </div>
 
         <div class="section">
-            <h2>Handler vs Top 5 High RPR</h2>
+            <h2>🏭 Handler vs Top 5 High RPR</h2>
             <p><b>Date Range:</b> {row6_left_date_scope}</p>
             {fig_to_html_fragment(retest_fail_fig)}
             {retest_fail_table_html}
@@ -7696,7 +7874,7 @@ def render_lrr_summary_table(raw_summary_df: pd.DataFrame):
     white_bg = "#ffffff"
 
     html = []
-    html.append("<h3>LRR Summary Table</h3>")
+    html.append("<h3>📋 LRR Summary Table</h3>")
     html.append("<p><b>4-week format</b></p>")
     html.append(f"<table style='border-collapse:collapse; width:100%; border:1px solid {light_border};'>")
 
@@ -7917,12 +8095,12 @@ def build_period_tab_html_report(period_label: str, rendered_sections: list[dict
 
         body_sections.append(f"""
         <div class="section">
-            <h2>{section_label} Yield Trend - {period_label}</h2>
+            <h2>📈 {section_label} Yield Trend - {period_label}</h2>
             {fig_to_html_fragment(yield_fig)}
         </div>
 
         <div class="section">
-            <h2>{section_label} Top 5 Defect Rate Distribution - {period_label}</h2>
+            <h2>🚨 {section_label} Top 5 Defect Rate Distribution - {period_label}</h2>
             {fig_to_html_fragment(defect_fig)}
             {defect_table_html}
         </div>
@@ -7965,7 +8143,7 @@ def build_period_tab_html_report(period_label: str, rendered_sections: list[dict
         </style>
     </head>
     <body>
-        <h1>SIP {period_label} Dashboard</h1>
+        <h1>📊 SIP {period_label} Dashboard</h1>
         {''.join(body_sections)}
     </body>
     </html>
@@ -7975,7 +8153,7 @@ def build_period_tab_html_report(period_label: str, rendered_sections: list[dict
 # UPDATED RENDER SECTION
 # =========================================================
 def render_scope_section(device_code: str, station_value: str | None, section_label: str):
-    st.header(section_label)
+    st.header(f"🔲 {section_label}")
 
     scope_key = f"{device_code}_{station_value or 'NA'}"
     lot_options = get_lot_list_by_scope(device_code, station_value)
@@ -8103,6 +8281,8 @@ def render_scope_section(device_code: str, station_value: str | None, section_la
     st.divider()
 
     # ROW 3
+    st.subheader("📉 LRR Trend")
+    
     lrr_fig, lrr_export_df = render_lrr_trend_chart(
         daily_summary_raw_df,
         section_label,
@@ -8117,7 +8297,7 @@ def render_scope_section(device_code: str, station_value: str | None, section_la
     lrr_summary_export_df = get_lrr_summary_export_df(daily_summary_raw_df)
 
     if not lrr_summary_export_df.empty:
-        st.subheader("LRR Summary Table")
+        st.subheader("📋 LRR Summary Table")
         st.dataframe(lrr_summary_export_df, use_container_width=True, height=320)
     else:
         st.info("No LRR summary data available.")
@@ -8137,7 +8317,9 @@ def render_scope_section(device_code: str, station_value: str | None, section_la
     row6_fig, row6_export_df, row6_date_scope = render_handler_top5_rpr_chart(
         row6_handler_rpr_df,
         section_label,
-        scope_key
+        scope_key,
+        device_code=device_code,
+        station_value=station_value
     )
 
     st.divider()
@@ -8565,7 +8747,11 @@ def render_period_fty_errcode_chart(plot_df: pd.DataFrame, section_label: str, p
             name="Total Defect %",
             text=[f"{v:.2f}%" if pd.notna(v) else "" for v in total_fail_pct],
             textposition="top center",
-            textfont=dict(color="black", size=12),
+            textfont=dict(
+                 color="#C00000",
+                size=11,
+                family="Arial Black"
+            ),
             cliponaxis=False,
             hoverinfo="skip",
             showlegend=False,
@@ -8661,7 +8847,7 @@ def render_period_fty_errcode_chart(plot_df: pd.DataFrame, section_label: str, p
 # MAIN
 # =========================================================
 def main():
-    st.title("SIP Yield Dashboard")
+    st.title("📊 SIP Yield Dashboard")
     st.caption("DuckDB + Streamlit for SIP text-summary transformed data")
 
     if not DB_PATH.exists():
@@ -8700,7 +8886,7 @@ def main():
     # YoY tab
     # -------------------------
     with top_tabs[0]:
-        st.header("YoY")
+        st.header("📅 YoY")
         rendered_yoy_sections = []
 
         if not ranked_period_scopes:
@@ -8739,7 +8925,7 @@ def main():
     # QoQ tab
     # -------------------------
     with top_tabs[1]:
-        st.header("QoQ")
+        st.header("📅 QoQ")
         rendered_qoq_sections = []
 
         if not ranked_period_scopes:
@@ -8778,7 +8964,7 @@ def main():
     # MoM tab
     # -------------------------
     with top_tabs[2]:
-        st.header("MoM")
+        st.header("📅 MoM")
         rendered_mom_sections = []
 
         if not ranked_period_scopes:
