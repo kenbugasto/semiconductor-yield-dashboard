@@ -631,20 +631,19 @@ Month-over-Month defect Pareto monitoring.
 
 ## In Progress
 
-### Phase 2 Manufacturing Analytics Expansion
+### 🔬 Phase 2 Manufacturing Analytics Expansion
 
-The next phase extends the platform from yield analytics into overall manufacturing equipment performance monitoring.
+The next phase extends the platform from manufacturing yield analytics into test parameter and statistical process analysis, enabling engineers to identify process shifts before they impact production yield.
 
 Planned capabilities include:
 
-* CSV production data ingestion
-* Overall Equipment Effectiveness (OEE)
-* Equipment downtime classification
-* Equipment utilization monitoring
-* Cycle time analytics
-* Manufacturing stop categorization
-* Hourly production reporting
-* Operational performance dashboards
+* Automated CSV test parameter data ingestion
+* Statistical process capability reporting (Cp, Cpk, Cpu, Cpl)
+* Parametric trend monitoring across production lots
+* Control chart visualization for key test parameters
+* Outlier and excursion detection
+* Automated engineering summary reports
+* Interactive dashboard for parameter-level analysis
 
 ---
 
