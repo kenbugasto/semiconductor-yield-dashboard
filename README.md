@@ -445,7 +445,7 @@ The dashboards support manufacturing engineers with daily operational monitoring
 
 # KPI Cards
 
-![KPI Cards](screenshots/row01_4week_KPI%20cards.png)
+![KPI Cards](screenshots/row01_4week_KPI_20cards.png)
 
 Production KPI summary cards for:
 
