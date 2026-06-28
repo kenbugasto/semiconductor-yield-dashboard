@@ -545,7 +545,7 @@ Detailed LRR summary analytics including:
 
 # Retest Pass Rate errCode Distribution
 
-![RPR errCode](screenshots/row08_rpr_errcode_distribution.png)
+![RPR errCode](screenshots/row08_top5_RPR_errcode_distribution.png)
 
 Retest recovery analytics showing:
 
