@@ -39,7 +39,7 @@ Daily manufacturing dashboard for a single semiconductor device featuring:
 - Expandable data tables
 
 **🌐 Launch Interactive Dashboard:**  
-[SiP_Yield_Dashboard_DV029.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_Yield_Dashboard_DV029_device.html)
+[SiP_Yield_Dashboard_DV029_device.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_Yield_Dashboard_DV029_device.html)
 
 ---
 
