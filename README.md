@@ -227,36 +227,28 @@ This normalization provides several advantages:
 * Simplifies future expansion for additional manufacturing analytics
 
 ---
-## Production SQL Design
+## 🧱 Production SQL Design
 
-Manufacturing production files may be uploaded more than once due to regenerated reports, repeated transfers, or equipment-side retries. To prevent duplicate uploads from inflating production quantity, yield, and defect metrics, the pipeline applies cohort-based deduplication using SQL CTEs and window functions.
+The dashboard uses SQL as the main analytical modeling layer between the cleaned DuckDB tables and the Streamlit / Plotly dashboard outputs.
 
-### Cohort Logic
+One key SQL design pattern is the use of CTEs, joins, aggregations, and window functions to generate business-ready yield metrics from lot-level and unit-level manufacturing data.
 
-The key design decision is the `PARTITION BY` logic. Instead of treating every uploaded file as unique, the query groups records into manufacturing cohorts using:
-
-* `device_code`
-* `station`
-* `schedule_no`
-* production date from `end_time`
-
-Each cohort represents one logical production lot for one device, station, schedule, and production day.
+### Example: Lot-Level Yield Source for Dynamic KPI Targets
 
 ```sql
 WITH scoped_header AS (
     SELECT *
     FROM file_header
     WHERE device_code = '<selected_device>'
+      AND station = '<selected_station>'
+      AND CAST(end_time AS DATE) >= DATE '2023-01-01'
 ),
-max_day AS (
-    SELECT CAST(MAX(end_time) AS DATE) AS latest_day
-    FROM scoped_header
-),
-latest_header_per_lot AS (
+latest_header_per_lot_day AS (
     SELECT *
     FROM (
         SELECT
             *,
+            CAST(end_time AS DATE) AS test_date,
             ROW_NUMBER() OVER (
                 PARTITION BY
                     device_code,
@@ -269,143 +261,177 @@ latest_header_per_lot AS (
                     file_hash DESC
             ) AS rn
         FROM scoped_header
-        WHERE CAST(end_time AS DATE) BETWEEN
-            (SELECT latest_day - INTERVAL 27 DAY FROM max_day)
-            AND
-            (SELECT latest_day FROM max_day)
+        WHERE schedule_no IS NOT NULL
+          AND TRIM(CAST(schedule_no AS VARCHAR)) <> ''
     ) x
     WHERE rn = 1
 )
-SELECT *
-FROM latest_header_per_lot;
+SELECT
+    test_date,
+    schedule_no,
+    SUM(COALESCE(input_quantity, 0)) AS input_quantity,
+    SUM(COALESCE(first_pass_qty, 0)) AS first_pass_qty,
+    SUM(COALESCE(final_pass_qty, 0)) AS final_pass_qty
+FROM latest_header_per_lot_day
+GROUP BY test_date, schedule_no
+ORDER BY test_date, schedule_no;
 ```
 
 ### Why This Matters
 
-This logic ensures that each manufacturing cohort contributes only one authoritative record to downstream KPI calculations.
+This SQL block prepares the lot-level dataset used for dynamic FPY and FTY target calculation. The logic first scopes the data to the selected device and station, then applies a window function to keep only the latest trusted production record per lot and production day.
 
-The `ROW_NUMBER()` window function ranks duplicate candidates within each cohort. The `ORDER BY` clause keeps the latest completed record based on:
-
-1. latest `end_time`
-2. latest `source_modified_time`
-3. latest `file_hash` as a deterministic tie-breaker
-
-This protects the dashboard from double-counting production quantity, yield, retest, and defect metrics.
+This prevents duplicate uploads or regenerated reports from inflating production quantity, yield, and defect metrics.
 
 ### Engineering Highlights
 
-* CTEs separate filtering, date scoping, and deduplication into readable stages.
-* `PARTITION BY` defines the manufacturing cohort grain.
-* `ROW_NUMBER()` selects one trusted record per cohort.
-* `ORDER BY` provides deterministic ranking for repeatable results.
-* The 28-day rolling window limits processing to the reporting period used by the dashboard.
+* Uses CTEs to separate filtering, deduplication, and aggregation steps.
+* Uses `ROW_NUMBER()` to select one trusted record per lot/day cohort.
+* Uses deterministic ordering through `end_time`, `source_modified_time`, and `file_hash`.
+* Produces a clean Gold-layer dataset for KPI target calculation.
+* Supports dashboard metrics such as FPY, FTY, LRR, RPR, and long-term trend analysis.
+
+### IQR-Based 3-Sigma Target Logic
+
+After SQL prepares the lot-level yield source, Python applies an IQR filter before calculating 3-sigma lower control limits.
+
+This avoids allowing abnormal excursion lots to distort KPI targets.
+
+```python
+def calc_iqr_filtered_3sig_lcl(values: pd.Series):
+    vals = pd.to_numeric(values, errors="coerce").dropna().astype(float)
+
+    if vals.empty:
+        return None, None, None, 0
+
+    q1 = vals.quantile(0.25)
+    q3 = vals.quantile(0.75)
+    iqr = q3 - q1
+
+    lower_limit = q1 - (1.5 * iqr)
+    upper_limit = q3 + (1.5 * iqr)
+
+    kept = vals[(vals >= lower_limit) & (vals <= upper_limit)].copy()
+
+    if kept.empty:
+        kept = vals.copy()
+
+    avg_val = float(kept.mean())
+    sigma_val = float(kept.std(ddof=0))
+    raw_lcl = round(avg_val - (3 * sigma_val), 2)
+
+    return round(avg_val, 2), round(sigma_val, 2), raw_lcl, int(len(kept))
+```
+
+The final target calculation uses the latest available back-month data, removes statistical outliers, calculates average minus three sigma, and applies safe fallback defaults for new devices with limited history.
+
+This combines analytics engineering and manufacturing process-control logic into a repeatable KPI target engine.
 
 ---
 
-# Production ETL Design
+## 🐍 Production Python ETL Design
 
-The loader follows a defensive ETL pattern designed for daily manufacturing reporting. Instead of assuming every source file is valid, each file is checked, scoped, hashed, loaded, audited, and safely skipped when needed.
+The Python loader implements a defensive ETL pipeline for daily semiconductor manufacturing reporting. It does not assume that every source file is valid, complete, current, or in scope.
+
+The loader performs file discovery, one-month auto backfill, parsing, validation, incremental loading, auditing, deduplication, metric refresh, and secured export generation.
+
+### Example: One-Month Auto Backfill and Defensive File Discovery
 
 ```python
-for i, txt_path in enumerate(txt_files, start=1):
+def get_1month_cutoff() -> datetime:
+    return (
+        pd.Timestamp.today().normalize()
+        - pd.DateOffset(months=1)
+    ).to_pydatetime()
+
+
+def extract_filename_datetime(txt_path: Path):
+    m = re.search(r"_(\d{14})\.txt$", txt_path.name, flags=re.IGNORECASE)
+
+    if not m:
+        return None
+
     try:
-        write_run_log(RUN_LOG_PATH, f"[{i}/{len(txt_files)}] Checking {txt_path.name}")
+        return datetime.strptime(m.group(1), "%Y%m%d%H%M%S")
+    except Exception:
+        return None
 
-        # Parse header metadata first before loading any data.
-        row = parse_header_block(txt_path)
 
-        station_val = clean_text(row.get("station"))
-        device_code_val = (clean_text(row.get("device_code")) or "").upper()
-        customer_val = (clean_text(row.get("customer")) or "").upper()
+def discover_recent_text_files(source_dir: Path, cutoff_dt: datetime) -> list[Path]:
+    if not source_dir.exists():
+        return []
 
-        # Defensive scope check:
-        # Skip files outside the supported customer / product scope.
-        if not is_valid_customer(customer_val):
-            skipped_count += 1
-            skipped_non_XU_count += 1
-            write_run_log(
-                RUN_LOG_PATH,
-                f"Skipped non-scoped customer file: {txt_path.name} | customer={row.get('customer')}"
-            )
-            continue
+    recent_files = []
 
-        # Defensive station validation:
-        # Prevent unsupported stations from entering the analytical database.
-        if not is_valid_station(station_val):
-            skipped_count += 1
-            skipped_invalid_station_count += 1
-            write_run_log(
-                RUN_LOG_PATH,
-                f"Skipped invalid station: {txt_path.name} | station={station_val}"
-            )
-            continue
+    for txt_path in source_dir.glob("*.txt"):
+        file_dt = extract_filename_datetime(txt_path)
 
-        # Freshness check:
-        # Skip files outside the current reporting window.
-        file_dt = row.get("start_time") or row.get("end_time") or row.get("source_modified_time")
-        if file_dt is not None and file_dt < cutoff_dt:
-            skipped_count += 1
-            write_run_log(
-                RUN_LOG_PATH,
-                f"Skipped old file outside 1-month cutoff: {txt_path.name}"
-            )
-            continue
+        if file_dt is None:
+            file_dt = datetime.fromtimestamp(txt_path.stat().st_mtime)
 
-        # Incremental loading:
-        # File hash prevents unchanged files from being loaded repeatedly.
-        fresh = is_fresh_file(
-            conn=conn,
-            file_hash=row["file_hash"]
-        )
+        if file_dt >= cutoff_dt:
+            recent_files.append(txt_path)
 
-        if not fresh:
-            skipped_count += 1
-            skipped_unchanged_count += 1
-            write_run_log(RUN_LOG_PATH, f"Skipped unchanged file: {txt_path.name}")
-            continue
-
-        # Safe reload pattern:
-        # Header/detail rows are deleted and reinserted by file_hash.
-        upsert_header_row(conn, row)
-
-        detail_df = parse_2d_list_block(txt_path, row)
-        replace_detail_rows_for_file(conn, detail_df, row["file_hash"])
-
-        update_audit_success(conn, row)
-
-        touched_file_hashes.append(row["file_hash"])
-        loaded_count += 1
-
-        write_run_log(
-            RUN_LOG_PATH,
-            f"Loaded {txt_path.name} | station={row['station']} | "
-            f"device={row['device_code']} | lot_id={row['lot_id']} | "
-            f"detail_rows={len(detail_df):,}"
-        )
-
-    except Exception as e:
-        # Failure isolation:
-        # One malformed file is logged and audited without hiding the root cause.
-        write_run_log(RUN_LOG_PATH, f"FAILED {txt_path.name} | Error: {e}")
-        if conn is not None:
-            update_audit_failed(conn, txt_path, str(e))
+    return sorted(recent_files)
 ```
 
-## Defensive ETL Highlights
+### Why This Matters
 
-This section demonstrates several production-oriented ETL practices:
+The previous daily reporting workflow was vulnerable to missing, late, or regenerated files. A strict previous-day-only process could miss files that arrived late or were re-exported after the original report run.
 
-* **Config-driven paths** keep local, shared, and export directories outside the source code.
-* **Customer and station validation** prevents non-scoped manufacturing data from entering the dashboard.
-* **File hash checking** enables incremental loading and avoids duplicate processing.
-* **Delete-and-reload by `file_hash`** makes reruns deterministic and safe.
-* **Audit logging** records successful and failed file loads.
-* **Exception handling** isolates malformed files without stopping the entire pipeline.
-* **Run counters** track loaded, skipped, invalid, unchanged, and duplicate records.
-* **Post-load deduplication** removes duplicate lot uploads before KPI calculation.
-* **Security checks before export** prevent non-scoped customer, station, or device records from being shared.
+The one-month backfill logic solves this by scanning a rolling one-month window instead of relying only on a single daily file set. This makes the pipeline more resilient to delayed uploads, reruns, and manufacturing system timing issues.
 
-This design makes the loader repeatable, traceable, and suitable for automated daily manufacturing reporting.
+### Defensive ETL Pattern
+
+```python
+file_dt = row.get("start_time") or row.get("end_time") or row.get("source_modified_time")
+
+if file_dt is not None and file_dt < cutoff_dt:
+    skipped_count += 1
+    write_run_log(
+        RUN_LOG_PATH,
+        f"Skipped old file outside 1-month cutoff: {txt_path.name}"
+    )
+    continue
+
+fresh = is_fresh_file(
+    conn=conn,
+    file_hash=row["file_hash"]
+)
+
+if not fresh:
+    skipped_count += 1
+    skipped_unchanged_count += 1
+    write_run_log(RUN_LOG_PATH, f"Skipped unchanged file: {txt_path.name}")
+    continue
+```
+
+The loader combines pandas-based date handling, regular expressions, file metadata fallback, and hash-based incremental loading. This ensures that only relevant and changed files are processed.
+
+### ETL and Medallion Architecture Mapping
+
+This project follows a local Medallion Architecture pattern using Python and DuckDB.
+
+**Bronze Layer**
+Raw TXT and LOG files are downloaded, discovered, hashed, and audited while preserving source metadata.
+
+**Silver Layer**
+Python parsing standardizes headers, timestamps, station codes, device codes, soft bins, errCodes, and unit-level records into normalized DuckDB tables.
+
+**Gold Layer**
+SQL and pandas generate business-ready metrics such as FPY, FTY, LRR, RPR, defect Pareto, handler performance, and YoY / QoQ / MoM trend datasets.
+
+### Engineering Highlights
+
+* One-month rolling backfill improves reliability compared with strict daily-only processing.
+* File hash auditing prevents unchanged files from being processed repeatedly.
+* Customer and station validation prevents non-scoped data from entering the analytical database.
+* Failed files are logged without hiding the root cause.
+* Delete-and-reload by `file_hash` makes reruns deterministic.
+* Post-load deduplication protects KPI calculations from duplicate uploaded reports.
+* Final security checks prevent non-scoped customer, station, or device records from being exported.
+
+This design makes the pipeline repeatable, auditable, and suitable for automated daily manufacturing analytics.
 
 ---
 
