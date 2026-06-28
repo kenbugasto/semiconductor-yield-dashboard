@@ -53,9 +53,9 @@ Management dashboard consolidating multiple semiconductor devices into a single 
 - Cross-device KPI trend visualization
 
 **🌐 Launch Interactive Dashboard:**  
-[SiP_YoY_Dashboard_Demo.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_YoY_Dashboard_Demo.html)
-[SiP_QoQ_Dashboard_Demo.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_QoQ_Dashboard_Demo.html)
-[SiP_MoM_Dashboard_Demo.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_MoM_Dashboard_Demo.html)
+- [SiP_YoY_Dashboard_Demo.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_YoY_Dashboard_Demo.html)
+- [SiP_QoQ_Dashboard_Demo.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_QoQ_Dashboard_Demo.html)
+- [SiP_MoM_Dashboard_Demo.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_MoM_Dashboard_Demo.html)
 
 > Note: These standalone HTML reports can be viewed directly in a web browser and retain Plotly's interactive hover tooltips, zooming, and panning capabilities.
 
