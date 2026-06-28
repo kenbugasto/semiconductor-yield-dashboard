@@ -1,4 +1,4 @@
-# SIP Yield Dashboard
+# 📊 SIP Yield Dashboard
 
 > **Note:** All data, device names, handler names, stations, soft bins, errCodes, and identifiers shown in this repository have been fully anonymized for public portfolio usage. No proprietary manufacturing or customer-sensitive data is included.
 
@@ -6,7 +6,7 @@ Production-style semiconductor manufacturing analytics dashboard built using **P
 
 ---
 
-# Overview
+# 🔎 Overview
 
 This project is an end-to-end semiconductor manufacturing analytics solution that automates the transformation of raw production test logs into engineering dashboards and manufacturing KPI reports.
 
@@ -43,7 +43,7 @@ Daily manufacturing dashboard for a single semiconductor device featuring:
 
 ---
 
-## 📈 Executive Performance Dashboard
+## Executive Performance Dashboard
 
 Management dashboard consolidating multiple semiconductor devices into a single executive view featuring:
 
@@ -61,7 +61,7 @@ Management dashboard consolidating multiple semiconductor devices into a single 
 
 ---
 
-# Data Sources
+# 🗂️ Data Sources
 
 The dashboard processes manufacturing production data originating from:
 
@@ -72,7 +72,7 @@ The ETL pipeline transforms these semi-structured manufacturing files into analy
 
 ---
 
-# Core Features
+# ⭐ Core Features
 
 ## ETL / Data Engineering
 
@@ -109,7 +109,7 @@ Includes:
 
 ---
 
-# Technology Stack
+# 🛠️ Technology Stack
 
 | Category        | Technology             |
 | --------------- | ---------------------- |
@@ -125,7 +125,7 @@ Includes:
 
 ---
 
-# Architecture & Technology Decisions
+# 🏗️ Architecture & Technology Decisions
 
 ## Why DuckDB
 
@@ -157,7 +157,7 @@ This allowed the dashboard to function as a lightweight internal manufacturing a
 
 ---
 
-# Medallion Architecture
+# 🥉🥈🥇 Medallion Architecture
 
 Although implemented locally using Python and DuckDB rather than Databricks Delta Lake, this project follows the same Medallion Architecture principles by separating raw ingestion, standardized transformations, and business-ready analytics.
 
@@ -208,7 +208,7 @@ Examples include:
 
 ---
 
-# Data Model
+# 🧩 Data Model
 
 The ETL pipeline separates lot-level manufacturing metadata from unit-level production records. This normalized design minimizes duplicated information while supporting efficient KPI reporting, engineering investigations, and complete traceability back to the original production file.
 
@@ -435,7 +435,7 @@ This design makes the pipeline repeatable, auditable, and suitable for automated
 
 ---
 
-# Dashboard Screenshots
+# 🖼️ Dashboard Screenshots
 
 The following screenshots demonstrate the analytical outputs generated from the ETL pipeline and SQL transformation layers described above.
 
@@ -615,7 +615,7 @@ Month-over-Month defect Pareto monitoring.
 
 ---
 
-# Project Roadmap
+# 🛣️ Project Roadmap
 
 ## Current Features
 
@@ -648,7 +648,7 @@ Planned capabilities include:
 
 ---
 
-# Repository Structure
+# 📁 Repository Structure
 
 ```text
 SIP_Dashboard_GitHub/
@@ -669,7 +669,7 @@ SIP_Dashboard_GitHub/
 
 ---
 
-# Key Engineering Concepts Demonstrated
+# 🎯 Key Engineering Concepts Demonstrated
 
 This project demonstrates practical implementation of several data engineering concepts commonly used in modern analytics platforms:
 
@@ -710,7 +710,7 @@ This project demonstrates practical implementation of several data engineering c
 
 ---
 
-## Author
+## 👤 Author
 
 This repository was developed as a portfolio project demonstrating production-oriented data engineering techniques applied to semiconductor manufacturing analytics.
 
