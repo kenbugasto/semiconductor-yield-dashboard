@@ -4714,7 +4714,7 @@ def build_yoy_trend_display_df(df: pd.DataFrame) -> pd.DataFrame:
     rows.append(make_period_row(f"{current_year} YTD", "year_running_total", pd.Timestamp(year=current_year, month=1, day=1), aggregate_yield_metrics(current_sub)))
 
     # Jan-Dec current year
-    month_names = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "AXU", "Sep", "Oct", "Nov", "Dec"]
+    month_names = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     for m in range(1, 13):
         sub = out[(out["test_date"].dt.year == current_year) & (out["test_date"].dt.month == m)].copy()
         if m > latest_day.month:
