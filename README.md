@@ -61,6 +61,29 @@ Management dashboard consolidating multiple semiconductor devices into a single 
 
 ---
 
+# 📈 Business Impact
+
+## Quantified Improvements
+
+| Category | Legacy Workflow | Modernized Platform |
+|----------|-----------------|---------------------|
+| Reporting Applications | ~60 Excel VBA applications | 1 Python ETL Loader + 1 Dashboard |
+| Reporting Infrastructure | 6 Reporting PCs | 1 Reporting PC |
+| Daily Processing | Independent VBA execution | Centralized ETL pipeline |
+| Processing Time | ~1 hour (6 PCs) | 45–75 minutes (1 PC) |
+| Dashboard Reporting | Manual PowerPoint consolidation | Interactive Streamlit dashboards + HTML reports |
+| Historical Traceability | Multiple Excel files | Centralized DuckDB analytics database |
+| Late Retest Handling | Manual updates | Automatic one-month rolling backfill |
+| KPI Target Calculation | Manual maintenance | Automated IQR-filtered 3σ calculation |
+
+---
+
+This project modernizes a legacy semiconductor manufacturing reporting workflow by consolidating approximately **60 device-specific Excel VBA applications** into a centralized **Python-based ETL and analytics platform**.
+
+The solution reduces maintenance complexity, centralizes manufacturing data into a queryable analytics database, automates KPI reporting, and improves long-term engineering traceability while requiring only a single reporting workstation.
+
+---
+
 # 🗂️ Data Sources
 
 The dashboard processes manufacturing production data originating from:
