@@ -84,66 +84,7 @@ The solution improves maintainability, scalability, and engineering productivity
 
 ---
 
-# 🗂️ Data Sources
-
-The dashboard processes manufacturing production data originating from:
-
-* Raw `.txt` production logs
-* `.log` equipment output files
-
-The ETL pipeline transforms these semi-structured manufacturing files into analytics-ready DuckDB tables for downstream reporting and dashboard visualization.
-
----
-
-# 🛠️ Technology Stack
-
-| Category        | Technology             |
-| --------------- | ---------------------- |
-| Language        | Python                 |
-| Query Language  | SQL                    |
-| Database        | DuckDB                 |
-| Data Processing | Pandas                 |
-| Dashboard       | Streamlit              |
-| Visualization   | Plotly                 |
-| ETL             | Python + SQL           |
-| Scheduling      | Windows Task Scheduler |
-| Reporting       | HTML Export            |
-
----
-
-# 🏗️ Architecture & Technology Decisions
-
-## Why DuckDB
-
-DuckDB was selected as the analytical database because it provides:
-
-* Lightweight deployment
-* Fast analytical query performance
-* Embedded SQL execution
-* Minimal infrastructure requirements
-* Easy portability within restricted enterprise environments
-
-The project environment did not permit deploying heavier database platforms such as SQL Server or PostgreSQL. DuckDB provided an excellent balance between analytical performance and operational simplicity for manufacturing KPI workloads.
-
----
-
-## Why Streamlit
-
-Streamlit enabled rapid development of interactive engineering dashboards without requiring enterprise BI licensing or additional infrastructure.
-
-Benefits include:
-
-* Python-native development
-* Rapid dashboard creation
-* Interactive engineering visualization
-* Standalone HTML report generation
-* Low maintenance overhead
-
-This allowed the dashboard to function as a lightweight internal manufacturing analytics platform under constrained tooling environments.
-
----
-
-# 🥉🥈🥇 Medallion Architecture
+# 🥉🥈🥇 ETL Flow -  Medallion Architecture
 
 Although implemented locally using Python and DuckDB rather than Databricks Delta Lake, this project follows the same Medallion Architecture principles by separating raw ingestion, standardized transformations, and business-ready analytics.
 
@@ -213,6 +154,66 @@ This normalization provides several advantages:
 * Simplifies future expansion for additional manufacturing analytics
 
 ---
+
+# 🗂️ Data Sources
+
+The dashboard processes manufacturing production data originating from:
+
+* Raw `.txt` production logs
+* `.log` equipment output files
+
+The ETL pipeline transforms these semi-structured manufacturing files into analytics-ready DuckDB tables for downstream reporting and dashboard visualization.
+
+---
+
+# 🛠️ Technology Stack
+
+| Category        | Technology             |
+| --------------- | ---------------------- |
+| Language        | Python                 |
+| Query Language  | SQL                    |
+| Database        | DuckDB                 |
+| Data Processing | Pandas                 |
+| Dashboard       | Streamlit              |
+| Visualization   | Plotly                 |
+| ETL             | Python + SQL           |
+| Scheduling      | Windows Task Scheduler |
+| Reporting       | HTML Export            |
+
+---
+
+# 🏗️ Architecture & Technology Decisions
+
+## Why DuckDB
+
+DuckDB was selected as the analytical database because it provides:
+
+* Lightweight deployment
+* Fast analytical query performance
+* Embedded SQL execution
+* Minimal infrastructure requirements
+* Easy portability within restricted enterprise environments
+
+The project environment did not permit deploying heavier database platforms such as SQL Server or PostgreSQL. DuckDB provided an excellent balance between analytical performance and operational simplicity for manufacturing KPI workloads.
+
+---
+
+## Why Streamlit
+
+Streamlit enabled rapid development of interactive engineering dashboards without requiring enterprise BI licensing or additional infrastructure.
+
+Benefits include:
+
+* Python-native development
+* Rapid dashboard creation
+* Interactive engineering visualization
+* Standalone HTML report generation
+* Low maintenance overhead
+
+This allowed the dashboard to function as a lightweight internal manufacturing analytics platform under constrained tooling environments.
+
+---
+
 ## 🧱 Production SQL Design
 
 The dashboard uses SQL as the main analytical modeling layer between the cleaned DuckDB tables and the Streamlit / Plotly dashboard outputs.
