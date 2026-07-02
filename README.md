@@ -84,7 +84,7 @@ The solution improves maintainability, scalability, and engineering productivity
 
 ---
 
-# 🥉🥈🥇 ETL Flow -  Medallion Architecture
+# 🥉🥈🥇 ETL Workflow -  Medallion Architecture
 
 Although implemented locally using Python and DuckDB rather than Databricks Delta Lake, this project follows the same Medallion Architecture principles by separating raw ingestion, standardized transformations, and business-ready analytics.
 
