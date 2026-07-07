@@ -39,8 +39,8 @@ Daily manufacturing dashboard for a single semiconductor device featuring:
 - Expandable data tables
 
 **🌐 Launch Interactive Dashboard Demo:**  
-[SiP_Yield_Dashboard_DV029_device.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_Yield_Dashboard_DV029_device.html)
-
+- First Pass / Final Yield / LRR Report: [SiP_Yield_Dashboard_DV029_device.html]([https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_Yield_Dashboard_DV029_device.html](https://github.com/kenbugasto/semiconductor-yield-dashboard/blob/6cbf6b185878fef8304a67a4ac496d7a9f23cfa2/demo/SiP_DV029_Daily_Yield_20260509.html))
+- Retest Pass Rate(RPR) Report: [SiP_Yield_Dashboard_DV029_device.html]([https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_Yield_Dashboard_DV029_device.html](https://github.com/kenbugasto/semiconductor-yield-dashboard/blob/6cbf6b185878fef8304a67a4ac496d7a9f23cfa2/demo/SiP_DV029_RPR_data_20260509.html))
 ---
 
 ## Executive Performance Dashboard
@@ -53,9 +53,9 @@ Management dashboard consolidating multiple semiconductor devices into a single 
 - Cross-device KPI trend visualization
 
 **🌐 Launch Interactive Dashboard Demo:**  
-- [SIP_YoY_Dashboard_Demo.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_YoY_Dashboard_Demo.html)
-- [SIP_QoQ_Dashboard_Demo.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_QoQ_Dashboard_Demo.html)
-- [SIP_MoM_Dashboard_Demo.html](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_MoM_Dashboard_Demo.html)
+- [SIP_YoY_Dashboard_Demo.html]([https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_YoY_Dashboard_Demo.html](https://github.com/kenbugasto/semiconductor-yield-dashboard/blob/6cbf6b185878fef8304a67a4ac496d7a9f23cfa2/demo/SiP_YoY_Dashboard.html))
+- [SIP_QoQ_Dashboard_Demo.html]([https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_QoQ_Dashboard_Demo.html](https://github.com/kenbugasto/semiconductor-yield-dashboard/blob/6cbf6b185878fef8304a67a4ac496d7a9f23cfa2/demo/SiP_QoQ_Dashboard.html))
+- [SIP_MoM_Dashboard_Demo.html]([https://kenbugasto.github.io/semiconductor-yield-dashboa](https://github.com/kenbugasto/semiconductor-yield-dashboard/blob/6cbf6b185878fef8304a67a4ac496d7a9f23cfa2/demo/SiP_MoM_Dashboard.html)rd/demo/SIP_MoM_Dashboard_Demo.html)
 
 > Note: These standalone HTML reports can be viewed directly in a web browser and retain Plotly's interactive hover tooltips, zooming, and panning capabilities.
 
