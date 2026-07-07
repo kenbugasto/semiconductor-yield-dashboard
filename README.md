@@ -114,7 +114,29 @@ Examples include:
 * Retest Pass Rate (RPR)
 * Top Defect Pareto
 * Handler Analytics
+* Handler-Site RPR Analytics
+* Top 10 Handler-Site 7-Day RPR Time Series
 * Year-over-Year (YoY), Quarter-over-Quarter (QoQ), and Month-over-Month (MoM) trend analysis
+
+---
+
+# ⚙️ Production Workflow
+
+The solution runs as a scheduled two-stage ETL pipeline using Windows Task Scheduler.
+
+1. **04:00 AM** – ETL Loader
+   - Collects production files from FTP
+   - Uses a configuration-driven (`config.ini`) architecture
+   - Loads validated data into DuckDB
+   - Generates execution and audit logs
+
+2. **05:00 AM** – Dashboard Generator
+   - Depends on successful loader completion
+   - Refreshes KPI datasets
+   - Generates Streamlit dashboards
+   - Exports interactive HTML reports
+
+Daily loader logs are reviewed to verify successful ingestion before dashboard publication.
 
 ---
 
