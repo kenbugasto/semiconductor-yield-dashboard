@@ -39,7 +39,7 @@ Daily manufacturing dashboard for a single semiconductor device featuring:
 - Expandable data tables
 
 **🌐 Launch Interactive Dashboard Demo:**  
-- First Pass / Final Yield / LRR Report: [SiP_Yield_Dashboard_DV029_device.html]([https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_Yield_Dashboard_DV029_device.html](https://github.com/kenbugasto/semiconductor-yield-dashboard/blob/6cbf6b185878fef8304a67a4ac496d7a9f23cfa2/demo/SiP_DV029_Daily_Yield_20260509.html))
+- First Pass / Final Yield / LRR Report: [SiP_Yield_Dashboard_DV029_device.html](https://github.com/kenbugasto/semiconductor-yield-dashboard/blob/main/demo/SiP_DV029_Daily_Yield_20260509.html)
 - Retest Pass Rate(RPR) Report: [SiP_Yield_Dashboard_DV029_device.html]([https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SIP_Yield_Dashboard_DV029_device.html](https://github.com/kenbugasto/semiconductor-yield-dashboard/blob/6cbf6b185878fef8304a67a4ac496d7a9f23cfa2/demo/SiP_DV029_RPR_data_20260509.html))
 ---
 
