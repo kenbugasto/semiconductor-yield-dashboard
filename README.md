@@ -70,13 +70,13 @@ The solution improves maintainability, scalability, and engineering productivity
 
 The solution runs as a scheduled two-stage ETL pipeline using Windows Task Scheduler.
 
-1. **04:00 AM** – ETL Loader
+1. **04:00 AM** – Automated ETL Loader
    - Collects production files from FTP
    - Uses a configuration-driven (`config.ini`) architecture
    - Loads validated data into DuckDB
    - Generates execution and audit logs
 
-2. **05:00 AM** – Dashboard Generator
+2. **05:00 AM** – Automated Dashboard Generator
    - Depends on successful loader completion
    - Refreshes KPI datasets
    - Generates Streamlit dashboards
