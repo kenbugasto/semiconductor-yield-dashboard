@@ -66,7 +66,7 @@ The solution improves maintainability, scalability, and engineering productivity
 
 ---
 
-# ⚙️ Production Workflow
+# ⚙️ Automated Production Workflow
 
 The solution runs as a scheduled two-stage ETL pipeline using Windows Task Scheduler.
 
