@@ -59,11 +59,30 @@ The sample dashboards below are generated using anonymized data and demonstrate 
 | Late Retest Handling | Manual updates | Automatic one-month rolling backfill |
 | KPI Target Calculation | Manual maintenance | Automated IQR-filtered 3σ calculation |
 
----
 
 This project modernizes a legacy semiconductor manufacturing reporting workflow by consolidating **60+ device-specific Excel VBA applications** into a centralized **Python-based ETL and analytics platform**.
 
 The solution improves maintainability, scalability, and engineering productivity by centralizing manufacturing data into a queryable analytics database while automating KPI reporting, historical traceability, statistical target generation, and engineering dashboards.
+
+---
+
+# ⚙️ Production Workflow
+
+The solution runs as a scheduled two-stage ETL pipeline using Windows Task Scheduler.
+
+1. **04:00 AM** – ETL Loader
+   - Collects production files from FTP
+   - Uses a configuration-driven (`config.ini`) architecture
+   - Loads validated data into DuckDB
+   - Generates execution and audit logs
+
+2. **05:00 AM** – Dashboard Generator
+   - Depends on successful loader completion
+   - Refreshes KPI datasets
+   - Generates Streamlit dashboards
+   - Exports interactive HTML reports
+
+Daily loader logs are reviewed to verify successful ingestion before dashboard publication.
 
 ---
 
@@ -117,26 +136,6 @@ Examples include:
 * Handler-Site RPR Analytics
 * Top 10 Handler-Site 7-Day RPR Time Series
 * Year-over-Year (YoY), Quarter-over-Quarter (QoQ), and Month-over-Month (MoM) trend analysis
-
----
-
-# ⚙️ Production Workflow
-
-The solution runs as a scheduled two-stage ETL pipeline using Windows Task Scheduler.
-
-1. **04:00 AM** – ETL Loader
-   - Collects production files from FTP
-   - Uses a configuration-driven (`config.ini`) architecture
-   - Loads validated data into DuckDB
-   - Generates execution and audit logs
-
-2. **05:00 AM** – Dashboard Generator
-   - Depends on successful loader completion
-   - Refreshes KPI datasets
-   - Generates Streamlit dashboards
-   - Exports interactive HTML reports
-
-Daily loader logs are reviewed to verify successful ingestion before dashboard publication.
 
 ---
 
