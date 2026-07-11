@@ -32,10 +32,10 @@ The sample dashboards below are generated using anonymized data and demonstrate 
 
 ## 📊 Interactive Dashboard Demos
 
-| Dashboard | Description | Live Demo |
-|-----------|-------------|-----------|
-| Daily Yield Dashboard | FPY, FTY, LRR, defect Pareto, yield trends | 🚀 [Open](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SiP_DV029_Daily_Yield_20260509.html) |
-| Retest Pass Rate Dashboard | RPR trends, top retest defects, handler performance | 🚀 [Open](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SiP_DV029_RPR_data_20260509.html) |
+| Dashboard | Description | Demo |
+|-----------|-------------|------|
+| Daily Yield Dashboard | FPY, FTY, LRR, defect Pareto, yield trends | 🚀 [Open](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/USI_DV029_Daily_Yield_20260509.html) |
+| Retest Pass Rate Dashboard | RPR trends, top retest defects, handler performance | 🚀 [Open](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/USI_DV029_RPR_data_20260509.html) |
 | Executive YoY Dashboard | Cross-device yearly KPI comparison | 🚀 [Open](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SiP_YoY_Dashboard.html) |
 | Executive QoQ Dashboard | Quarterly KPI analysis | 🚀 [Open](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SiP_QoQ_Dashboard.html) |
 | Executive MoM Dashboard | Monthly KPI analysis | 🚀 [Open](https://kenbugasto.github.io/semiconductor-yield-dashboard/demo/SiP_MoM_Dashboard.html) |
