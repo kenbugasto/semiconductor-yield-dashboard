@@ -90,7 +90,7 @@ Daily loader logs are reviewed to verify successful ingestion before dashboard p
 
 Although implemented locally using Python and DuckDB rather than Databricks Delta Lake, this project follows the same Medallion Architecture principles by separating raw ingestion, standardized transformations, and business-ready analytics.
 
-![Medallion Architecture](screenshots/medallion_architecture.png)
+![Medallion Architecture](screenshots/Local_Lakehouse_ETL_Pipeline_Medallion_Architecture.png)
 
 ## Bronze Layer
 
