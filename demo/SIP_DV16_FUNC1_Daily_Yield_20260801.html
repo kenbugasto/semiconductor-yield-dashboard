@@ -1,0 +1,1930 @@
+
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>SIP Daily Yield - DV16-FUNC1</title>
+        <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 18px 24px;
+                color: black;
+                background: white;
+            }
+
+            h1, h2, h3 {
+                color: black;
+            }
+
+            .section {
+                margin-top: 18px;
+                margin-bottom: 32px;
+                width: 100%;
+                overflow-x: auto;
+            }
+
+            .section h2 {
+                margin-top: 0px;
+                margin-bottom: -8px;
+            }
+
+            .section p {
+                margin-top: 2px;
+                margin-bottom: 4px;
+            }
+
+            .chart-wrap {
+                width: 100%;
+                overflow-x: auto;
+                overflow-y: visible;
+                padding-top: 10px;
+                padding-bottom: 0px;
+            }
+
+            .chart-inner {
+                width: 100%;
+                min-width: 1200px;
+                overflow: visible;
+            }
+
+            .plotly-graph-div{
+                width:100%!important;
+                max-width:none!important;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                margin-top: 4px;
+                margin-bottom: 28px;
+            }
+
+            th, td {
+                border: 1px solid #d9d9d9;
+                padding: 7px;
+                text-align: center;
+                vertical-align: middle;
+                white-space: pre-line;
+                font-size: 14px;
+            }
+
+            th {
+                background: #eef4fb;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>📊 SIP Daily Yield - DV16-FUNC1</h1>
+        <p>Exported from Streamlit dashboard</p>
+
+        <div class="section">
+            
+    <div style="
+        font-size:15px;
+        color:#555;
+        margin-top:10px;
+        margin-bottom:10px;
+        line-height:1.65;
+        background:#F7F9FA;
+        border:1px solid #D9E0E3;
+        border-radius:8px;
+        padding:12px 14px;
+    ">
+        <b>Limit Method:</b> IQR-Filtered 3-Sigma<br>
+        <b>Back Month Used:</b> Jul'26<br>
+
+        <b>FPY:</b>
+        Mean 96.11% |
+        σ 1.18% |
+        Raw LCL 92.56% |
+        Effective LCL 92.56%<br>
+
+        <b>FTY:</b>
+        Mean 99.50% |
+        σ 0.33% |
+        Raw LCL 98.51% |
+        Effective LCL 98.51%<br>
+
+        <b>LRR Hold Trigger:</b>
+        FTY below 98.51%<br>
+
+        <b>RPR Threshold:</b>
+        3.00%
+    </div>
+    
+            
+    <div style="
+        width:100%;
+        overflow-x:auto;
+        padding:4px 0 8px 0;
+    ">
+        <div style="
+            display:flex;
+            flex-wrap:nowrap;
+            gap:12px;
+            align-items:flex-start;
+            min-width:max-content;
+            font-family:Arial, sans-serif;
+            color:#2C3E50;
+        ">
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#ECF0F1;
+                    border:1px solid #BDC3C7;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    WW28'26
+                </div>
+                
+                <div style="
+                    background:#96D2B3;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        99.38%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#96D2B3;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        96.08%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        3.30%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        7.50%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        150,068
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        149,138
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#ECF0F1;
+                    border:1px solid #BDC3C7;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    WW29'26
+                </div>
+                
+                <div style="
+                    background:#96D2B3;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        99.47%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#96D2B3;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        96.31%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        3.17%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        7.55%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        152,026
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        151,227
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#ECF0F1;
+                    border:1px solid #BDC3C7;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    WW30'26
+                </div>
+                
+                <div style="
+                    background:#96D2B3;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        99.05%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#FFE88F;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        95.71%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        3.34%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        8.33%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        181,371
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        179,653
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#ECF0F1;
+                    border:1px solid #BDC3C7;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    WW31'26
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        95.50%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        91.83%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        3.67%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        25.00%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        161,100
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        153,845
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#ECF0F1;
+                    border:1px solid #BDC3C7;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    7/26
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        96.41%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        92.33%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        4.07%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        50.00%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        19,643
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        18,937
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#ECF0F1;
+                    border:1px solid #BDC3C7;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    7/27
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        97.94%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        93.55%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        4.38%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        25.00%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        18,553
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        18,170
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#ECF0F1;
+                    border:1px solid #BDC3C7;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    7/28
+                </div>
+                
+                <div style="
+                    background:#FFE88F;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        98.59%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        94.79%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        3.80%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        20.00%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        27,626
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        27,236
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#ECF0F1;
+                    border:1px solid #BDC3C7;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    7/29
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        95.76%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        91.99%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        3.77%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        33.33%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        16,832
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        16,118
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#ECF0F1;
+                    border:1px solid #BDC3C7;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    7/30
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        94.72%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        90.71%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        4.01%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        33.33%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        28,379
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        26,882
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#ECF0F1;
+                    border:1px solid #BDC3C7;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    7/31
+                </div>
+                
+                <div style="
+                    background:#96D2B3;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        99.59%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#96D2B3;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        96.14%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        3.44%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#96D2B3;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        0.00%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        25,384
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        25,279
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="
+                min-width:140px;
+                max-width:160px;
+                flex:1 1 140px;
+            ">
+                <div style="
+                    background:#ECF0F1;
+                    border:1px solid #BDC3C7;
+                    border-radius:10px;
+                    padding:10px;
+                    margin-bottom:8px;
+                    text-align:center;
+                    font-weight:800;
+                    font-size:18px;
+                ">
+                    8/01
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        85.98%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        FPY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        83.56%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#FFE88F;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        RPR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        2.42%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F0AAA0;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        LRR
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        20.00%
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Input QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        24,683
+                    </div>
+                </div>
+                
+                <div style="
+                    background:#F2F2F2;
+                    border:1px solid #D9D9D9;
+                    border-radius:8px;
+                    padding:10px 6px;
+                    margin-bottom:8px;
+                    min-height:72px;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    box-sizing:border-box;
+                ">
+                    <div style="font-size:13px; font-weight:700; margin-bottom:4px;">
+                        Output QTY
+                    </div>
+                    <div style="font-size:20px; font-weight:800;">
+                        21,223
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+        </div>
+
+        <div class="section">
+            <h2>📈 4-Week Yield Trend</h2>
+            
+    <div class="chart-wrap" style="margin-bottom:0px;">
+        <div class="chart-inner">
+            <div>                            <div id="0514bbe0-2d2d-4756-8b35-d37a044287bd" class="plotly-graph-div" style="height:780px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("0514bbe0-2d2d-4756-8b35-d37a044287bd")) {                    Plotly.newPlot(                        "0514bbe0-2d2d-4756-8b35-d37a044287bd",                        [{"hovertemplate":"Date: %{x}\u003cbr\u003eTest-In QTY: %{y:,}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#2C3E50","line":{"color":"#BDC3C7","width":1}},"name":"Test-In QTY","opacity":0.3,"text":["\u003cb\u003e150.07K\u003c\u002fb\u003e","\u003cb\u003e152.03K\u003c\u002fb\u003e","\u003cb\u003e181.37K\u003c\u002fb\u003e","\u003cb\u003e161.10K\u003c\u002fb\u003e","\u003cb\u003e19.64K\u003c\u002fb\u003e","\u003cb\u003e18.55K\u003c\u002fb\u003e","\u003cb\u003e27.63K\u003c\u002fb\u003e","\u003cb\u003e16.83K\u003c\u002fb\u003e","\u003cb\u003e28.38K\u003c\u002fb\u003e","\u003cb\u003e25.38K\u003c\u002fb\u003e","\u003cb\u003e24.68K\u003c\u002fb\u003e"],"textfont":{"color":"#2C3E50","size":15},"textposition":"outside","x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"i4","bdata":"NEoCANpRAgB7xAIATHUCALtMAAB5SAAA6msAAMBBAADbbgAAKGMAAGtgAAA="},"yaxis":"y","type":"bar"},{"hovertemplate":"Date: %{x}\u003cbr\u003eFinal Output: %{y:,}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#058247","line":{"color":"#BDC3C7","width":1}},"name":"Final Output","opacity":0.6,"text":["\u003cb\u003e149.14K\u003c\u002fb\u003e","\u003cb\u003e151.23K\u003c\u002fb\u003e","\u003cb\u003e179.65K\u003c\u002fb\u003e","\u003cb\u003e153.84K\u003c\u002fb\u003e","\u003cb\u003e18.94K\u003c\u002fb\u003e","\u003cb\u003e18.17K\u003c\u002fb\u003e","\u003cb\u003e27.24K\u003c\u002fb\u003e","\u003cb\u003e16.12K\u003c\u002fb\u003e","\u003cb\u003e26.88K\u003c\u002fb\u003e","\u003cb\u003e25.28K\u003c\u002fb\u003e","\u003cb\u003e21.22K\u003c\u002fb\u003e"],"textfont":{"color":"darkgreen","size":15},"textposition":"outside","x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"i4","bdata":"kkYCALtOAgDFvQIA9VgCAPlJAAD6RgAAZGoAAPY+AAACaQAAv2IAAOdSAAA="},"yaxis":"y","type":"bar"},{"connectgaps":true,"hovertemplate":"Date: %{x}\u003cbr\u003e1st Yield=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#2C3E50","width":3},"marker":{"color":"#2C3E50","size":8},"mode":"lines+markers+text","name":"1st Yield","text":["96.08%","96.31%","95.71%","91.83%","92.33%","93.55%","94.79%","91.99%","90.71%","96.14%","83.56%"],"textfont":{"color":"#2C3E50","size":11},"textposition":"top center","x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"f8","bdata":"hetRuB4FWECkcD0K1xNYQD0K16Nw7VdAhetRuB71VkCF61G4HhVXQDMzMzMzY1dAw\u002fUoXI+yV0CPwvUoXP9WQD0K16NwrVZAKVyPwvUIWECkcD0K1+NUQA=="},"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Date: %{x}\u003cbr\u003eFinal Yield=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#058247","width":3},"marker":{"color":"#058247","size":8},"mode":"lines+markers+text","name":"Final Yield","text":["99.38%","99.47%","99.05%","95.50%","96.41%","97.94%","98.59%","95.76%","94.72%","99.59%","85.98%"],"textfont":{"color":"#2C3E50","size":11},"textposition":"top center","x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"f8","bdata":"uB6F61HYWECuR+F6FN5YQDMzMzMzw1hAAAAAAADgV0AK16NwPRpYQFyPwvUofFhA9ihcj8KlWEBxPQrXo\u002fBXQK5H4XoUrldA9ihcj8LlWEAfhetRuH5VQA=="},"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Date=%{x}\u003cbr\u003eFTY Target=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#E56A54","dash":"dash","width":2},"mode":"lines","name":"IQR 3-sig FTY LCL (98.51%)","x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"f8","bdata":"cT0K16OgWEBxPQrXo6BYQHE9CtejoFhAcT0K16OgWEBxPQrXo6BYQHE9CtejoFhAcT0K16OgWEBxPQrXo6BYQHE9CtejoFhAcT0K16OgWEBxPQrXo6BYQA=="},"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Date=%{x}\u003cbr\u003eFPY Target=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#34495E","dash":"dash","width":2},"mode":"lines","name":"IQR 3-sig FPY LCL (92.56%)","x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"f8","bdata":"pHA9CtcjV0CkcD0K1yNXQKRwPQrXI1dApHA9CtcjV0CkcD0K1yNXQKRwPQrXI1dApHA9CtcjV0CkcD0K1yNXQKRwPQrXI1dApHA9CtcjV0CkcD0K1yNXQA=="},"yaxis":"y2","type":"scatter"}],                        {"autosize":true,"barmode":"group","dragmode":"zoom","font":{"color":"#2C3E50","size":15},"height":780,"hovermode":"x unified","legend":{"font":{"color":"black","size":12},"orientation":"h","x":0,"xanchor":"left","y":1.12,"yanchor":"bottom"},"margin":{"b":165,"l":120,"r":130,"t":210},"paper_bgcolor":"#EEEEEE","plot_bgcolor":"#FFFFFF","template":{},"title":{"text":"DV16-FUNC1 \u2014 4-Week Yield Trend"},"xaxis":{"automargin":true,"categoryarray":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"categoryorder":"array","gridcolor":"#DDE3E6","linecolor":"#BDC3C7","linewidth":1,"mirror":true,"showline":true,"tickangle":-30,"ticklabelstandoff":8,"title":{"standoff":65},"type":"category"},"yaxis":{"automargin":true,"gridcolor":"#DDE3E6","linecolor":"#BDC3C7","linewidth":1,"mirror":true,"range":[0,217645.0],"showline":true,"side":"left","ticklabelstandoff":8,"title":{"standoff":45}},"yaxis2":{"automargin":true,"fixedrange":false,"gridcolor":"#DDE3E6","linecolor":"#BDC3C7","linewidth":1,"mirror":true,"overlaying":"y","range":[81.0,101.0],"showgrid":false,"showline":true,"side":"right","ticklabelstandoff":8,"title":{"standoff":45}},"hoverlabel":{"font":{"size":13,"color":"#2C3E50"},"bgcolor":"white","align":"left"},"annotations":[{"font":{"color":"#2C3E50","size":15},"showarrow":false,"text":"Week \u002f Day","x":0.5,"xref":"paper","y":-0.16,"yref":"paper"},{"font":{"color":"#2C3E50","size":15},"showarrow":false,"text":"Quantity","textangle":-90,"x":-0.075,"xref":"paper","y":0.5,"yref":"paper"},{"font":{"color":"#2C3E50","size":15},"showarrow":false,"text":"Yield %","textangle":90,"x":1.055,"xref":"paper","y":0.5,"yref":"paper"}]},                        {"responsive": true, "displaylogo": false}                    )                };            </script>        </div>
+        </div>
+    </div>
+    
+            
+    
+    <table border="1">
+        <thead>
+            <tr><th>Metric</th><th>WW28'26</th><th>WW29'26</th><th>WW30'26</th><th>WW31'26</th><th>7/26</th><th>7/27</th><th>7/28</th><th>7/29</th><th>7/30</th><th>7/31</th><th>8/01</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Test-In QTY</td><td>150,068</td><td>152,026</td><td>181,371</td><td>161,100</td><td>19,643</td><td>18,553</td><td>27,626</td><td>16,832</td><td>28,379</td><td>25,384</td><td>24,683</td></tr><tr><td>Final Output</td><td>149,138</td><td>151,227</td><td>179,653</td><td>153,845</td><td>18,937</td><td>18,170</td><td>27,236</td><td>16,118</td><td>26,882</td><td>25,279</td><td>21,223</td></tr><tr><td>1st Yield</td><td>96.08%</td><td>96.31% <span style='color:green;font-weight:700;'>▲</span></td><td>95.71% <span style='color:red;font-weight:700;'>▼</span></td><td>91.83% <span style='color:red;font-weight:700;'>▼</span></td><td>92.33% <span style='color:green;font-weight:700;'>▲</span></td><td>93.55% <span style='color:green;font-weight:700;'>▲</span></td><td>94.79% <span style='color:green;font-weight:700;'>▲</span></td><td>91.99% <span style='color:red;font-weight:700;'>▼</span></td><td>90.71% <span style='color:red;font-weight:700;'>▼</span></td><td>96.14% <span style='color:green;font-weight:700;'>▲</span></td><td>83.56% <span style='color:red;font-weight:700;'>▼</span></td></tr><tr><td>Final Yield</td><td>99.38%</td><td>99.47% <span style='color:green;font-weight:700;'>▲</span></td><td>99.05% <span style='color:red;font-weight:700;'>▼</span></td><td>95.50% <span style='color:red;font-weight:700;'>▼</span></td><td>96.41% <span style='color:green;font-weight:700;'>▲</span></td><td>97.94% <span style='color:green;font-weight:700;'>▲</span></td><td>98.59% <span style='color:green;font-weight:700;'>▲</span></td><td>95.76% <span style='color:red;font-weight:700;'>▼</span></td><td>94.72% <span style='color:red;font-weight:700;'>▼</span></td><td>99.59% <span style='color:green;font-weight:700;'>▲</span></td><td>85.98% <span style='color:red;font-weight:700;'>▼</span></td></tr>
+        </tbody>
+    </table>
+    
+        </div>
+
+        <div class="section">
+            <h2>🚨 Top5 Defect Rate Distribution</h2>
+            
+    <div class="chart-wrap" style="margin-bottom:0px;">
+        <div class="chart-inner">
+            <div>                            <div id="b10ab01c-1b8e-4b99-b469-3931997729f2" class="plotly-graph-div" style="height:780px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("b10ab01c-1b8e-4b99-b469-3931997729f2")) {                    Plotly.newPlot(                        "b10ab01c-1b8e-4b99-b469-3931997729f2",                        [{"customdata":[["101207\nparam59"],["101207\nparam59"],["101207\nparam59"],["101207\nparam59"],["101207\nparam59"],["101207\nparam59"],["101207\nparam59"],["101207\nparam59"],["101207\nparam59"],["101207\nparam59"],["101207\nparam59"]],"hovertemplate":"Date: %{x}\u003cbr\u003eErrCode: %{customdata[0]}\u003cbr\u003eFail %=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#E56A54","line":{"color":"#BDC3C7","width":1}},"name":"Top1 errCode FTY","opacity":0.85,"x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"f8","bdata":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUrgehetRAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACuR+F6FK4qQA=="},"yaxis":"y","type":"bar"},{"customdata":[["100268\nparam9"],["100268\nparam9"],["100268\nparam9"],["100268\nparam9"],["100268\nparam9"],["100268\nparam9"],["100268\nparam9"],["100268\nparam9"],["100268\nparam9"],["100268\nparam9"],["100268\nparam9"]],"hovertemplate":"Date: %{x}\u003cbr\u003eErrCode: %{customdata[0]}\u003cbr\u003eFail %=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#FEDF58","line":{"color":"#BDC3C7","width":1}},"name":"Top2 errCode FTY","opacity":0.85,"x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"f8","bdata":"7FG4HoXrsT+amZmZmZmpPylcj8L1KLw\u002fCtejcD0Kxz97FK5H4Xq0PzMzMzMzM9M\u002fj8L1KFyP0j\u002fXo3A9CtfTP3sUrkfhesQ\u002fuB6F61G4rj97FK5H4Xq0Pw=="},"yaxis":"y","type":"bar"},{"customdata":[["100209\nparam54"],["100209\nparam54"],["100209\nparam54"],["100209\nparam54"],["100209\nparam54"],["100209\nparam54"],["100209\nparam54"],["100209\nparam54"],["100209\nparam54"],["100209\nparam54"],["100209\nparam54"]],"hovertemplate":"Date: %{x}\u003cbr\u003eErrCode: %{customdata[0]}\u003cbr\u003eFail %=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#8BCF7A","line":{"color":"#BDC3C7","width":1}},"name":"Top3 errCode FTY","opacity":0.85,"x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"f8","bdata":"exSuR+F6tD+4HoXrUbieP7gehetRuK4\u002fuB6F61G4rj8pXI\u002fC9SjMP3sUrkfheqQ\u002fexSuR+F6pD97FK5H4XqkP3sUrkfheoQ\u002fexSuR+F6lD+4HoXrUbiuPw=="},"yaxis":"y","type":"bar"},{"customdata":[["100156\nparam58"],["100156\nparam58"],["100156\nparam58"],["100156\nparam58"],["100156\nparam58"],["100156\nparam58"],["100156\nparam58"],["100156\nparam58"],["100156\nparam58"],["100156\nparam58"],["100156\nparam58"]],"hovertemplate":"Date: %{x}\u003cbr\u003eErrCode: %{customdata[0]}\u003cbr\u003eFail %=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#7DB7E8","line":{"color":"#BDC3C7","width":1}},"name":"Top4 errCode FTY","opacity":0.85,"x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"f8","bdata":"exSuR+F6pD+4HoXrUbieP5qZmZmZmak\u002fUrgehetRyD+amZmZmZm5P8P1KFyPwsU\u002fmpmZmZmZqT8K16NwPQrXP5qZmZmZmeE\u002fexSuR+F6lD+4HoXrUbiuPw=="},"yaxis":"y","type":"bar"},{"customdata":[["100277\nparam4"],["100277\nparam4"],["100277\nparam4"],["100277\nparam4"],["100277\nparam4"],["100277\nparam4"],["100277\nparam4"],["100277\nparam4"],["100277\nparam4"],["100277\nparam4"],["100277\nparam4"]],"hovertemplate":"Date: %{x}\u003cbr\u003eErrCode: %{customdata[0]}\u003cbr\u003eFail %=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#7F8C8D","line":{"color":"#BDC3C7","width":1}},"name":"Top5 errCode FTY","opacity":0.85,"x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"f8","bdata":"exSuR+F6pD+4HoXrUbieP7gehetRuJ4\u002fuB6F61G4nj+4HoXrUbieP5qZmZmZmak\u002fexSuR+F6lD97FK5H4XqkP3sUrkfhepQ\u002fexSuR+F6lD+amZmZmZmpPw=="},"yaxis":"y","type":"bar"},{"hovertemplate":"Date: %{x}\u003cbr\u003eOther errCodes Fail %=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#BDC3C7","line":{"color":"#BDC3C7","width":1}},"name":"Other errCodes FTY","opacity":0.85,"x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"f8","bdata":"9ihcj8L12D+uR+F6FK7XP8P1KFyPwuU\u002fAAAAAAAAAEBcj8L1KFwJQNejcD0K1\u002fc\u002fKVyPwvUo8D\u002fsUbgehesLQB+F61G4HhJA7FG4HoXr0T+F61G4HoXbPw=="},"yaxis":"y","type":"bar"},{"hovertemplate":"FTY Loss Threshold: 1%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#34495E","dash":"dash","width":2},"mode":"lines","name":"FTY Loss Threshold (1%)","x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":[1,1,1,1,1,1,1,1,1,1,1],"yaxis":"y","type":"scatter"},{"connectgaps":true,"hovertemplate":"Date: %{x}\u003cbr\u003eFPY: %{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#2C3E50","width":3},"marker":{"color":"#2C3E50","size":8},"mode":"lines+markers+text","name":"FPY","text":["96.08%","96.31%","95.71%","91.83%","92.33%","93.55%","94.79%","91.99%","90.71%","96.14%","83.56%"],"textfont":{"color":"#2C3E50","size":11},"textposition":"top center","x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"f8","bdata":"hetRuB4FWECkcD0K1xNYQD0K16Nw7VdAhetRuB71VkCF61G4HhVXQDMzMzMzY1dAw\u002fUoXI+yV0CPwvUoXP9WQD0K16NwrVZAKVyPwvUIWECkcD0K1+NUQA=="},"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Date: %{x}\u003cbr\u003eFTY: %{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#058247","width":3},"marker":{"color":"#058247","size":8},"mode":"lines+markers+text","name":"FTY","text":["99.38%","99.47%","99.05%","95.50%","96.41%","97.94%","98.59%","95.76%","94.72%","99.59%","85.98%"],"textfont":{"color":"#2C3E50","size":11},"textposition":"top center","x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"f8","bdata":"uB6F61HYWECuR+F6FN5YQDMzMzMzw1hAAAAAAADgV0AK16NwPRpYQFyPwvUofFhA9ihcj8KlWEBxPQrXo\u002fBXQK5H4XoUrldA9ihcj8LlWEAfhetRuH5VQA=="},"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hoverinfo":"skip","mode":"text","name":"Total Defect %","showlegend":false,"text":["0.62%","0.51%","0.93%","4.50%","3.60%","2.05%","1.41%","4.24%","5.27%","0.40%","14.02%"],"textfont":{"color":["black","black","black","#C94F3D","#C94F3D","#C94F3D","#C94F3D","#C94F3D","#C94F3D","black","#C94F3D"],"size":11},"textposition":"top center","x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"f8","bdata":"16NwPQrX4z9SuB6F61HgP8P1KFyPwu0\u002fAAAAAAAAEkDNzMzMzMwMQGZmZmZmZgBAj8L1KFyP9j\u002f2KFyPwvUQQBSuR+F6FBVAmpmZmZmZ2T8K16NwPQosQA=="},"yaxis":"y","type":"scatter"}],                        {"autosize":true,"barmode":"stack","dragmode":"zoom","font":{"color":"#2C3E50","size":15},"height":780,"hovermode":"x unified","legend":{"font":{"color":"black","size":12},"orientation":"h","x":0,"xanchor":"left","y":1.12,"yanchor":"bottom"},"margin":{"b":165,"l":120,"r":130,"t":210},"paper_bgcolor":"#EEEEEE","plot_bgcolor":"#FFFFFF","template":{},"title":{"text":"DV16-FUNC1 \u2014 Top 5 Defect Rate Distribution"},"xaxis":{"automargin":true,"categoryarray":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"categoryorder":"array","gridcolor":"#DDE3E6","linecolor":"#BDC3C7","linewidth":1,"mirror":true,"showline":true,"tickangle":-30,"ticklabelstandoff":8,"title":{"standoff":65},"type":"category"},"yaxis":{"automargin":true,"gridcolor":"#DDE3E6","linecolor":"#BDC3C7","linewidth":1,"mirror":true,"range":[0,17.53],"showline":true,"ticklabelstandoff":8,"title":{"standoff":45}},"yaxis2":{"automargin":true,"gridcolor":"#DDE3E6","linecolor":"#BDC3C7","linewidth":1,"mirror":true,"overlaying":"y","range":[81.0,101.0],"showgrid":false,"showline":true,"side":"right","ticklabelstandoff":8,"title":{"standoff":45}},"hoverlabel":{"font":{"size":13,"color":"#2C3E50"},"bgcolor":"white","align":"left"},"annotations":[{"font":{"color":"#2C3E50","size":15},"showarrow":false,"text":"Week \u002f Day","x":0.5,"xref":"paper","y":-0.16,"yref":"paper"},{"font":{"color":"#2C3E50","size":15},"showarrow":false,"text":"Defect Rate %","textangle":-90,"x":-0.075,"xref":"paper","y":0.5,"yref":"paper"},{"font":{"color":"#2C3E50","size":15},"showarrow":false,"text":"Yield %","textangle":90,"x":1.055,"xref":"paper","y":0.5,"yref":"paper"}]},                        {"responsive": true, "displaylogo": false}                    )                };            </script>        </div>
+        </div>
+    </div>
+    
+            
+    
+    <table border="1">
+        <thead>
+            <tr><th>Metric</th><th>WW28'26</th><th>WW29'26</th><th>WW30'26</th><th>WW31'26</th><th>7/26</th><th>7/27</th><th>7/28</th><th>7/29</th><th>7/30</th><th>7/31</th><th>8/01</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Overall_FTY</td><td>99.38%</td><td>99.47% <span style='color:green;font-weight:700;'>▲</span></td><td>99.05% <span style='color:red;font-weight:700;'>▼</span></td><td>95.50% <span style='color:red;font-weight:700;'>▼</span></td><td>96.41% <span style='color:green;font-weight:700;'>▲</span></td><td>97.94% <span style='color:green;font-weight:700;'>▲</span></td><td>98.59% <span style='color:green;font-weight:700;'>▲</span></td><td>95.76% <span style='color:red;font-weight:700;'>▼</span></td><td>94.72% <span style='color:red;font-weight:700;'>▼</span></td><td>99.59% <span style='color:green;font-weight:700;'>▲</span></td><td>85.98% <span style='color:red;font-weight:700;'>▼</span></td></tr><tr><td>top1_errCode : 101207<br>param59</td><td>0.00%</td><td>0.00% <span style='color:#666;font-weight:700;'>◆</span></td><td>0.00% <span style='color:#666;font-weight:700;'>◆</span></td><td>2.04% <span style='color:red;font-weight:700;'>▲</span></td><td>0.00% <span style='color:green;font-weight:700;'>▼</span></td><td>0.00% <span style='color:#666;font-weight:700;'>◆</span></td><td>0.00% <span style='color:#666;font-weight:700;'>◆</span></td><td>0.00% <span style='color:#666;font-weight:700;'>◆</span></td><td>0.00% <span style='color:#666;font-weight:700;'>◆</span></td><td>0.00% <span style='color:#666;font-weight:700;'>◆</span></td><td>13.34% <span style='color:red;font-weight:700;'>▲</span></td></tr><tr><td>top2_errCode : 100268<br>param9</td><td>0.07%</td><td>0.05% <span style='color:green;font-weight:700;'>▼</span></td><td>0.11% <span style='color:red;font-weight:700;'>▲</span></td><td>0.18% <span style='color:red;font-weight:700;'>▲</span></td><td>0.08% <span style='color:green;font-weight:700;'>▼</span></td><td>0.30% <span style='color:red;font-weight:700;'>▲</span></td><td>0.29% <span style='color:green;font-weight:700;'>▼</span></td><td>0.31% <span style='color:red;font-weight:700;'>▲</span></td><td>0.16% <span style='color:green;font-weight:700;'>▼</span></td><td>0.06% <span style='color:green;font-weight:700;'>▼</span></td><td>0.08% <span style='color:red;font-weight:700;'>▲</span></td></tr><tr><td>top3_errCode : 100209<br>param54</td><td>0.08%</td><td>0.03% <span style='color:green;font-weight:700;'>▼</span></td><td>0.06% <span style='color:red;font-weight:700;'>▲</span></td><td>0.06% <span style='color:#666;font-weight:700;'>◆</span></td><td>0.22% <span style='color:red;font-weight:700;'>▲</span></td><td>0.04% <span style='color:green;font-weight:700;'>▼</span></td><td>0.04% <span style='color:#666;font-weight:700;'>◆</span></td><td>0.04% <span style='color:#666;font-weight:700;'>◆</span></td><td>0.01% <span style='color:green;font-weight:700;'>▼</span></td><td>0.02% <span style='color:red;font-weight:700;'>▲</span></td><td>0.06% <span style='color:red;font-weight:700;'>▲</span></td></tr><tr><td>top4_errCode : 100156<br>param58</td><td>0.04%</td><td>0.03% <span style='color:green;font-weight:700;'>▼</span></td><td>0.05% <span style='color:red;font-weight:700;'>▲</span></td><td>0.19% <span style='color:red;font-weight:700;'>▲</span></td><td>0.10% <span style='color:green;font-weight:700;'>▼</span></td><td>0.17% <span style='color:red;font-weight:700;'>▲</span></td><td>0.05% <span style='color:green;font-weight:700;'>▼</span></td><td>0.36% <span style='color:red;font-weight:700;'>▲</span></td><td>0.55% <span style='color:red;font-weight:700;'>▲</span></td><td>0.02% <span style='color:green;font-weight:700;'>▼</span></td><td>0.06% <span style='color:red;font-weight:700;'>▲</span></td></tr><tr><td>top5_errCode : 100277<br>param4</td><td>0.04%</td><td>0.03% <span style='color:green;font-weight:700;'>▼</span></td><td>0.03% <span style='color:#666;font-weight:700;'>◆</span></td><td>0.03% <span style='color:#666;font-weight:700;'>◆</span></td><td>0.03% <span style='color:#666;font-weight:700;'>◆</span></td><td>0.05% <span style='color:red;font-weight:700;'>▲</span></td><td>0.02% <span style='color:green;font-weight:700;'>▼</span></td><td>0.04% <span style='color:red;font-weight:700;'>▲</span></td><td>0.02% <span style='color:green;font-weight:700;'>▼</span></td><td>0.02% <span style='color:#666;font-weight:700;'>◆</span></td><td>0.05% <span style='color:red;font-weight:700;'>▲</span></td></tr><tr><td>other_errCodes</td><td>0.39%</td><td>0.37% <span style='color:green;font-weight:700;'>▼</span></td><td>0.68% <span style='color:red;font-weight:700;'>▲</span></td><td>2.00% <span style='color:red;font-weight:700;'>▲</span></td><td>3.17% <span style='color:red;font-weight:700;'>▲</span></td><td>1.49% <span style='color:green;font-weight:700;'>▼</span></td><td>1.01% <span style='color:green;font-weight:700;'>▼</span></td><td>3.49% <span style='color:red;font-weight:700;'>▲</span></td><td>4.53% <span style='color:red;font-weight:700;'>▲</span></td><td>0.28% <span style='color:green;font-weight:700;'>▼</span></td><td>0.43% <span style='color:red;font-weight:700;'>▲</span></td></tr>
+        </tbody>
+    </table>
+    
+        </div>
+
+        <div class="section">
+            <h2>📈 Mother Lot Yield Trend (Past 4 Weeks)</h2>
+            
+    <div class="chart-wrap" style="margin-bottom:0px;">
+        <div class="chart-inner">
+            <div>                            <div id="c44835e9-3bfc-4c04-89f3-ef3d14f777a0" class="plotly-graph-div" style="height:780px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("c44835e9-3bfc-4c04-89f3-ef3d14f777a0")) {                    Plotly.newPlot(                        "c44835e9-3bfc-4c04-89f3-ef3d14f777a0",                        [{"cliponaxis":false,"hovertemplate":"Mother Lot: %{x}\u003cbr\u003eTest-In QTY: %{y:,}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#2C3E50","line":{"color":"#BDC3C7","width":1}},"name":"Test-In QTY","opacity":0.3,"text":["\u003cb\u003e104.40K\u003c\u002fb\u003e","\u003cb\u003e100.87K\u003c\u002fb\u003e","\u003cb\u003e97.83K\u003c\u002fb\u003e","\u003cb\u003e59.91K\u003c\u002fb\u003e","\u003cb\u003e53.70K\u003c\u002fb\u003e","\u003cb\u003e51.31K\u003c\u002fb\u003e","\u003cb\u003e48.76K\u003c\u002fb\u003e","\u003cb\u003e36.77K\u003c\u002fb\u003e","\u003cb\u003e27.93K\u003c\u002fb\u003e","\u003cb\u003e30.43K\u003c\u002fb\u003e","\u003cb\u003e24.44K\u003c\u002fb\u003e","\u003cb\u003e5.28K\u003c\u002fb\u003e","\u003cb\u003e2.79K\u003c\u002fb\u003e","\u003cb\u003e100\u003c\u002fb\u003e"],"textfont":{"color":"#2C3E50","size":15},"textposition":"outside","x":["21ANEW","18ANDM","19ANDY","27ANJW","28ANJY","27ANJS","25ANHL","25ANHK","24ANGU","28ANJZ","26ANJB","17ANDL","21ANFC","22ANFY"],"y":{"dtype":"f8","bdata":"AAAAANB8+UAAAAAAYKD4QAAAAABA4vdAAAAAAABB7UAAAAAAgDjqQAAAAADgDelAAAAAAEDP50AAAAAAQPThQAAAAAAARttAAAAAAEC33UAAAAAAwN3XQAAAAAAAn7RAAAAAAADMpUAAAAAAAABZQA=="},"yaxis":"y","type":"bar"},{"cliponaxis":false,"hovertemplate":"Mother Lot: %{x}\u003cbr\u003eFinal Output: %{y:,}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#058247","line":{"color":"#BDC3C7","width":1}},"name":"Final Output","opacity":0.6,"text":["\u003cb\u003e104.00K\u003c\u002fb\u003e","\u003cb\u003e100.19K\u003c\u002fb\u003e","\u003cb\u003e97.53K\u003c\u002fb\u003e","\u003cb\u003e57.85K\u003c\u002fb\u003e","\u003cb\u003e52.09K\u003c\u002fb\u003e","\u003cb\u003e50.40K\u003c\u002fb\u003e","\u003cb\u003e48.30K\u003c\u002fb\u003e","\u003cb\u003e36.60K\u003c\u002fb\u003e","\u003cb\u003e27.82K\u003c\u002fb\u003e","\u003cb\u003e26.98K\u003c\u002fb\u003e","\u003cb\u003e23.97K\u003c\u002fb\u003e","\u003cb\u003e5.25K\u003c\u002fb\u003e","\u003cb\u003e2.73K\u003c\u002fb\u003e","\u003cb\u003e94\u003c\u002fb\u003e"],"textfont":{"color":"darkgreen","size":15},"textposition":"outside","x":["21ANEW","18ANDM","19ANDY","27ANJW","28ANJY","27ANJS","25ANHL","25ANHK","24ANGU","28ANJZ","26ANJB","17ANDL","21ANFC","22ANFY"],"y":{"dtype":"f8","bdata":"AAAAADBk+UAAAAAAIHb4QAAAAADwz\u002fdAAAAAAAA\u002f7EAAAAAA4G7pQAAAAAAgnOhAAAAAAICV50AAAAAAwN7hQAAAAAAAK9tAAAAAAMBX2kAAAAAAgGnXQAAAAAAAhbRAAAAAAABWpUAAAAAAAIBXQA=="},"yaxis":"y","type":"bar"},{"cliponaxis":false,"connectgaps":true,"hovertemplate":"Mother Lot: %{x}\u003cbr\u003eFPY: %{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#2C3E50","width":3},"marker":{"color":"#2C3E50","size":8},"mode":"lines+markers+text","name":"FPY","text":["96.48%","96.03%","96.65%","92.63%","93.15%","94.41%","95.29%","96.79%","96.48%","85.67%","94.30%","97.52%","94.62%","81.00%"],"textfont":{"color":"#2C3E50","size":11},"textposition":"top center","x":["21ANEW","18ANDM","19ANDY","27ANJW","28ANJY","27ANJS","25ANHL","25ANHK","24ANGU","28ANJZ","26ANJB","17ANDL","21ANFC","22ANFY"],"y":{"dtype":"f8","bdata":"H4XrUbgeWEBSuB6F6wFYQJqZmZmZKVhAuB6F61EoV0CamZmZmUlXQArXo3A9mldAw\u002fUoXI\u002fSV0DD9ShcjzJYQB+F61G4HlhAexSuR+FqVUAzMzMzM5NXQOF6FK5HYVhASOF6FK6nV0AAAAAAAEBUQA=="},"yaxis":"y2","type":"scatter"},{"cliponaxis":false,"connectgaps":true,"hovertemplate":"Mother Lot: %{x}\u003cbr\u003eFTY: %{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#058247","width":3},"marker":{"color":"#058247","size":8},"mode":"lines+markers+text","name":"FTY","text":["99.62%","99.33%","99.70%","96.55%","97.00%","98.23%","99.05%","99.53%","99.61%","88.65%","98.10%","99.51%","97.89%","94.00%"],"textfont":{"color":"#2C3E50","size":11},"textposition":"top center","x":["21ANEW","18ANDM","19ANDY","27ANJW","28ANJY","27ANJS","25ANHL","25ANHK","24ANGU","28ANJZ","26ANJB","17ANDL","21ANFC","22ANFY"],"y":{"dtype":"f8","bdata":"SOF6FK7nWECF61G4HtVYQM3MzMzM7FhAMzMzMzMjWEAAAAAAAEBYQB+F61G4jlhAMzMzMzPDWEBSuB6F6+FYQNejcD0K51hAmpmZmZkpVkBmZmZmZoZYQHE9Ctej4FhAKVyPwvV4WEAAAAAAAIBXQA=="},"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Mother Lot=%{x}\u003cbr\u003e3-sig FTY Target=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#E56A54","dash":"dash","width":2},"mode":"lines","name":"IQR 3-sig FTY LCL (98.51%)","x":["21ANEW","18ANDM","19ANDY","27ANJW","28ANJY","27ANJS","25ANHL","25ANHK","24ANGU","28ANJZ","26ANJB","17ANDL","21ANFC","22ANFY"],"y":[98.51,98.51,98.51,98.51,98.51,98.51,98.51,98.51,98.51,98.51,98.51,98.51,98.51,98.51],"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Mother Lot=%{x}\u003cbr\u003e3-sig FPY Target=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#34495E","dash":"dash","width":2},"mode":"lines","name":"IQR 3-sig FPY LCL (92.56%)","x":["21ANEW","18ANDM","19ANDY","27ANJW","28ANJY","27ANJS","25ANHL","25ANHK","24ANGU","28ANJZ","26ANJB","17ANDL","21ANFC","22ANFY"],"y":[92.56,92.56,92.56,92.56,92.56,92.56,92.56,92.56,92.56,92.56,92.56,92.56,92.56,92.56],"yaxis":"y2","type":"scatter"}],                        {"autosize":true,"barmode":"group","dragmode":"zoom","font":{"color":"#2C3E50","size":15},"height":780,"hovermode":"x unified","legend":{"font":{"color":"black","size":12},"orientation":"h","x":0,"xanchor":"left","y":1.12,"yanchor":"bottom"},"margin":{"b":165,"l":120,"r":130,"t":210},"paper_bgcolor":"#EEEEEE","plot_bgcolor":"#FFFFFF","template":{},"title":{"text":"DV16-FUNC1 \u2014 Mother Lot Yield Trend\u003cbr\u003e\u003csup\u003eDate Range: 2026-07-05 to 2026-08-01\u003c\u002fsup\u003e"},"xaxis":{"automargin":true,"categoryarray":["21ANEW","18ANDM","19ANDY","27ANJW","28ANJY","27ANJS","25ANHL","25ANHK","24ANGU","28ANJZ","26ANJB","17ANDL","21ANFC","22ANFY"],"categoryorder":"array","gridcolor":"#DDE3E6","linecolor":"#BDC3C7","linewidth":1,"mirror":true,"showline":true,"tickangle":-30,"ticklabelstandoff":8,"title":{"standoff":65},"type":"category"},"yaxis":{"automargin":true,"gridcolor":"#DDE3E6","linecolor":"#BDC3C7","linewidth":1,"mirror":true,"range":[0,125276.0],"showline":true,"side":"left","ticklabelstandoff":8,"title":{"standoff":45}},"yaxis2":{"automargin":true,"gridcolor":"#DDE3E6","linecolor":"#BDC3C7","linewidth":1,"mirror":true,"overlaying":"y","range":[79.0,101.0],"showgrid":false,"showline":true,"side":"right","ticklabelstandoff":8,"title":{"standoff":45}},"hoverlabel":{"font":{"size":13,"color":"#2C3E50"},"bgcolor":"white","align":"left"},"annotations":[{"font":{"color":"#2C3E50","size":15},"showarrow":false,"text":"Mother Lot","x":0.5,"xref":"paper","y":-0.16,"yref":"paper"},{"font":{"color":"#2C3E50","size":15},"showarrow":false,"text":"Quantity","textangle":-90,"x":-0.075,"xref":"paper","y":0.5,"yref":"paper"},{"font":{"color":"#2C3E50","size":15},"showarrow":false,"text":"Yield %","textangle":90,"x":1.055,"xref":"paper","y":0.5,"yref":"paper"}]},                        {"responsive": true, "displaylogo": false}                    )                };            </script>        </div>
+        </div>
+    </div>
+    
+            
+    <details  style="margin-top:16px; margin-bottom:24px;">
+        <summary style="
+            cursor:pointer;
+            font-size:18px;
+            font-weight:700;
+            padding:10px;
+            background:#eef4fb;
+            border:1px solid #d9d9d9;
+            color:black;
+        ">
+            Show / Hide Mother Lot Yield Trend Data
+        </summary>
+
+        <div style="margin-top:12px;">
+            
+    
+    <table border="1">
+        <thead>
+            <tr><th>Mother Lot</th><th>Test-In QTY</th><th>Final Output</th><th>1st Yield</th><th>Final Yield</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>21ANEW</td><td>104,397</td><td>104,003</td><td>96.48</td><td>99.62</td></tr><tr><td>18ANDM</td><td>100,870</td><td>100,194</td><td>96.03</td><td>99.33</td></tr><tr><td>19ANDY</td><td>97,828</td><td>97,535</td><td>96.65</td><td>99.7</td></tr><tr><td>27ANJW</td><td>59,912</td><td>57,848</td><td>92.63</td><td>96.55</td></tr><tr><td>28ANJY</td><td>53,700</td><td>52,087</td><td>93.15</td><td>97.0</td></tr><tr><td>27ANJS</td><td>51,311</td><td>50,401</td><td>94.41</td><td>98.23</td></tr><tr><td>25ANHL</td><td>48,762</td><td>48,300</td><td>95.29</td><td>99.05</td></tr><tr><td>25ANHK</td><td>36,770</td><td>36,598</td><td>96.79</td><td>99.53</td></tr><tr><td>24ANGU</td><td>27,928</td><td>27,820</td><td>96.48</td><td>99.61</td></tr><tr><td>28ANJZ</td><td>30,429</td><td>26,975</td><td>85.67</td><td>88.65</td></tr><tr><td>26ANJB</td><td>24,439</td><td>23,974</td><td>94.3</td><td>98.1</td></tr><tr><td>17ANDL</td><td>5,279</td><td>5,253</td><td>97.52</td><td>99.51</td></tr><tr><td>21ANFC</td><td>2,790</td><td>2,731</td><td>94.62</td><td>97.89</td></tr><tr><td>22ANFY</td><td>100</td><td>94</td><td>81.0</td><td>94.0</td></tr>
+        </tbody>
+    </table>
+    
+        </div>
+    </details>
+    
+        </div>
+
+        <div class="section">
+            <h2>📈 Sublot Yield Trend (Previous Day)</h2>
+            
+    <div class="chart-wrap" style="margin-bottom:0px;">
+        <div class="chart-inner">
+            <div>                            <div id="3f74e9eb-adbd-44db-915e-909408888015" class="plotly-graph-div" style="height:780px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("3f74e9eb-adbd-44db-915e-909408888015")) {                    Plotly.newPlot(                        "3f74e9eb-adbd-44db-915e-909408888015",                        [{"cliponaxis":false,"hovertemplate":"Sublot: %{x}\u003cbr\u003eTest-In QTY: %{y:,}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#2C3E50","line":{"color":"#BDC3C7","width":1}},"name":"Test-In QTY","opacity":0.3,"text":["\u003cb\u003e5.70K\u003c\u002fb\u003e","\u003cb\u003e5.68K\u003c\u002fb\u003e","\u003cb\u003e5.59K\u003c\u002fb\u003e","\u003cb\u003e2.79K\u003c\u002fb\u003e","\u003cb\u003e4.92K\u003c\u002fb\u003e"],"textfont":{"color":"#2C3E50","size":15},"textposition":"outside","x":["28ANJZL006","27ANJSL050","28ANJYL027","28ANJYL009","28ANJZL009"],"y":{"dtype":"f8","bdata":"AAAAAABBtkAAAAAAADG2QAAAAAAA2LVAAAAAAADSpUAAAAAAADizQA=="},"yaxis":"y","type":"bar"},{"cliponaxis":false,"hovertemplate":"Sublot: %{x}\u003cbr\u003eFinal Output: %{y:,}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#058247","line":{"color":"#BDC3C7","width":1}},"name":"Final Output","opacity":0.6,"text":["\u003cb\u003e5.66K\u003c\u002fb\u003e","\u003cb\u003e5.65K\u003c\u002fb\u003e","\u003cb\u003e5.57K\u003c\u002fb\u003e","\u003cb\u003e2.77K\u003c\u002fb\u003e","\u003cb\u003e1.57K\u003c\u002fb\u003e"],"textfont":{"color":"darkgreen","size":15},"textposition":"outside","x":["28ANJZL006","27ANJSL050","28ANJYL027","28ANJYL009","28ANJZL009"],"y":{"dtype":"f8","bdata":"AAAAAAAatkAAAAAAABG2QAAAAAAAwrVAAAAAAACqpUAAAAAAAJSYQA=="},"yaxis":"y","type":"bar"},{"cliponaxis":false,"connectgaps":true,"hovertemplate":"Sublot: %{x}\u003cbr\u003eFPY: %{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#2C3E50","width":3},"marker":{"color":"#2C3E50","size":8},"mode":"lines+markers+text","name":"FPY","text":["96.30%","96.30%","97.12%","95.38%","31.97%"],"textfont":{"color":"#2C3E50","size":11},"textposition":"top center","x":["28ANJZL006","27ANJSL050","28ANJYL027","28ANJYL009","28ANJZL009"],"y":{"dtype":"f8","bdata":"MzMzMzMTWEAzMzMzMxNYQEjhehSuR1hAuB6F61HYV0C4HoXrUfg\u002fQA=="},"yaxis":"y2","type":"scatter"},{"cliponaxis":false,"connectgaps":true,"hovertemplate":"Sublot: %{x}\u003cbr\u003eFTY: %{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#058247","width":3},"marker":{"color":"#058247","size":8},"mode":"lines+markers+text","name":"FTY","text":["99.32%","99.44%","99.61%","99.28%","31.97%"],"textfont":{"color":"#2C3E50","size":11},"textposition":"top center","x":["28ANJZL006","27ANJSL050","28ANJYL027","28ANJYL009","28ANJZL009"],"y":{"dtype":"f8","bdata":"FK5H4XrUWEBcj8L1KNxYQNejcD0K51hAUrgehevRWEC4HoXrUfg\u002fQA=="},"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Sublot=%{x}\u003cbr\u003e3-sig FTY Target=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#E56A54","dash":"dash","width":2},"mode":"lines","name":"IQR 3-sig FTY LCL (98.51%)","x":["28ANJZL006","27ANJSL050","28ANJYL027","28ANJYL009","28ANJZL009"],"y":[98.51,98.51,98.51,98.51,98.51],"yaxis":"y2","type":"scatter"},{"connectgaps":true,"hovertemplate":"Sublot=%{x}\u003cbr\u003e3-sig FPY Target=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#34495E","dash":"dash","width":2},"mode":"lines","name":"IQR 3-sig FPY LCL (92.56%)","x":["28ANJZL006","27ANJSL050","28ANJYL027","28ANJYL009","28ANJZL009"],"y":[92.56,92.56,92.56,92.56,92.56],"yaxis":"y2","type":"scatter"}],                        {"autosize":true,"barmode":"group","dragmode":"zoom","height":780,"hovermode":"x unified","legend":{"font":{"color":"black","size":12},"orientation":"h","x":0,"xanchor":"left","y":1.12,"yanchor":"bottom"},"margin":{"b":165,"l":120,"r":130,"t":210},"paper_bgcolor":"#EEEEEE","plot_bgcolor":"#FFFFFF","template":{},"title":{"text":"DV16-FUNC1 \u2014 Sublot Yield Trend\u003cbr\u003e\u003csup\u003eDate Range: 2026-08-01 to 2026-08-01\u003c\u002fsup\u003e"},"xaxis":{"automargin":true,"categoryarray":["28ANJZL006","27ANJSL050","28ANJYL027","28ANJYL009","28ANJZL009"],"categoryorder":"array","gridcolor":"#DDE3E6","linecolor":"#BDC3C7","linewidth":1,"mirror":true,"showline":true,"tickangle":-30,"ticklabelstandoff":8,"title":{"standoff":65},"type":"category"},"yaxis":{"automargin":true,"gridcolor":"#DDE3E6","linecolor":"#BDC3C7","linewidth":1,"mirror":true,"range":[0,6836.0],"showline":true,"side":"left","ticklabelstandoff":8,"title":{"standoff":45}},"yaxis2":{"automargin":true,"gridcolor":"#DDE3E6","linecolor":"#BDC3C7","linewidth":1,"mirror":true,"overlaying":"y","range":[29.0,101.0],"showgrid":false,"showline":true,"side":"right","ticklabelstandoff":8,"title":{"standoff":45}},"hoverlabel":{"font":{"size":13,"color":"#2C3E50"},"bgcolor":"white","align":"left"},"annotations":[{"font":{"color":"#2C3E50","size":15},"showarrow":false,"text":"Sublot","x":0.5,"xref":"paper","y":-0.16,"yref":"paper"},{"font":{"color":"#2C3E50","size":15},"showarrow":false,"text":"Quantity","textangle":-90,"x":-0.075,"xref":"paper","y":0.5,"yref":"paper"},{"font":{"color":"#2C3E50","size":15},"showarrow":false,"text":"Yield %","textangle":90,"x":1.055,"xref":"paper","y":0.5,"yref":"paper"}]},                        {"responsive": true, "displaylogo": false}                    )                };            </script>        </div>
+        </div>
+    </div>
+    
+            
+    <details  style="margin-top:16px; margin-bottom:24px;">
+        <summary style="
+            cursor:pointer;
+            font-size:18px;
+            font-weight:700;
+            padding:10px;
+            background:#eef4fb;
+            border:1px solid #d9d9d9;
+            color:black;
+        ">
+            Show / Hide SubLot Yield Trend Data
+        </summary>
+
+        <div style="margin-top:12px;">
+            
+    
+    <table border="1">
+        <thead>
+            <tr><th>Sublot</th><th>Test-In QTY</th><th>Final Output</th><th>1st Yield</th><th>Final Yield</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>28ANJZL006</td><td>5,697</td><td>5,658</td><td>96.3</td><td>99.32</td></tr><tr><td>27ANJSL050</td><td>5,681</td><td>5,649</td><td>96.3</td><td>99.44</td></tr><tr><td>28ANJYL027</td><td>5,592</td><td>5,570</td><td>97.12</td><td>99.61</td></tr><tr><td>28ANJYL009</td><td>2,793</td><td>2,773</td><td>95.38</td><td>99.28</td></tr><tr><td>28ANJZL009</td><td>4,920</td><td>1,573</td><td>31.97</td><td>31.97</td></tr>
+        </tbody>
+    </table>
+    
+        </div>
+    </details>
+    
+        </div>
+
+        <div class="section">
+            <h2>📉 LRR Trend</h2>
+            
+    <div class="chart-wrap" style="margin-bottom:0px;">
+        <div class="chart-inner">
+            <div>                            <div id="f516816d-aef6-4926-b93c-771fdcb446f5" class="plotly-graph-div" style="height:760px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("f516816d-aef6-4926-b93c-771fdcb446f5")) {                    Plotly.newPlot(                        "f516816d-aef6-4926-b93c-771fdcb446f5",                        [{"hovertemplate":"Date: %{x}\u003cbr\u003eTotal Lots=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#2C3E50","line":{"color":"#BDC3C7","width":1}},"name":"Total Lots Tested","offsetgroup":"total_lots","opacity":0.3,"text":["\u003cb\u003e40\u003c\u002fb\u003e","\u003cb\u003e53\u003c\u002fb\u003e","\u003cb\u003e48\u003c\u002fb\u003e","\u003cb\u003e32\u003c\u002fb\u003e","\u003cb\u003e4\u003c\u002fb\u003e","\u003cb\u003e4\u003c\u002fb\u003e","\u003cb\u003e5\u003c\u002fb\u003e","\u003cb\u003e3\u003c\u002fb\u003e","\u003cb\u003e6\u003c\u002fb\u003e","\u003cb\u003e5\u003c\u002fb\u003e","\u003cb\u003e5\u003c\u002fb\u003e"],"textfont":{"color":"#2C3E50","size":15},"textposition":"outside","x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"i1","bdata":"KDUwIAQEBQMGBQU="},"yaxis":"y","type":"bar"},{"hovertemplate":"Date: %{x}\u003cbr\u003eLRR Count=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#E56A54","line":{"color":"#BDC3C7","width":1}},"name":"LRR Count","offsetgroup":"lrr_lots","opacity":0.9,"text":["\u003cb\u003e3\u003c\u002fb\u003e","\u003cb\u003e4\u003c\u002fb\u003e","\u003cb\u003e4\u003c\u002fb\u003e","\u003cb\u003e8\u003c\u002fb\u003e","\u003cb\u003e2\u003c\u002fb\u003e","\u003cb\u003e1\u003c\u002fb\u003e","\u003cb\u003e1\u003c\u002fb\u003e","\u003cb\u003e1\u003c\u002fb\u003e","\u003cb\u003e2\u003c\u002fb\u003e","\u003cb\u003e0\u003c\u002fb\u003e","\u003cb\u003e1\u003c\u002fb\u003e"],"textfont":{"color":"#2C3E50","size":15},"textposition":"outside","x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"i1","bdata":"AwQECAIBAQECAAE="},"yaxis":"y","type":"bar"},{"connectgaps":true,"hovertemplate":"Date: %{x}\u003cbr\u003eLRR %%=%{y:.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#E56A54","width":4},"marker":{"color":"#E56A54","size":9},"mode":"lines+markers+text","name":"LRR %","text":["7.50%","7.55%","8.33%","25.00%","50.00%","25.00%","20.00%","33.33%","33.33%","0.00%","20.00%"],"textfont":{"color":"#2C3E50","size":15},"textposition":"top center","x":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"y":{"dtype":"f8","bdata":"AAAAAAAAHkAzMzMzMzMeQClcj8L1qCBAAAAAAAAAOUAAAAAAAABJQAAAAAAAADlAAAAAAAAANEAK16NwPapAQArXo3A9qkBAAAAAAAAAAAAAAAAAAAA0QA=="},"yaxis":"y2","type":"scatter"}],                        {"autosize":true,"barmode":"group","dragmode":"zoom","font":{"color":"#2C3E50","size":15},"height":760,"hovermode":"x unified","legend":{"font":{"color":"black","size":12},"orientation":"h","x":0,"xanchor":"left","y":1.12,"yanchor":"bottom"},"margin":{"b":165,"l":120,"r":130,"t":210},"paper_bgcolor":"#EEEEEE","plot_bgcolor":"#FFFFFF","template":{},"title":{"font":{"color":"#C94F3D","size":14},"text":"DV16-FUNC1 \u2014 LRR% Trend (4-Week Format) | LRR Trigger: IQR 3-sig FTY LCL (98.51%)"},"xaxis":{"automargin":true,"categoryarray":["WW28'26","WW29'26","WW30'26","WW31'26","7\u002f26","7\u002f27","7\u002f28","7\u002f29","7\u002f30","7\u002f31","8\u002f01"],"categoryorder":"array","gridcolor":"#DDE3E6","linecolor":"#BDC3C7","linewidth":1,"mirror":true,"showline":true,"tickangle":-30,"ticklabelstandoff":8,"title":{"standoff":65},"type":"category"},"yaxis":{"automargin":true,"gridcolor":"#DDE3E6","linecolor":"#BDC3C7","linewidth":1,"mirror":true,"range":[0,64.0],"showline":true,"side":"left","ticklabelstandoff":8,"title":{"standoff":45}},"yaxis2":{"automargin":true,"gridcolor":"#DDE3E6","linecolor":"#BDC3C7","linewidth":1,"mirror":true,"overlaying":"y","range":[0,60],"showgrid":false,"showline":true,"side":"right","ticklabelstandoff":8,"title":{"standoff":45}},"hoverlabel":{"font":{"size":13,"color":"#2C3E50"},"bgcolor":"white","align":"left"},"annotations":[{"font":{"color":"#2C3E50","size":15},"showarrow":false,"text":"Week \u002f Day","x":0.5,"xref":"paper","y":-0.16,"yref":"paper"},{"font":{"color":"#2C3E50","size":15},"showarrow":false,"text":"Lot Count","textangle":-90,"x":-0.075,"xref":"paper","y":0.5,"yref":"paper"},{"font":{"color":"#2C3E50","size":15},"showarrow":false,"text":"LRR %","textangle":90,"x":1.055,"xref":"paper","y":0.5,"yref":"paper"}]},                        {"responsive": true, "displaylogo": false}                    )                };            </script>        </div>
+        </div>
+    </div>
+    
+            
+    <details  style="margin-top:16px; margin-bottom:24px;">
+        <summary style="
+            cursor:pointer;
+            font-size:18px;
+            font-weight:700;
+            padding:10px;
+            background:#eef4fb;
+            border:1px solid #d9d9d9;
+            color:black;
+        ">
+            Show / Hide LRR Summary
+        </summary>
+
+        <div style="margin-top:12px;">
+            
+    <h3>LRR Summary Data</h3>
+    <table border="1">
+        <thead>
+            <tr><th>Date</th><th>Mother lot</th><th>Total Lots Tested</th><th>LRR Count</th><th>LRR%</th><th>LRR Failed Lots</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>WW28'26</td><td>17ANDL<br>18ANDM<br>22ANFY<br>24ANGU<br>25ANHK<br>25ANHL</td><td>40</td><td>3</td><td>7.5</td><td>22ANFYL003<br>25ANHLL027<br>25ANHLL029</td></tr><tr><td>WW29'26</td><td>18ANDM<br>19ANDY<br>21ANEW<br>21ANFC<br>25ANHK<br>25ANHL<br>PROD_A</td><td>53</td><td>4</td><td>7.55</td><td>18ANDML047<br>18ANDML146<br>21ANFCL117<br>25ANHLL050</td></tr><tr><td>WW30'26</td><td>19ANDY<br>21ANEW<br>25ANHL<br>26ANJB<br>27ANJS<br>27ANJW</td><td>48</td><td>4</td><td>8.33</td><td>26ANJBL002<br>26ANJBL008<br>27ANJSL007<br>27ANJSL012</td></tr><tr><td>WW31'26</td><td>21ANEW<br>27ANJS<br>27ANJW<br>28ANJY<br>28ANJZ</td><td>32</td><td>8</td><td>25.0</td><td>27ANJWL003<br>27ANJWL004<br>27ANJWL006<br>27ANJWL016<br>27ANJWL018<br>28ANJYL006<br>28ANJYL010<br>28ANJZL009</td></tr><tr><td>7/26</td><td>27ANJS<br>27ANJW</td><td>4</td><td>2</td><td>50.0</td><td>27ANJWL003<br>27ANJWL004</td></tr><tr><td>7/27</td><td>27ANJW<br>28ANJY</td><td>4</td><td>1</td><td>25.0</td><td>27ANJWL006</td></tr><tr><td>7/28</td><td>27ANJW<br>28ANJY</td><td>5</td><td>1</td><td>20.0</td><td>27ANJWL016</td></tr><tr><td>7/29</td><td>27ANJW<br>28ANJY</td><td>3</td><td>1</td><td>33.33</td><td>27ANJWL018</td></tr><tr><td>7/30</td><td>21ANEW<br>28ANJY<br>28ANJZ</td><td>6</td><td>2</td><td>33.33</td><td>28ANJYL006<br>28ANJYL010</td></tr><tr><td>7/31</td><td>27ANJW<br>28ANJY<br>28ANJZ</td><td>5</td><td>0</td><td>0.0</td><td>-</td></tr><tr><td>8/01</td><td>27ANJS<br>28ANJY<br>28ANJZ</td><td>5</td><td>1</td><td>20.0</td><td>28ANJZL009</td></tr>
+        </tbody>
+    </table>
+    
+        </div>
+    </details>
+    
+        </div>
+        <script>
+        window.addEventListener("load", function () {
+
+            function resizePlots() {
+
+                document.querySelectorAll(".plotly-graph-div").forEach(function(gd) {
+
+                    Plotly.Plots.resize(gd);
+
+                });
+
+            }
+
+            resizePlots();
+
+            setTimeout(resizePlots, 300);
+
+            setTimeout(resizePlots, 1000);
+
+            window.addEventListener("resize", resizePlots);
+
+        });
+        </script>
+    </body>
+    </html>
+    
