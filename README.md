@@ -60,16 +60,16 @@ The commands below are templates. Replace the script names with the repository�
 
 3. Run the loader:
 
-🔒 Repository Scope
-
-The production loader is not included because it contains company-specific processing logic and manufacturing business rules. This repository presents the public portfolio components and anonymized reporting outputs.
-
-The workflow description explains the production implementation. The repository does not include everything required to reproduce the complete pipeline locally. Interactive HTML demos can be viewed directly in a browser.
+   🔒 Repository Scope
+   
+   The production loader is not included because it contains company-specific processing logic and manufacturing business rules. This repository presents the public portfolio components and anonymized reporting outputs.
+   
+   The workflow description explains the production implementation. The repository does not include everything required to reproduce the complete pipeline locally. Interactive HTML demos can be viewed directly in a browser.
 
 4. After successful ingestion, launch the dashboard:
 
    ```bash
-   python -m streamlit run <dashboard_script>.py
+   python -m streamlit run <sip_dashboard_streamlit_app_V2>.py
    ```
 
 5. Review execution logs and generated outputs. Open exported HTML reports directly in a browser.
