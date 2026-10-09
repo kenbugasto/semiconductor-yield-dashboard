@@ -102,12 +102,10 @@ The database separates lot-level metadata from unit-level test records.
 
 **Python · SQL · DuckDB · Pandas · NumPy · Streamlit · Plotly · ConfigParser · FTP · Windows Task Scheduler**
 
-## 🛣️ Potential Future Improvements
+## 🛣️ Ongoing Development — Phase 2
 
-The following are proposed enhancements, not claims of implemented functionality:
+The current dashboard uses raw production `.txt` files for yield, retest, and defect analytics.
 
-- **Reproducible setup:** Add a complete dependency file, a credential-free configuration example, and a small synthetic dataset for a local demo.
-- **Pipeline monitoring:** Summarize ingestion counts, rejected files, runtime, and data freshness, with notifications for failed runs.
-- **Regression testing:** Verify yield and retest calculations against known cases, including late retests, duplicate uploads, and regenerated files.
-- **Performance tuning:** Profile parsing and SQL workloads to identify bottlenecks and benchmark changes on representative data volumes.
-- **Parametric analytics:** Integrate capability-monitoring outputs and parameter trends to support investigation of process shifts alongside yield results.
+**Phase 2 is underway** to integrate `.csv` test-parameter data and extend reporting to process capability and parametric trends. These capabilities will support investigation of process shifts alongside yield results.
+
+Development is progressing incrementally because the larger CSV data volumes require additional work on ingestion performance, memory management, and validation before integration into the dashboard.
