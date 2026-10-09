@@ -12,7 +12,7 @@ The original reporting process used 60+ device-specific Excel VBA applications a
 |---|---|---|
 | Applications | 60+ Excel VBA applications | One Python loader and dashboard application |
 | Infrastructure | Six reporting PCs | One reporting PC |
-| Processing time | Approximately 60 minutes across six PCs | 45–75 minutes on one PC |
+| Processing time | Approximately 60 minutes distributed across six PCs | 45–75 minutes on one PC |
 | Reporting | Manual PowerPoint consolidation | Streamlit dashboards and interactive HTML reports |
 | Historical analysis | Separate Excel files | Centralized DuckDB database |
 | Late retest records | Manual updates | Rolling one-month backfill |
@@ -60,9 +60,11 @@ The commands below are templates. Replace the script names with the repository�
 
 3. Run the loader:
 
-   ```bash
-   python <loader_script>.py
-   ```
+🔒 Repository Scope
+
+The production loader is not included because it contains company-specific processing logic and manufacturing business rules. This repository presents the public portfolio components and anonymized reporting outputs.
+
+The workflow description explains the production implementation. The repository does not include everything required to reproduce the complete pipeline locally. Interactive HTML demos can be viewed directly in a browser.
 
 4. After successful ingestion, launch the dashboard:
 
