@@ -2,7 +2,7 @@
 
 Semiconductor final-test analytics platform built with **Python, SQL, DuckDB, Streamlit, and Plotly**. Converts production TXT/LOG files into validated datasets, yield dashboards, and interactive HTML reports.
 
-> Public portfolio data and manufacturing identifiers are anonymized. No proprietary manufacturing or customer-sensitive information is included.
+> Public portfolio data is synthetic and manufacturing identifiers are anonymized. No proprietary manufacturing or customer-sensitive information is included.
 
 ## 🎯 Problem and Business Impact
 
